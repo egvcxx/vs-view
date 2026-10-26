@@ -13,6 +13,7 @@ from PySide6.QtGui import QColor, QFontMetrics, QImage, QPainter, QPolygon
 from PySide6.QtWidgets import QMessageBox, QWidget
 
 from ...assets import get_monospace_font
+from ...i18n import tr
 from ...types import Frame, Time
 from ...vsenv import run_in_background, run_in_loop
 from ..outputs import AudioBuffer, FrameBuffer
@@ -914,7 +915,7 @@ def show_warning(parent: QWidget, error_message: str) -> None:
         icon=QMessageBox.Icon.Warning,
         standardButtons=QMessageBox.StandardButton.Ok,
     )
-    msg.setWindowTitle("Playback Error")
+    msg.setWindowTitle(tr("Playback Error"))
     msg.setModal(False)
     msg.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose)
     msg.show()

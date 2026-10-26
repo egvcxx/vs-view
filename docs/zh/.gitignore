@@ -1,0 +1,6 @@
+# 这些目录/文件由 scripts/build_docs_i18n.py 从 docs/ 复制而来，不纳入版本管理。
+assets/
+stylesheets/
+javascripts/
+overrides/
+vs_fixed.inv

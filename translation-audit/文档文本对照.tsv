@@ -1,0 +1,1137 @@
+序号	页面	类型	英文原文	中文译文	备注
+1	api/developer/hooks.md	heading	# Hook Specifications	# 钩子规范	
+2	api/developer/hooks.md	para	VSView uses `pluggy` for its plugin system. Register your implementations using the markers defined here.	VSView 的插件系统基于 `pluggy`。使用此处定义的标记注册实现。	
+3	api/developer/hooks.md	admonition		!!! note "以下内容为英文原文" 本页 API 由源码 docstring 自动生成，故保持英文，以便与代码和参数名对照。	中文版新增，无英文原文
+4	api/developer/hooks.md	para	[:lucide-layout-panel-left:{ .middle } **UI Hooks**](#ui-hooks)	[:lucide-layout-panel-left:{ .middle } <strong>UI 钩子</strong>](#ui-hooks)	
+5	api/developer/hooks.md	para	[:lucide-layers:{ .middle } **Processing Hooks**](#processing-hooks)	[:lucide-layers:{ .middle } <strong>处理钩子</strong>](#processing-hooks)	
+6	api/developer/hooks.md	para	[:lucide-webhook:{ .middle } **Hook**](#hook)	[:lucide-webhook:{ .middle } <strong>钩子标记</strong>](#hook)	
+7	api/developer/hooks.md	heading	## UI Hooks	## UI 钩子（Hooks）	
+8	api/developer/hooks.md	para	::: vsview.app.plugins.specs options: heading_level: 3 members:	::: vsview.app.plugins.specs options: heading_level: 3 members:	
+9	api/developer/hooks.md	item	- vsview_register_tooldock	- vsview_register_tooldock	
+10	api/developer/hooks.md	item	- vsview_register_toolpanel	- vsview_register_toolpanel	
+11	api/developer/hooks.md	heading	## Processing Hooks	## 处理钩子（Processing Hooks）	
+12	api/developer/hooks.md	para	::: vsview.app.plugins.specs options: heading_level: 3 members:	::: vsview.app.plugins.specs options: heading_level: 3 members:	
+13	api/developer/hooks.md	item	- vsview_get_video_processor	- vsview_get_video_processor	
+14	api/developer/hooks.md	item	- vsview_get_audio_processor	- vsview_get_audio_processor	
+15	api/developer/hooks.md	heading	## Hook	## 钩子标记（Hook）	
+16	api/developer/hooks.md	para	::: vsview.app.plugins.specs options: heading_level: 3 members:	::: vsview.app.plugins.specs options: heading_level: 3 members:	
+17	api/developer/hooks.md	item	- hookimpl	- hookimpl	
+18	api/developer/index.md	heading	# Developer API Overview	# 开发者 API 概览	
+19	api/developer/index.md	para	This section covers the APIs available for developing plugins and extending VSView.	本节介绍用于开发插件与扩展 VSView 的 API。	
+20	api/developer/index.md	para	Most of these symbols are re-exported through the top-level `vsview.api` module for convenience.	为方便使用，其中大部分符号都通过顶层 `vsview.api` 模块重新导出。	
+21	api/developer/index.md	admonition		!!! note "以下内容为英文原文" 本页 API 由源码 docstring 自动生成，故保持英文，以便与代码和参数名对照。	中文版新增，无英文原文
+22	api/developer/index.md	para	[:lucide-cpu:{ .middle } **Core & Proxies**](#core-proxies)	[:lucide-cpu:{ .middle } <strong>核心与代理（Core & Proxies）</strong>](#core-proxies)	
+23	api/developer/index.md	para	[:lucide-layout-template:{ .middle } **Custom Widgets**](#custom-widgets)	[:lucide-layout-template:{ .middle } <strong>自定义控件</strong>](#custom-widgets)	
+24	api/developer/index.md	para	[:lucide-settings:{ .middle } **UI Settings**](#ui-settings)	[:lucide-settings:{ .middle } <strong>UI 设置</strong>](#ui-settings)	
+25	api/developer/index.md	para	[:lucide-play-circle:{ .middle } **Timeline & Playback**](#timeline-playback)	[:lucide-play-circle:{ .middle } <strong>时间轴与播放</strong>](#timeline-playback)	
+26	api/developer/index.md	para	[:lucide-wrench:{ .middle } **Utilities**](#utilities)	[:lucide-wrench:{ .middle } <strong>工具函数</strong>](#utilities)	
+27	api/developer/index.md	heading	## Core & Proxies	## 核心与代理（Core & Proxies）	
+28	api/developer/index.md	para	::: vsview.api options: heading_level: 3 members:	::: vsview.api options: heading_level: 3 members:	
+29	api/developer/index.md	item	- PluginAPI	- PluginAPI	
+30	api/developer/index.md	item	- VideoOutputProxy	- VideoOutputProxy	
+31	api/developer/index.md	item	- AudioOutputProxy	- AudioOutputProxy	
+32	api/developer/index.md	item	- GraphicsViewProxy	- GraphicsViewProxy	
+33	api/developer/index.md	item	- TimelineProxy	- TimelineProxy	
+34	api/developer/index.md	item	- PlaybackProxy	- PlaybackProxy	
+35	api/developer/index.md	item	- PluginSettings	- PluginSettings	
+36	api/developer/index.md	item	- WidgetPluginBase	- WidgetPluginBase	
+37	api/developer/index.md	item	- NodeProcessor	- NodeProcessor	
+38	api/developer/index.md	item	- ActionDefinition	- ActionDefinition	
+39	api/developer/index.md	item	- LocalSettingsModel	- LocalSettingsModel	
+40	api/developer/index.md	item	- WorkspaceBlocker	- WorkspaceBlocker	
+41	api/developer/index.md	heading	## Custom Widgets	## 自定义控件（Custom Widgets）	
+42	api/developer/index.md	para	::: vsview.api options: heading_level: 3 members:	::: vsview.api options: heading_level: 3 members:	
+43	api/developer/index.md	item	- Accordion	- Accordion	
+44	api/developer/index.md	item	- AnimatedToggle	- AnimatedToggle	
+45	api/developer/index.md	item	- SegmentedControl	- SegmentedControl	
+46	api/developer/index.md	item	- FrameEdit	- FrameEdit	
+47	api/developer/index.md	item	- TimeEdit	- TimeEdit	
+48	api/developer/index.md	item	- BaseGraphicsView	- BaseGraphicsView	
+49	api/developer/index.md	item	- CustomSpinBox	- CustomSpinBox	
+50	api/developer/index.md	item	- PluginGraphicsView	- PluginGraphicsView	
+51	api/developer/index.md	item	- ListEditWidget	- ListEditWidget	
+52	api/developer/index.md	item	- LoginCredentialsInput	- LoginCredentialsInput	
+53	api/developer/index.md	item	- ColorPickerInput	- ColorPickerInput	
+54	api/developer/index.md	item	- FilePickerWidget	- FilePickerWidget	
+55	api/developer/index.md	item	- PathListEditWidget	- PathListEditWidget	
+56	api/developer/index.md	heading	## UI Settings	## UI 设置（Settings）	
+57	api/developer/index.md	para	::: vsview.api options: heading_level: 3 members:	::: vsview.api options: heading_level: 3 members:	
+58	api/developer/index.md	item	- WidgetMetadata	- WidgetMetadata	
+59	api/developer/index.md	item	- Checkbox	- Checkbox	
+60	api/developer/index.md	item	- Dropdown	- Dropdown	
+61	api/developer/index.md	item	- Spin	- Spin	
+62	api/developer/index.md	item	- DoubleSpin	- DoubleSpin	
+63	api/developer/index.md	item	- PlainTextEdit	- PlainTextEdit	
+64	api/developer/index.md	item	- ListEdit	- ListEdit	
+65	api/developer/index.md	item	- WidgetTimeEdit	- WidgetTimeEdit	
+66	api/developer/index.md	item	- Login	- Login	
+67	api/developer/index.md	item	- SecretLineEdit	- SecretLineEdit	
+68	api/developer/index.md	item	- ColorPicker	- ColorPicker	
+69	api/developer/index.md	item	- FilePicker	- FilePicker	
+70	api/developer/index.md	item	- PathListEdit	- PathListEdit	
+71	api/developer/index.md	heading	## Timeline & Playback	## 时间轴与播放（Timeline & Playback）	
+72	api/developer/index.md	para	::: vsview.api options: heading_level: 3 members:	::: vsview.api options: heading_level: 3 members:	
+73	api/developer/index.md	item	- Frame	- Frame	
+74	api/developer/index.md	item	- Time	- Time	
+75	api/developer/index.md	heading	## Utilities	## 工具函数（Utilities）	
+76	api/developer/index.md	para	::: vsview.api options: heading_level: 3 members:	::: vsview.api options: heading_level: 3 members:	
+77	api/developer/index.md	item	- hookimpl	- hookimpl	
+78	api/developer/index.md	item	- Packer	- Packer	
+79	api/developer/index.md	item	- run_in_background	- run_in_background	
+80	api/developer/index.md	item	- run_in_loop	- run_in_loop	
+81	api/developer/index.md	item	- IconName	- IconName	
+82	api/developer/index.md	item	- IconReloadMixin	- IconReloadMixin	
+83	api/developer/index.md	item	- load_icon	- load_icon	
+84	api/developer/index.md	item	- ObjectType	- ObjectType	
+85	api/developer/index.md	item	- QObjectCounter	- QObjectCounter	
+86	api/developer/index.md	item	- QObjectSet	- QObjectSet	
+87	api/developer/index.md	item	- cache_clip	- cache_clip	
+88	api/developer/index.md	item	- path_to_hash	- path_to_hash	
+89	api/developer/index.md	item	- get_console_level	- get_console_level	
+90	api/developer/tools/frameprops.md	heading	# Frameprops Tool API	# Frameprops 工具 API	
+91	api/developer/tools/frameprops.md	para	API for extending the Frameprops Tool, which allows you to customize how frame properties are displayed and categorized.	用于扩展 Frameprops 工具的 API，可自定义帧属性的显示方式与分类方式。	
+92	api/developer/tools/frameprops.md	admonition		!!! note "以下内容为英文原文" 本页 API 由源码 docstring 自动生成，故保持英文，以便与代码和参数名对照。	中文版新增，无英文原文
+93	api/developer/tools/frameprops.md	para	[:lucide-box:{ .middle } **Core Classes**](#core-classes)	[:lucide-box:{ .middle } <strong>核心类</strong>](#core-classes)	
+94	api/developer/tools/frameprops.md	para	[:lucide-webhook:{ .middle } **Hook**](#hook)	[:lucide-webhook:{ .middle } <strong>钩子</strong>](#hook)	
+95	api/developer/tools/frameprops.md	heading	## Core Classes	## 核心类（Core Classes）	
+96	api/developer/tools/frameprops.md	para	::: vsview.app.tools.frameprops.api options: heading_level: 3 members:	::: vsview.app.tools.frameprops.api options: heading_level: 3 members:	
+97	api/developer/tools/frameprops.md	item	- CategoryMatcher	- CategoryMatcher	
+98	api/developer/tools/frameprops.md	item	- FormatterProperty	- FormatterProperty	
+99	api/developer/tools/frameprops.md	heading	## Hook	## 钩子（Hook）	
+100	api/developer/tools/frameprops.md	para	::: vsview.app.tools.frameprops.api options: heading_level: 3 members:	::: vsview.app.tools.frameprops.api options: heading_level: 3 members:	
+101	api/developer/tools/frameprops.md	item	- hookimpl	- hookimpl	
+102	api/developer/tools/scening.md	heading	# Scening Tool API	# Scening 工具 API	
+103	api/developer/tools/scening.md	para	API for extending the Scening tool with custom parsers and serializers.	用于通过自定义解析器与序列化器扩展 Scening 工具的 API。	
+104	api/developer/tools/scening.md	admonition		!!! note "以下内容为英文原文" 本页 API 由源码 docstring 自动生成，故保持英文，以便与代码和参数名对照。	中文版新增，无英文原文
+105	api/developer/tools/scening.md	para	[:lucide-box:{ .middle } **Core Classes**](#core-classes)	[:lucide-box:{ .middle } <strong>核心类</strong>](#core-classes)	
+106	api/developer/tools/scening.md	para	[:lucide-database:{ .middle } **Models**](#models)	[:lucide-database:{ .middle } <strong>数据模型</strong>](#models)	
+107	api/developer/tools/scening.md	para	[:lucide-wrench:{ .middle } **Utility & Hook**](#utility-hook)	[:lucide-wrench:{ .middle } <strong>工具与钩子</strong>](#utility-hook)	
+108	api/developer/tools/scening.md	heading	## Core Classes	## 核心类（Core Classes）	
+109	api/developer/tools/scening.md	para	::: vsview.app.tools.scening.api options: heading_level: 3 members:	::: vsview.app.tools.scening.api options: heading_level: 3 members:	
+110	api/developer/tools/scening.md	item	- Parser	- Parser	
+111	api/developer/tools/scening.md	item	- Serializer	- Serializer	
+112	api/developer/tools/scening.md	item	- FileFilter	- FileFilter	
+113	api/developer/tools/scening.md	heading	## Models	## 数据模型（Models）	
+114	api/developer/tools/scening.md	para	::: vsview.app.tools.scening.api options: heading_level: 3 members:	::: vsview.app.tools.scening.api options: heading_level: 3 members:	
+115	api/developer/tools/scening.md	item	- RangeFrame	- RangeFrame	
+116	api/developer/tools/scening.md	item	- RangeTime	- RangeTime	
+117	api/developer/tools/scening.md	item	- SceneRow	- SceneRow	
+118	api/developer/tools/scening.md	item	- UnifiedRange	- UnifiedRange	
+119	api/developer/tools/scening.md	heading	## Utility & Hook	## 工具与钩子（Utility & Hook）	
+120	api/developer/tools/scening.md	para	::: vsview.app.tools.scening.api options: heading_level: 3 members:	::: vsview.app.tools.scening.api options: heading_level: 3 members:	
+121	api/developer/tools/scening.md	item	- borrowed_text_wrapper	- borrowed_text_wrapper	
+122	api/developer/tools/scening.md	item	- hookimpl	- hookimpl	
+123	api/user.md	heading	# User API	# 用户 API	
+124	api/user.md	para	The user-facing API is used primarily within VapourSynth scripts to register nodes for preview.	面向用户的 API 主要在 VapourSynth 脚本中使用，用于注册需要预览的节点。	
+125	api/user.md	admonition		!!! note "以下内容为英文原文" 本页 API 由源码 docstring 自动生成，故保持英文，以便与代码和参数名对照。	中文版新增，无英文原文
+126	api/user.md	para	::: vsview.api options: heading_level: 3 members:	::: vsview.api options: heading_level: 3 members:	
+127	api/user.md	item	- set_output	- set_output	
+128	api/user.md	item	- catch_output	- catch_output	
+129	api/user.md	item	- is_preview	- is_preview	
+130	api/user.md	item	- is_reload	- is_reload	
+131	api/user.md	item	- get_reload_count	- get_reload_count	
+132	api/user.md	item	- get_state	- get_state	
+133	api/user.md	item	- get_cached	- get_cached	
+134	api/user.md	item	- on_workspace_destroy	- on_workspace_destroy	
+135	contributing.md	heading	# Contributing	# 贡献指南	
+136	contributing.md	heading	## Development Installation	## 开发环境安装	
+137	contributing.md	heading	### Requirements	### 环境要求	
+138	contributing.md	item	- **[uv](https://github.com/astral-sh/uv)** is the default tool used for development in this repository.	- <strong>[uv](https://github.com/astral-sh/uv)</strong> 是本仓库默认使用的开发工具。	
+139	contributing.md	item	- For building [`vspackrgb`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/vspackrgb) and [`vsview-histogram`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/histogram), you will need [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html).	- 构建 [`vspackrgb`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/vspackrgb) 与 [`vsview-histogram`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/histogram) 需要 [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html)。	
+140	contributing.md	item	- For building [`vsview-editor`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/workspaces/editor), you will need [npm](https://www.npmjs.com/).	- 构建 [`vsview-editor`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/workspaces/editor) 需要 [npm](https://www.npmjs.com/)。	
+141	contributing.md	para	Clone the repository and sync all packages:	克隆仓库并同步所有包：	
+142	contributing.md	para	Run the development version:	运行开发版本：	
+143	contributing.md	heading	## Packaging & Distribution	## 打包与分发	
+144	contributing.md	para	VSView can be packaged as a standalone executable using [PyApp](https://github.com/Varde-s-Forks/pyapp) and the custom `vsapp` CLI tool.	VSView 可以使用 [PyApp](https://github.com/Varde-s-Forks/pyapp) 与自定义的 `vsapp` 命令行工具打包为独立可执行文件。	
+145	contributing.md	para	For detailed instructions, see the **[Packaging & Distribution](packaging.md)** guide.	详见 <strong>[打包与分发](packaging.md)</strong> 指南。	
+146	contributing.md	heading	## Recommended Editor Settings	## 推荐的编辑器设置	
+147	contributing.md	heading	### VSCode / VSCodium	### VSCode / VSCodium	
+148	contributing.md	para	The settings below configure formatting, type-checking, and file associations consistently across the codebase.	下列设置可在整个代码库中统一格式化、类型检查与文件关联行为。	
+149	contributing.md	para	Copy them into your `vsview/.vscode/settings.json`:	请将以下内容复制到 `vsview/.vscode/settings.json`：	
+150	index.md	heading	# VSView	# VSView	
+151	index.md	image	![vsview Logo](assets/loading.png){ width="300" }	![vsview Logo](assets/loading.png){ width="300" }	
+152	index.md	para	**The next-generation VapourSynth previewer**	<strong>下一代 VapourSynth 预览器</strong>	
+153	index.md	admonition		!!! note "非官方翻译" 本页是社区维护的简体中文翻译，可能滞后于[英文原文](https://jaded-encoding-thaumaturgy.github.io/vs-view/)。 为便于对照，界面元素名、命令、配置项与 API 名称均保留英文原文。详见[关于本翻译](translation.md)。	中文版新增，无英文原文
+154	index.md	heading	## Why VSView	## 为什么选择 VSView	
+155	index.md	para	Modern, extensible previewer for [VapourSynth](https://www.vapoursynth.com/), **VSView** lets you open scripts, videos or images in one interface, making it easier to preview, inspect and compare sources without switching tools.	<strong>VSView</strong> 是为 [VapourSynth](https://www.vapoursynth.com/) 打造的现代化、可扩展预览器。 在同一界面中预览、检查并对比脚本、视频或图片，无需来回切换工具。	
+156	index.md	para	Built as a modern replacement for [VSPreview](https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview), it focuses on cleaner, more maintainable code and straightforward plugin integration through a clear API, making official and community extensions easier to build, maintain, and adopt.	它旨在成为 [VSPreview](https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview) 的现代替代品， 注重更整洁、更易维护的代码，并通过清晰的 API 提供直接的插件集成， 使官方与社区扩展更易于开发、维护和采用。	
+157	index.md	heading	## Quick start	## 快速开始	
+158	index.md	para	Install and launch directly from your terminal:	直接在终端中安装并启动：	
+159	index.md	marker	=== "pip"	=== "pip"	
+160	index.md	marker	=== "uv"	=== "uv"	
+161	index.md	para	Or download the pre-built binaries on the [GitHub Releases](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/releases).	也可以从 [GitHub Releases](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/releases) 下载预编译的二进制包。	
+162	index.md	heading	## Documentation map	## 文档目录	
+163	index.md	item	- [Installation](installation.md): Requirements, `pip`/`uv` install, and development setup.	- [安装](installation.md)：系统要求、`pip`/`uv` 安装方式与开发环境配置。	
+164	index.md	item	- [Contributing](contributing.md): Development setup and editor recommendations.	- [贡献指南](contributing.md)：开发环境搭建与编辑器推荐配置。	
+165	index.md	item	- [Usage](usage/overview.md): CLI usage, file detection, workspaces, and shortcuts.	- [使用](usage/overview.md)：命令行用法、文件类型识别、工作区与快捷键。	
+166	index.md	item	- [Plugins](plugins/overview.md): Built-in tools, official plugins, and plugin development.	- [插件](plugins/overview.md)：内置工具、官方插件与插件开发。	
+167	index.md	item	- [User API](api/user.md): `set_output` and script-side API usage.	- [用户 API](api/user.md)：`set_output` 及脚本侧 API 用法。	
+168	index.md	item	- [Developer API](api/developer/index.md): Plugin-facing classes, hooks, and utilities.	- [开发者 API](api/developer/index.md)：面向插件的类、钩子与工具函数。	
+169	index.md	heading	## Community and support	## 社区与支持	
+170	index.md	para	Join the [JET Discord](https://discord.gg/XTpc6Fa9eB) for support, feature requests, and discussion.	加入 [JET Discord](https://discord.gg/XTpc6Fa9eB) 获取支持、提出功能请求并参与讨论。	
+171	installation.md	heading	# Installation	# 安装	
+172	installation.md	para	VSView can be installed either as a Python package using `pip` or `uv` or as a standalone pre-built executable.	VSView 既可以通过 `pip` 或 `uv` 作为 Python 包安装，也可以直接使用预编译的独立可执行文件。	
+173	installation.md	heading	## Python Package	## Python 包	
+174	installation.md	para	Choose your preferred package manager to install `vsview` into an existing Python environment.	请选择你惯用的包管理器，将 `vsview` 安装到现有的 Python 环境中。	
+175	installation.md	para	We recommend the **[recommended](plugins/second-party.md#installation)** or **[full](plugins/second-party.md#installation)** bundle for most users so that useful plugins are available out of the box.	对大多数用户，建议安装 <strong>[推荐包](plugins/second-party.md#installation)</strong> 或 <strong>[完整包](plugins/second-party.md#installation)</strong>，以获得开箱即用的体验。	
+176	installation.md	marker	=== "pip"	=== "pip"	
+177	installation.md	marker	=== "uv"	=== "uv"	
+178	installation.md	heading	## Standalone Executable	## 独立可执行文件	
+179	installation.md	para	Pre-built binaries for Windows x86-64, and Linux x86-64 are published on [GitHub Releases](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/releases).	面向 Windows x86-64 与 Linux x86-64 的预编译二进制包发布在 [GitHub Releases](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/releases)。	
+180	installation.md	para	Release executables are provided in two variants:	发布的可执行文件提供两种变体：	
+181	installation.md	item	- **Online (Recommended**): Small download size. Dynamically fetches dependencies on first launch.	- <strong>在线版（推荐）</strong>：下载体积小，首次启动时动态获取依赖。	
+182	installation.md	item	- **Offline**: Includes an embedded Python runtime and pre-installed workspace packages. Requires no external Python installation or internet access.	- <strong>离线版</strong>：内置 Python 运行时与预装的工作区包，无需外部 Python 环境，也无需联网。	
+183	installation.md	admonition		!!! note "网络环境" 在线版首次启动需要联网下载依赖。中国大陆用户请先确认网络环境可以访问 PyPI、GitHub 等服务； 无法访问时请改用离线版。	中文版新增，无英文原文
+184	installation.md	marker	=== "Windows"	=== "Windows"	
+185	installation.md	item	- Download `VSView.exe` (or `VSView-offline.exe`) from [GitHub Releases](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/releases) and launch the executable directly.	- 从 [GitHub Releases](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/releases) 下载 `VSView.exe`（或 `VSView-offline.exe`）， 随后直接运行。	
+186	installation.md	marker	=== "Linux"	=== "Linux"	
+187	installation.md	item	1. Download and extract the Linux release archive (`vsview-pyapp-linux-x86_64.tar.gz` or offline variant) from [GitHub Releases](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/releases).	1. 从 [GitHub Releases](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/releases) 下载并解压 Linux 发布包 （`vsview-pyapp-linux-x86_64.tar.gz` 或离线变体）。	
+188	installation.md	item	2. Run the included installation script from the extracted folder:	2. 在解压后的目录中运行随附的安装脚本：	
+189	installation.md	para	This script installs the executable to `~/.local/bin/VSView`, registers standard hicolor icons in `~/.local/share/icons`, and creates a `.desktop` menu launcher.	该脚本会将可执行文件安装到 `~/.local/bin/VSView`，在 `~/.local/share/icons` 注册标准 hicolor 图标， 并创建 `.desktop` 菜单启动项。	
+190	installation.md	heading	### Extending Standalone Binaries	### 扩展独立可执行文件	
+191	installation.md	para	Standalone executables ship with an isolated Python environment that can be modified without needing a global Python installation.	独立可执行文件自带一个隔离的 Python 环境，无需全局 Python，即可在其中安装内容。	
+192	installation.md	admonition	!!! tip "Installing plugins & packages" Use `vsview env pip` to install additional Python packages or plugins directly into your standalone executable's environment: === "Windows" ```powershell .\VSView.exe env pip install vsjetpack[full] ``` === "Linux" ```bash /VSView env pip install vsjetpack[full] ```	!!! tip "安装插件与依赖包" 使用 `vsview env pip` 可以把额外的 Python 包或插件直接安装到独立版的环境中： === "Windows" ```powershell .\VSView.exe env pip install vsjetpack[full] ``` === "Linux" ```bash /VSView env pip install vsjetpack[full] ```	
+193	installation.md	para	Visit the [configuration](usage/configuration.md#standalone-environment-management-env) section for more information on managing and extending the standalone environment.	关于独立环境的更多管理与扩展说明，详见[配置](usage/configuration.md#standalone-environment-management-env)。	
+194	installation.md	heading	## Development Installation	## 开发环境安装	
+195	installation.md	para	For contributing, building from source, or local development, see the [Contributing](contributing.md) and [Packaging & Distribution](packaging.md) guides.	如果你要参与贡献、从源码构建或在本地开发，请参阅[贡献指南](contributing.md)与[打包与分发](packaging.md)。	
+196	packaging.md	heading	# Packaging & Distribution	# 打包与分发	
+197	packaging.md	para	VSView uses [PyApp](https://github.com/Varde-s-Forks/pyapp) to create standalone, self-installing executables for Windows, Linux, and macOS.	VSView 使用 [PyApp](https://github.com/Varde-s-Forks/pyapp) 为 Windows、Linux 与 macOS 构建独立、自安装的可执行文件。	
+198	packaging.md	para	A custom CLI tool, `vsapp`, is provided to streamline wheel generation, offline Python distribution bundling, icon generation, and macOS app bundling.	项目提供了一个自定义命令行工具 `vsapp`，用于简化 wheel 生成、离线 Python 分发打包、图标生成以及 macOS 应用打包。	
+199	packaging.md	heading	## Prerequisites	## 前置条件	
+200	packaging.md	para	To build the standalone application, you need the following tools installed and available in your `PATH`:	要构建独立应用，需要安装以下工具并确保它们位于 `PATH` 中：	
+201	packaging.md	item	- **Python 3.14** or later.	- <strong>Python 3.14</strong> 或更高版本。	
+202	packaging.md	item	- **[Rust & Cargo](https://rustup.rs/)**: Required to compile the `PyApp` bootstrapper.	- <strong>[Rust 与 Cargo](https://rustup.rs/)</strong>：编译 `PyApp` 引导器所需。	
+203	packaging.md	item	- **Git Submodules**: PyApp source code lives in `submodules/pyapp`. Ensure submodules are initialized:	- <strong>Git 子模块</strong>：PyApp 源码位于 `submodules/pyapp`。请确保子模块已初始化：	
+204	packaging.md	item	- **[ImageMagick 7](https://imagemagick.org/)** (Optional): Required for the `vsapp icon` command to generate cross-platform icon sets.	- <strong>[ImageMagick 7](https://imagemagick.org/)</strong>（可选）：`vsapp icon` 命令生成跨平台图标集时需要。	
+205	packaging.md	item	- **[iconutil](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/DrawingWithQuartz2D/dq_images/dq_images.html)**: (**macOS only**) Required for creating App Bundles (`.app`) and Macintosh icons (`.icns`).	- <strong>[iconutil](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/DrawingWithQuartz2D/dq_images/dq_images.html)</strong>：（<strong>仅 macOS</strong>）创建 App Bundle（`.app`）与 Macintosh 图标（`.icns`）时需要。	
+206	packaging.md	heading	## The `vsapp` CLI	## `vsapp` 命令行工具	
+207	packaging.md	para	The packaging logic is contained within the `vsview-pyapp` package (`src/pyapp`). Ensure your workspace environment is synced:	打包逻辑位于 `vsview-pyapp` 包中（`src/pyapp`）。请确保你的工作区环境已同步：	
+208	packaging.md	para	Then you can run the CLI using `uv`:	随后即可通过 `uv` 运行该命令行工具：	
+209	packaging.md	heading	### 1. Generating Icons	### 1. 生成图标	
+210	packaging.md	para	The `vsapp icon` command processes a source image and generates icon formats for Windows, macOS, and Linux.	`vsapp icon` 命令会处理一张源图片，并生成适用于 Windows、macOS 与 Linux 的图标格式。	
+211	packaging.md	item	- **Formats**:	- <strong>格式</strong>：	
+212	packaging.md	item	- **Windows**: `vsview.ico` (multi-size icon)	- <strong>Windows</strong>：`vsview.ico`（多尺寸图标）	
+213	packaging.md	item	- **macOS**: `vsview.iconset/` (for `iconutil` conversion)	- <strong>macOS</strong>：`vsview.iconset/`（供 `iconutil` 转换）	
+214	packaging.md	item	- **Linux**: PNGs in standard sizes (`16x16`, `32x32`, etc.)	- <strong>Linux</strong>：标准尺寸的 PNG（`16x16`、`32x32` 等）	
+215	packaging.md	admonition	!!! info "Pre-generated Icons" The repository includes pre-generated icons in [`src/pyapp/icons/`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/pyapp/icons/).	!!! info "预生成图标" 仓库中已包含预生成的图标，位于 [`src/pyapp/icons/`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/pyapp/icons/)。	
+216	packaging.md	heading	### 2. Building Executables	### 2. 构建可执行文件	
+217	packaging.md	para	The `vsapp build` command automatically packages workspace wheels, sets up the PyApp environment, and compiles the Rust bootstrapper.	`vsapp build` 命令会自动打包工作区的 wheel、配置 PyApp 环境并编译 Rust 引导器。	
+218	packaging.md	heading	#### Build Modes	#### 构建模式	
+219	packaging.md	para	`vsapp` supports two distinct build modes:	`vsapp` 支持两种不同的构建模式：	
+220	packaging.md	marker	=== "Online (Lightweight)"	=== "在线（轻量）"	
+221	packaging.md	para	Builds a lightweight `VSView` executable. At first run, the executable uses `uv` to dynamically fetch and install `vsview` and its dependencies from PyPI / index servers.	构建一个轻量的 `VSView` 可执行文件。 首次运行时，可执行文件会使用 `uv` 从 PyPI / 索引服务器动态获取并安装 `vsview` 及其依赖。	
+222	packaging.md	marker	=== "Offline (Self-Contained)"	=== "离线（自包含）"	
+223	packaging.md	para	Builds a fully self-contained `VSView-offline` executable with an embedded Python 3.14 runtime and pre-installed workspace wheels. Requires no internet access or local Python installation at runtime.	构建完全自包含的 `VSView-offline` 可执行文件，内嵌 Python 3.14 运行时与预装的工作区 wheel。 运行时无需联网，也无需本地安装 Python。	
+224	packaging.md	heading	### 3. macOS App Bundling & Disk Image	### 3. macOS 应用打包与磁盘映像	
+225	packaging.md	para	On macOS, applications are distributed as `.app` bundles or Disk Images (`.dmg`).	在 macOS 上，应用以 `.app` bundle 或磁盘映像（`.dmg`）形式分发。	
+226	packaging.md	heading	#### Generating the App Bundle	#### 生成 App Bundle	
+227	packaging.md	para	The `vsapp bundle` command constructs a standard macOS bundle layout and converts `.iconset` into a `.icns` file using `iconutil`.	`vsapp bundle` 命令会构建标准 macOS bundle 结构，并使用 `iconutil` 将 `.iconset` 转换为 `.icns` 文件。	
+228	packaging.md	item	- Converts the iconset generated by `vsapp icon` into a `.icns` file using `iconutil`.	- 使用 `iconutil` 将 `vsapp icon` 生成的 iconset 转换为 `.icns` 文件。	
+229	packaging.md	item	- Creates the standard macOS bundle structure (`Contents/MacOS`, `Contents/Resources`).	- 创建标准 macOS bundle 结构（`Contents/MacOS`、`Contents/Resources`）。	
+230	packaging.md	item	- Generates a valid `Info.plist`.	- 生成有效的 `Info.plist`。	
+231	packaging.md	heading	#### Creating a DMG Installer	#### 创建 DMG 安装包	
+232	packaging.md	para	To package the built `.app` bundle into a distributable Disk Image with an `/Applications` shortcut:	要把构建好的 `.app` bundle 打包为带有 `/Applications` 快捷方式的可分发的磁盘映像：	
+233	packaging.md	heading	## Configuration	## 配置	
+234	packaging.md	para	The `vsapp` tool reads configuration from a `.env` file specified by `--env` (defaults to [`src/pyapp/.env.example`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/pyapp/.env.example)).	`vsapp` 工具会从 `--env` 指定的 `.env` 文件读取配置（默认使用 [`src/pyapp/.env.example`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/pyapp/.env.example)）。	
+235	plugins/development.md	heading	# Plugin Development	# 插件开发	
+236	plugins/development.md	para	This guide covers how to create plugins for VSView, from setting up the basic structure to hooking into the application's lifecycle and rendering loop.	本指南介绍如何为 VSView 创建插件，从搭建基本结构，到接入应用的生命周期与渲染循环。	
+237	plugins/development.md	admonition	!!! tip "Plugin Template" A template repository is available with a standard project structure and starter code: [:fontawesome-brands-github: Ichunjo/vs-view-plugin-template](https://github.com/Ichunjo/vs-view-plugin-template)	!!! tip "插件模板" 有一个模板仓库，包含标准的项目结构与起步代码： [:fontawesome-brands-github: Ichunjo/vs-view-plugin-template](https://github.com/Ichunjo/vs-view-plugin-template)	
+238	plugins/development.md	heading	## Plugin Architecture	## 插件架构	
+239	plugins/development.md	para	VSView uses [pluggy](https://pluggy.readthedocs.io/) for its plugin system. Plugins are discovered via Python entry points. The application defines specific specifications (hooks) that your plugin can implement to inject its components or react to events.	VSView 的插件系统基于 [pluggy](https://pluggy.readthedocs.io/)。插件通过 Python 入口点（entry points）被发现。应用定义了若干规范（钩子），插件可实现这些钩子来注入组件或响应事件。	
+240	plugins/development.md	heading	### Entry Point Registration	### 入口点注册	
+241	plugins/development.md	para	To make your plugin discoverable, register it in your `pyproject.toml` under the `project.entry-points."vsview"` group:	要让插件可被发现，请在 `pyproject.toml` 的 `project.entry-points."vsview"` 分组中注册它：	
+242	plugins/development.md	para	When VSView starts, it will look for this entry point and load the registered hooks.	VSView 启动时会查找该入口点并加载注册的钩子。	
+243	plugins/development.md	heading	## Creating a Widget Plugin	## 创建控件插件	
+244	plugins/development.md	para	The most common type of plugin is a widget plugin, which adds a custom UI panel to the workspace. This is done by subclassing `WidgetPluginBase`.	最常见的插件类型是控件插件，它向工作区添加自定义 UI 面板。这通过继承 `WidgetPluginBase` 实现。	
+245	plugins/development.md	heading	### Basic Structure	### 基本结构	
+246	plugins/development.md	para	A minimal plugin requires a unique identifier, a display name, and must be registered via the `vsview_register_toolpanel` and/or `vsview_register_tooldock` hook:	一个最小插件需要一个唯一标识符、一个显示名称，并且必须通过 `vsview_register_toolpanel` 和/或 `vsview_register_tooldock` 钩子注册：	
+247	plugins/development.md	heading	## The Hook System	## 钩子系统	
+248	plugins/development.md	para	`WidgetPluginBase` provides an event hook system so your plugin can react to interactions and state changes within VSView. Override the relevant methods in your derived class.	`WidgetPluginBase` 提供事件钩子系统，使插件可以响应 VSView 内的交互与状态变化。在派生类中重写相应方法即可。	
+249	plugins/development.md	para	These are just some of the most common hooks available in `WidgetPluginBase`. For a complete list and detailed specifications of all available hooks, see the [API Reference](../api/developer/index.md#vsview.api.WidgetPluginBase).	以下只是 `WidgetPluginBase` 中最常用的一部分钩子。完整列表与全部钩子的详细规范，见 [API 参考](../api/developer/index.md#vsview.api.WidgetPluginBase)。	
+250	plugins/development.md	item	- `on_current_voutput_changed(...)`: Triggered when the user switches to a different video output tab.	- `on_current_voutput_changed(...)`：用户切换到其他视频输出标签页时触发。	
+251	plugins/development.md	item	- `on_current_frame_changed(...)`: Triggered continuously as the user scrubs the timeline or during playback.	- `on_current_frame_changed(...)`：用户拖动时间轴或播放期间持续触发。	
+252	plugins/development.md	item	- `on_playback_started()` / `on_playback_stopped()`: Triggered when video playback begins or pauses.	- `on_playback_started()` / `on_playback_stopped()`：视频播放开始或暂停时触发。	
+253	plugins/development.md	heading	## Public API	## 公共 API	
+254	plugins/development.md	para	Every `WidgetPluginBase` instance is initialized with a `PluginAPI` object, accessible via the `self.api` attribute. This API is your gateway to the rest of the application.	每个 `WidgetPluginBase` 实例在初始化时都会收到一个 `PluginAPI` 对象，可通过 `self.api` 属性访问。该 API 是访问应用其余部分的入口。	
+255	plugins/development.md	para	It allows you to read the current state, interact with the timeline, and access the VapourSynth environment:	通过它可以读取当前状态、操作时间轴并访问 VapourSynth 环境：	
+256	plugins/development.md	para	See the [API reference](../api/developer/#vsview.api.PluginAPI) page for a complete list of capabilities.	完整能力列表见 [API 参考](../api/developer/#vsview.api.PluginAPI) 页面。	
+257	plugins/development.md	heading	## Settings Management	## 设置管理	
+258	plugins/development.md	para	Plugins can define persistent settings that automatically appear in the user's settings panel. VSView natively integrates [Pydantic](https://docs.pydantic.dev/) models to define and validate these configurations.	插件可以定义持久化设置，它们会自动出现在用户的设置面板中。VSView 原生集成 [Pydantic](https://docs.pydantic.dev/) 模型来定义与校验这些配置。	
+259	plugins/development.md	item	1.  The `#!python Annotated` type allows adding a supported widget to be registered in the settings panel. See the [reference API](../api/developer/#ui-settings) for the different supported widgets.	1.  `#!python Annotated` 类型用于在设置面板中注册支持的控件。不同受支持的控件见[参考 API](../api/developer/#ui-settings)。	
+260	plugins/development.md	item	2. By inheriting from `#!python LocalSettingsModel` and by setting `threshold=None` we make a local threshold value that falls back to the globally defined value above.	2. 通过继承 `#!python LocalSettingsModel` 并将 `threshold=None`，我们得到一个会回退到上方全局值的局部阈值。	
+261	plugins/development.md	item	3. In order to access the settings and register the models with the VSView settings, make sure the classes are added here as generic types.	3. 为了访问设置并把模型注册到 VSView 设置中，必须在这里把类作为泛型参数传入。	
+262	plugins/development.md	heading	### Organizing Settings into Sections	### 将设置组织为分区	
+263	plugins/development.md	para	Setting models (top-level models or nested `BaseModel` classes) can define a `#!python __section__` class attribute to group fields under distinct UI accordions.	设置模型（顶层模型或嵌套的 `BaseModel` 类）可以定义 `#!python __section__` 类属性，以把字段分组到不同的 UI 折叠面板中。	
+264	plugins/development.md	para	All plugin setting sections in the UI are automatically prefixed with `Plugin - <display_name>`:	UI 中所有插件设置分区都会自动带上 `Plugin - <display_name>` 前缀：	
+265	plugins/development.md	item	- **With `#!python __section__ = "Custom Section"`**: Appears under `Plugin - <display_name> - Custom Section`.	- **设置了 `#!python __section__ = "Custom Section"`**：显示为 `Plugin - <display_name> - Custom Section`。	
+266	plugins/development.md	item	- **Without `#!python __section__`**: Defaults to `Plugin - <display_name>` (or inherits its parent model's section if nested).	- **未设置 `#!python __section__`**：默认为 `Plugin - <display_name>`（若为嵌套模型，则继承父模型的分区）。	
+267	plugins/development.md	item	1. Nested model section will render as `Plugin - My Plugin - Advanced`.	1. 嵌套模型的分区会渲染为 `Plugin - My Plugin - Advanced`。	
+268	plugins/development.md	item	2. Top-level model section will render as `Plugin - My Plugin - General`.	2. 顶层模型的分区会渲染为 `Plugin - My Plugin - General`。	
+269	plugins/development.md	item	3. Nested model properties inherit section logic automatically.	3. 嵌套模型的属性会自动继承分区逻辑。	
+270	plugins/development.md	heading	## Keyboard Shortcuts	## 键盘快捷键	
+271	plugins/development.md	para	Plugins can register custom keyboard shortcuts with VSView's central shortcut manager. Shortcuts remain user-configurable and hot-reloadable.	插件可以向 VSView 的中央快捷键管理器注册自定义快捷键。快捷键始终可由用户配置，并支持热重载。	
+272	plugins/development.md	para	First, define your shortcuts using `ActionDefinition`. It's easier to group them in an `Enum` or `StrEnum` for readability and type safety:	首先，使用 `ActionDefinition` 定义快捷键。为了可读性与类型安全，建议把它们放进 `Enum` 或 `StrEnum` 中分组：	
+273	plugins/development.md	para	Next, in your `WidgetPluginBase` subclass, declare the `shortcuts` attribute to register the definitions with the settings panel. Then, map the definitions to your actions or functions using `self.api.register_action` or `self.api.register_shortcut`:	接下来，在 `WidgetPluginBase` 子类中声明 `shortcuts` 属性，把定义注册到设置面板。 然后使用 `self.api.register_action` 或 `self.api.register_shortcut` 将定义映射到你的动作或函数：	
+274	plugins/development.md	item	1. **`shortcuts` attribute**: Exposes the shortcuts to the user application settings panel, allowing them to modify the default keys.	1. **`shortcuts` 属性**：把快捷键暴露到用户的应用设置面板中，使其可以修改默认按键。	
+275	plugins/development.md	item	2. **`register_shortcut`**: Binds an `ActionDefinition` directly to a Python callable function.	2. **`register_shortcut`**：把 `ActionDefinition` 直接绑定到 Python 可调用对象。	
+276	plugins/development.md	item	3. **`register_action`**: Binds an `ActionDefinition` to an existing `QAction`, keeping its tooltip automatically updated with the current key sequence.	3. **`register_action`**：把 `ActionDefinition` 绑定到已有的 `QAction`，并自动保持其工具提示与当前按键序列同步。	
+277	plugins/development.md	heading	## Example: Frame Counter	## 示例：帧计数器	
+278	plugins/development.md	para	Putting it all together, here is a complete plugin that displays the current frame number, updates automatically using the hook system, integrates user settings, and registers a custom keyboard shortcut:	把以上内容组合起来，下面是一个完整的插件：显示当前帧号，通过钩子系统自动更新，集成用户设置，并注册自定义快捷键：	
+279	plugins/development.md	item	1. The `@run_in_loop` decorator ensures that the `update_label` method is called in the main Qt event loop, which is required for updating UI elements.	1. `@run_in_loop` 装饰器确保 `update_label` 方法在 Qt 主事件循环中调用，这是更新 UI 元素所必需的。	
+280	plugins/first-party.md	heading	# First-Party Plugins	# 第一方插件	
+281	plugins/first-party.md	para	First-party plugins are official components integrated directly into the **VSView** source code and distributed with each release.	第一方插件是直接集成在 <strong>VSView</strong> 源码中的官方组件，随每次发布一同分发。	
+282	plugins/first-party.md	item	- :lucide-audio-lines: **Audio Convert**	- :lucide-audio-lines: <strong>Audio Convert</strong>	
+283	plugins/first-party.md	para	An [AudioNode](https://www.vapoursynth.com/doc/pythonreference.html#vapoursynth.AudioNode) processor for converting audio sample types and resampling audio clips for playback.	一个 [AudioNode](https://www.vapoursynth.com/doc/pythonreference.html#vapoursynth.AudioNode) 处理器，用于转换音频采样类型并为播放重采样音频片段。	
+284	plugins/first-party.md	para	[:lucide-move-right: Details](#audio-convert)	[:lucide-move-right: 详情](#audio-convert)	
+285	plugins/first-party.md	item	- :lucide-pipette: **Color Picker**	- :lucide-pipette: <strong>Color Picker</strong>	
+286	plugins/first-party.md	para	Inspect precise pixel values directly from the viewport. View both rendered RGB and raw source values in real-time.	直接在视口中查看精确的像素值。实时对比渲染后的 RGB 值与源数值。	
+287	plugins/first-party.md	para	[:lucide-move-right: Explore Color Picker](#color-picker)	[:lucide-move-right: 了解 Color Picker](#color-picker)	
+288	plugins/first-party.md	item	- :lucide-list-video: **Frame Properties**	- :lucide-list-video: <strong>Frame Properties</strong>	
+289	plugins/first-party.md	para	Access frame properties attached by VapourSynth filters.	查看 VapourSynth 滤镜附加的帧属性。	
+290	plugins/first-party.md	para	[:lucide-move-right: Explore Frame Properties](#frame-properties)	[:lucide-move-right: 了解 Frame Properties](#frame-properties)	
+291	plugins/first-party.md	item	- :lucide-clapperboard: **Scening**	- :lucide-clapperboard: <strong>Scening</strong>	
+292	plugins/first-party.md	para	Create, manage, and export scene ranges or video clips. Supports custom parsers and serializers.	创建、管理并导出场景区间或视频片段。支持自定义解析器与序列化器。	
+293	plugins/first-party.md	para	[:lucide-move-right: Explore Scening](#scening)	[:lucide-move-right: 了解 Scening](#scening)	
+294	plugins/first-party.md	item	- :lucide-scan: **Region Selector**	- :lucide-scan: <strong>Region Selector</strong>	
+295	plugins/first-party.md	para	Select and adjust precise regions in the viewport for cropping and inspection.	在视口中选取并微调精确区域，用于裁剪与检查。	
+296	plugins/first-party.md	para	[:lucide-move-right: Explore Region Selector](#region-selector)	[:lucide-move-right: 了解 Region Selector](#region-selector)	
+297	plugins/first-party.md	heading	## Audio Convert	## Audio Convert	
+298	plugins/first-party.md	para	The Audio Convert plugin integrates a specialized [AudioNode](https://www.vapoursynth.com/doc/pythonreference.html#vapoursynth.AudioNode) processor into the **VSView** pipeline for reconciling differences between script audio and system playback capabilities.	Audio Convert 插件将一个专用的 [AudioNode](https://www.vapoursynth.com/doc/pythonreference.html#vapoursynth.AudioNode) 处理器集成到 <strong>VSView</strong> 管线中，用于协调脚本音频与系统播放能力之间的差异。	
+299	plugins/first-party.md	para	Configure a target bidepth, sample type, sample rate and dither type in the **Settings** menu under the section **Plugin - Audio Convert**	在 <strong>Settings</strong> 菜单的 <strong>Plugin - Audio Convert</strong> 分区中配置目标位深、采样类型、采样率与抖动类型。	
+300	plugins/first-party.md	heading	## Color Picker	## Color Picker	
+301	plugins/first-party.md	para	The Color Picker dock tool allows you to inspect precise pixel values at any position in the frame.	Color Picker 停靠工具可用于检查画面中任意位置的精确像素值。	
+302	plugins/first-party.md	image	![Color Picker dock showing source and rendered pixel values](../assets/colorpicker_dock.png){ loading=lazy }	![Color Picker 停靠面板，显示源数值与渲染后的像素值](../assets/colorpicker_dock.png){ loading=lazy }	
+303	plugins/first-party.md	heading	### How to Use	### 使用方法	
+304	plugins/first-party.md	item	1.  Click the **Pipette icon** in the toolbar to activate the tool.	1.  点击工具栏中的<strong>吸管图标</strong>以激活该工具。	
+305	plugins/first-party.md	item	2.  **Hover the mouse** over the viewport to see real-time pixel data.	2.  将鼠标<strong>悬停在视口上</strong>即可查看实时像素数据。	
+306	plugins/first-party.md	item	3.  **Right-click** or click the tool icon again to deactivate.	3.  <strong>右键点击</strong>或再次点击工具图标即可停用。	
+307	plugins/first-party.md	heading	### Data Provided	### 提供的数据	
+308	plugins/first-party.md	para	The inspector provides two sets of values for the selected pixel:	检查器会为所选像素提供两组数值：	
+309	plugins/first-party.md	item	- **Rendered Values:** The RGB values as they appear after the internal **VSView** rendering pipeline.	- <strong>Rendered Values（渲染值）</strong>：经过 <strong>VSView</strong> 内部渲染管线之后呈现的 RGB 值。	
+310	plugins/first-party.md	item	- **Source Values:** The raw, underlying sample values directly from the VapourSynth clip.	- <strong>Source Values（源值）</strong>：直接来自 VapourSynth 片段的原始底层采样值。	
+311	plugins/first-party.md	heading	## Frame Properties	## Frame Properties	
+312	plugins/first-party.md	para	The Frame Properties panel displays metadata attached to each frame by VapourSynth filters.	Frame Properties 面板显示 VapourSynth 滤镜为每一帧附加的元数据。	
+313	plugins/first-party.md	image	![Frame Properties panel showing metadata for the current frame](../assets/frameprops_panel.png){ loading=lazy }	![Frame Properties 面板，显示当前帧的元数据](../assets/frameprops_panel.png){ loading=lazy }	
+314	plugins/first-party.md	heading	### Features	### 功能	
+315	plugins/first-party.md	item	- **Categorization:** Properties are grouped into logical categories (e.g., Video, Metrics, Field).	- <strong>分类</strong>：属性按逻辑类别分组（例如 Video、Metrics、Field）。	
+316	plugins/first-party.md	item	- **Formatters:** Values are automatically formatted into readable strings based on their type.	- <strong>格式化器</strong>：数值会根据其类型自动格式化为可读字符串。	
+317	plugins/first-party.md	item	- **Context Menu:** Right-click a property to display a context menu with options to copy the property value or its key.	- <strong>右键菜单</strong>：右键点击某个属性，可打开包含“复制属性值”或“复制属性键”选项的菜单。	
+318	plugins/first-party.md	admonition	!!! Abstract "Extended Functionality" For additional property categories and formatters, see [FrameProps Extended](second-party.md#frameprops-extended).	!!! Abstract "扩展功能" 如需更多属性类别与格式化器，见 [FrameProps Extended](second-party.md#frameprops-extended)。	
+319	plugins/first-party.md	admonition	!!! warning "Performance & Display Limits" - Excessively large property values (such as long strings, byte buffers, or large lists) are automatically truncated for display. - If a frame contains more than 100 properties, loading is skipped entirely to maintain interface responsiveness.	!!! warning "性能与显示限制" - 过大的属性值（例如超长字符串、字节缓冲区或大型列表）会自动截断后再显示。 - 如果一帧包含超过 100 个属性，则会完全跳过加载，以保持界面响应速度。	
+320	plugins/first-party.md	heading	## Scening	## Scening	
+321	plugins/first-party.md	para	The Scening dock tool is designed for creating, managing, and exporting scene ranges.	Scening 停靠工具用于创建、管理并导出场景区间。	
+322	plugins/first-party.md	image	![Scening dock showing scene ranges](../assets/scening_dock.png){ loading=lazy }	![Scening 停靠面板，显示场景区间](../assets/scening_dock.png){ loading=lazy }	
+323	plugins/first-party.md	heading	### Scene Management	### 场景管理	
+324	plugins/first-party.md	para	The upper panel manages **scenes**, which are named containers for ranges. Each scene has a customizable color, can be bound to specific outputs, and has a display toggle to control timeline visibility.	上方面板管理<strong>场景（scenes）</strong>，即区间的命名容器。每个场景都有可自定义的颜色，可以绑定到特定输出，并带有一个控制时间轴可见性的显示开关。	
+325	plugins/first-party.md	item	- **:lucide-plus: Create new scene** adds a new scene.	- <strong>:lucide-plus: Create new scene</strong> 添加新场景。	
+326	plugins/first-party.md	item	- **:lucide-x: Delete** removes a scene.	- <strong>:lucide-x: Delete</strong> 删除场景。	
+327	plugins/first-party.md	item	- The **Color** swatch changes the scene's color.	- <strong>Color</strong> 色块用于修改场景颜色。	
+328	plugins/first-party.md	item	- The **Outputs** column restricts a scene to specific video outputs.	- <strong>Outputs</strong> 列用于将场景限制到特定的视频输出。	
+329	plugins/first-party.md	item	- The **Display** checkbox toggles the scene's visibility on the timeline.	- <strong>Display</strong> 复选框用于切换场景在时间轴上的可见性。	
+330	plugins/first-party.md	heading	### Adding Ranges	### 添加区间	
+331	plugins/first-party.md	para	The lower panel shows the ranges belonging to the selected scene. You can either build ranges using the **Mark in / Mark out** workflow, or add the current frame directly as a single-frame range.	下方面板显示属于所选场景的区间。你可以通过 <strong>Mark in / Mark out</strong> 流程构建区间，也可以直接把当前帧添加为单帧区间。	
+332	plugins/first-party.md	para	Use the standard range workflow when you want a span:	当你需要一段跨帧的区间时，使用标准区间流程：	
+333	plugins/first-party.md	item	1. Navigate to the desired start frame on the timeline.	1. 在时间轴上定位到期望的起始帧。	
+334	plugins/first-party.md	item	2. Press ++q++ (or click **Mark in**) to set the start point.	2. 按 ++q++（或点击 <strong>Mark in</strong>）设置起点。	
+335	plugins/first-party.md	item	3. Navigate to the desired end frame.	3. 定位到期望的结束帧。	
+336	plugins/first-party.md	item	4. Press ++w++ (or click **Mark out**) to set the end point.	4. 按 ++w++（或点击 <strong>Mark out</strong>）设置终点。	
+337	plugins/first-party.md	item	5. Press ++e++ (or click **Add range**) to commit the range to the selected scene.	5. 按 ++e++（或点击 <strong>Add range</strong>）将区间提交到所选的场景。	
+338	plugins/first-party.md	para	Use the single-frame workflow when the range should start and end on the same frame:	当区间应当起止于同一帧时，使用单帧流程：	
+339	plugins/first-party.md	item	1. Navigate to the desired frame on the timeline.	1. 在时间轴上定位到目标帧。	
+340	plugins/first-party.md	item	2. Press ++r++ (or click **Add frame**) to add that frame as a range to the selected scene.	2. 按 ++r++（或点击 <strong>Add frame</strong>），将该帧作为区间添加到所选场景。	
+341	plugins/first-party.md	para	Each range displays its **Start Frame**, **End Frame**, **Start Time**, **End Time**, and an optional **Label**.	每个区间会显示其 <strong>Start Frame</strong>、<strong>End Frame</strong>、<strong>Start Time</strong>、<strong>End Time</strong> 以及可选的 <strong>Label</strong>。	
+342	plugins/first-party.md	heading	### Keyboard Shortcuts	### 快捷键	
+343	plugins/first-party.md	item	| Shortcut             | Action                           |	| 快捷键               | 操作                             |	
+344	plugins/first-party.md	item	| ++q++                | Toggle range start (Mark in)     |	| ++q++                | 切换区间起点（Mark in）          |	
+345	plugins/first-party.md	item	| ++w++                | Toggle range end (Mark out)      |	| ++w++                | 切换区间终点（Mark out）         |	
+346	plugins/first-party.md	item	| ++e++                | Validate / add the pending range |	| ++e++                | 校验/添加待提交的区间            |	
+347	plugins/first-party.md	item	| ++r++                | Add the current frame as a range |	| ++r++                | 将当前帧添加为区间               |	
+348	plugins/first-party.md	item	| ++del++              | Remove selected range or scene   |	| ++del++              | 删除选中的区间或场景             |	
+349	plugins/first-party.md	item	| ++ctrl+left++        | Seek to previous range boundary  |	| ++ctrl+left++        | 跳转到上一个区间边界             |	
+350	plugins/first-party.md	item	| ++ctrl+right++       | Seek to next range boundary      |	| ++ctrl+right++       | 跳转到下一个区间边界             |	
+351	plugins/first-party.md	item	| ++ctrl+shift+left++  | Seek to previous range           |	| ++ctrl+shift+left++  | 跳转到上一个区间                 |	
+352	plugins/first-party.md	item	| ++ctrl+shift+right++ | Seek to next range               |	| ++ctrl+shift+right++ | 跳转到下一个区间                 |	
+353	plugins/first-party.md	para	Each shortcut is customizable in the **Settings** menu.	每个快捷键都可以在 <strong>Settings</strong> 菜单中自定义。	
+354	plugins/first-party.md	heading	### Timeline Integration	### 时间轴集成	
+355	plugins/first-party.md	para	When a scene's **Display** checkbox is enabled, its ranges are drawn as colored notches directly on the timeline. Hovering over a notch displays a tooltip with the range label (if set). Scenes can be filtered per output, so only relevant ranges are shown for the active video tab.	启用某个场景的 <strong>Display</strong> 复选框后，其区间会以彩色刻度直接绘制在时间轴上。 将鼠标悬停在刻度上会显示带有区间标签（若已设置）的工具提示。 场景可以按输出过滤，因此只有与当前视频标签页相关的区间会被显示。	
+356	plugins/first-party.md	heading	### Import & Export	### 导入与导出	
+357	plugins/first-party.md	para	The toolbar provides **Import scene...** and **Export scene...** buttons for working with external files.	工具栏提供 <strong>Import scene...</strong> 与 <strong>Export scene...</strong> 按钮，用于处理外部文件。	
+358	plugins/first-party.md	heading	#### Supported Import Formats	#### 支持的导入格式	
+359	plugins/first-party.md	item	| Format                   | Extension      |	| 格式                     | 扩展名         |	
+360	plugins/first-party.md	item	| Aegisub Advanced SSA     | `.ass`         |	| Aegisub Advanced SSA     | `.ass`         |	
+361	plugins/first-party.md	item	| OGM Chapters             | `.txt`         |	| OGM Chapters             | `.txt`         |	
+362	plugins/first-party.md	item	| Matroska XML Chapters    | `.xml`         |	| Matroska XML Chapters    | `.xml`         |	
+363	plugins/first-party.md	item	| XviD Log                 | `.txt`, `.log` |	| XviD Log                 | `.txt`、`.log` |	
+364	plugins/first-party.md	item	| QP File                  | `.qp`, `.txt`  |	| QP File                  | `.qp`、`.txt`  |	
+365	plugins/first-party.md	item	| Wobbly File              | `.wob`         |	| Wobbly File              | `.wob`         |	
+366	plugins/first-party.md	item	| Python List (Frames)     | `.txt`         |	| Python List (Frames)     | `.txt`         |	
+367	plugins/first-party.md	item	| Python List (Timestamps) | `.txt`         |	| Python List (Timestamps) | `.txt`         |	
+368	plugins/first-party.md	heading	#### Supported Export Formats	#### 支持的导出格式	
+369	plugins/first-party.md	item	| Format                   | Extension |	| 格式                     | 扩展名  |	
+370	plugins/first-party.md	item	| OGM Chapters             | `.txt`    |	| OGM Chapters             | `.txt`  |	
+371	plugins/first-party.md	item	| QP File                  | `.qp`     |	| QP File                  | `.qp`   |	
+372	plugins/first-party.md	item	| Python List (Frames)     | `.txt`    |	| Python List (Frames)     | `.txt`  |	
+373	plugins/first-party.md	item	| Python List (Timestamps) | `.txt`    |	| Python List (Timestamps) | `.txt`  |	
+374	plugins/first-party.md	heading	#### Video Clip Export	#### 导出视频片段	
+375	plugins/first-party.md	para	You can export selected ranges directly to video files:	你可以把选中的区间直接导出为视频文件：	
+376	plugins/first-party.md	item	1. Select one or more ranges in the lower panel.	1. 在下方面板中选中一个或多个区间。	
+377	plugins/first-party.md	item	2. **Right-click** and choose **Export** -> **H.264 (8-bit YUV)** (`.mp4`) or **Lossless FFV1** (`.mkv`).	2. <strong>右键点击</strong>并选择 <strong>Export</strong> -> <strong>H.264 (8-bit YUV)</strong>（`.mp4`）或 <strong>Lossless FFV1</strong>（`.mkv`）。	
+378	plugins/first-party.md	item	3. Choose a destination file (single range) or base name (batch export).	3. 选择目标文件（单个区间）或基础文件名（批量导出）。	
+379	plugins/first-party.md	para	Exports run asynchronously in the background via FFmpeg (path configurable in **Settings** -> **Plugin - Scening**).	导出会通过 FFmpeg 在后台异步执行（FFmpeg 路径可在 <strong>Settings</strong> -> <strong>Plugin - Scening</strong> 中配置）。	
+380	plugins/first-party.md	admonition	!!! Abstract "Extended Functionality" Developers can register custom parsers and serializers via the plugin hook system. See the [Scening Tool API](../api/developer/tools/scening.md) for details.	!!! Abstract "扩展功能" 开发者可以通过插件钩子系统注册自定义解析器与序列化器。 详见 [Scening 工具 API](../api/developer/tools/scening.md)。	
+381	plugins/first-party.md	heading	## Region Selector	## Region Selector	
+382	plugins/first-party.md	para	The Region Selector tool defines rectangular regions within the frame, primarily for generating VapourSynth crop parameters.	Region Selector 工具用于在画面中定义矩形区域，主要用于生成 VapourSynth 裁剪参数。	
+383	plugins/first-party.md	image	![Region Selector dock](../assets/region_selector_dock.png){ loading=lazy }	![Region Selector 停靠面板](../assets/region_selector_dock.png){ loading=lazy }	
+384	plugins/first-party.md	heading	### Features	### 功能	
+385	plugins/first-party.md	item	- **Boundary Adjustment:** Direct control over Left, Right, Top, Bottom, Width, and Height via spin boxes.	- <strong>边界微调</strong>：通过数值框直接控制 Left、Right、Top、Bottom、Width 与 Height。	
+386	plugins/first-party.md	item	- **Snap to Modulo:** Selection boundaries snap to the `mod` value defined in settings (e.g., mod 2, mod 4).	- <strong>按模数吸附</strong>：选区边界会吸附到设置中定义的 `mod` 值（例如 mod 2、mod 4）。	
+387	plugins/first-party.md	item	- **Code Generation:** Generates VapourSynth snippets (e.g., `std.Crop`) based on the active selection.	- <strong>代码生成</strong>：根据当前选区生成 VapourSynth 代码片段（例如 `std.Crop`）。	
+388	plugins/first-party.md	item	- **Interactive Overlay:** Resizable and movable region overlay with corner/edge handles.	- <strong>交互式叠加层</strong>：可调整大小、可移动的区域叠加层，带有角点与边缘手柄。	
+389	plugins/first-party.md	heading	### How to Use	### 使用方法	
+390	plugins/first-party.md	item	1.  Click the **Frame Corners** icon or press ++c++.	1.  点击 <strong>Frame Corners</strong> 图标或按 ++c++。	
+391	plugins/first-party.md	item	2.  **Left-click and drag** in the viewport to define the initial region.	2.  在视口中<strong>左键拖动</strong>以定义初始区域。	
+392	plugins/first-party.md	item	3.  Adjust boundaries using the **handles** or **spin boxes**.	3.  使用<strong>手柄</strong>或<strong>数值框</strong>调整边界。	
+393	plugins/first-party.md	item	4.  Click the **Clipboard icon** to copy the generated code.	4.  点击<strong>剪贴板图标</strong>复制生成的代码。	
+394	plugins/first-party.md	item	5.  Click the **X-Circle icon** or press ++c++ to deactivate.	5.  点击 <strong>X-Circle</strong> 图标或按 ++c++ 停用。	
+395	plugins/first-party.md	heading	### Keyboard Shortcuts	### 快捷键	
+396	plugins/first-party.md	item	| Shortcut | Action                      |	| 快捷键  | 操作                 |	
+397	plugins/first-party.md	item	| ++c++    | Toggle Region Selector tool |	| ++c++   | 切换 Region Selector |	
+398	plugins/first-party.md	item	| ++esc++  | Clear current selection     |	| ++esc++ | 清除当前选区         |	
+399	plugins/first-party.md	para	Shortcuts, mod and code snippets are configurable in the **Settings** menu.	快捷键、`mod` 与代码片段均可在 <strong>Settings</strong> 菜单中配置。	
+400	plugins/overview.md	heading	# Plugins	# 插件	
+401	plugins/overview.md	para	**VSView** features a plugin system that allows you to extend its functionality. Plugins can add new tools, custom UI panels, and integrate with the video and audio processing pipeline.	<strong>VSView</strong> 提供插件系统，可扩展其功能。插件可以添加新工具、自定义 UI 面板，并与视频、音频处理管线集成。	
+402	plugins/overview.md	heading	## Plugin Categories	## 插件分类	
+403	plugins/overview.md	para	Plugins are categorized based on their source and maintenance level:	插件按其来源与维护层级分类：	
+404	plugins/overview.md	item	- [**First-party (Official)**](first-party.md): Integrated directly into the **VSView** source code.	- [<strong>第一方（官方）</strong>](first-party.md)：直接集成在 <strong>VSView</strong> 源码中。	
+405	plugins/overview.md	item	- [**Second-party**](second-party.md): Developed by community members in the official repository but maintained as separate packages.	- [<strong>第二方</strong>](second-party.md)：由社区成员在官方仓库中开发，但作为独立包维护。	
+406	plugins/overview.md	item	- [**Third-party**](third-party.md): Created by independent developers in the community.	- [<strong>第三方</strong>](third-party.md)：由社区中的独立开发者创建。	
+407	plugins/overview.md	heading	## Developing Plugins	## 开发插件	
+408	plugins/overview.md	para	See the [Plugin Development](development.md) guide to learn how to create and register your own **VSView** plugins.	参阅[插件开发](development.md)指南，了解如何创建并注册 <strong>VSView</strong> 插件。	
+409	plugins/overview.md	para	You can also use this [plugin template](https://github.com/Ichunjo/vs-view-plugin-template) to scaffold your project.	也可以使用这个[插件模板](https://github.com/Ichunjo/vs-view-plugin-template)来搭建项目骨架。	
+410	plugins/second-party.md	heading	# Second-Party Plugins	# 第二方插件	
+411	plugins/second-party.md	para	Second-party plugins are officially maintained but distributed as separate packages to keep the core installation lightweight.	第二方插件由官方维护，但以独立包的形式分发，以保持核心安装轻量。	
+412	plugins/second-party.md	heading	## Overview	## 概览	
+413	plugins/second-party.md	item	- :lucide-split-square-horizontal: **Comparison**	- :lucide-split-square-horizontal: <strong>Comparison</strong>	
+414	plugins/second-party.md	para	Select, extract, and upload comparison frames to Slow.pics with TMDB metadata integration.	选择、提取对比帧并上传到 Slow.pics，支持 TMDB 元数据集成。	
+415	plugins/second-party.md	para	[:lucide-move-right: Details](#comparison) · [:fontawesome-brands-github: Source](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/comp)	[:lucide-move-right: 详情](#comparison) · [:fontawesome-brands-github: 源码](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/comp)	
+416	plugins/second-party.md	item	- :lucide-code: **Editor**	- :lucide-code: <strong>Editor</strong>	
+417	plugins/second-party.md	para	Monaco-based code editor workspace for VapourSynth scripts.	面向 VapourSynth 脚本的 Monaco 代码编辑器工作区。	
+418	plugins/second-party.md	para	[:lucide-move-right: Details](../usage/workspaces/editor.md) · [:fontawesome-brands-github: Source](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/workspaces/editor)	[:lucide-move-right: 详情](../usage/workspaces/editor.md) · [:fontawesome-brands-github: 源码](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/workspaces/editor)	
+419	plugins/second-party.md	item	- :lucide-activity: **FFT Spectrum**	- :lucide-activity: <strong>FFT Spectrum</strong>	
+420	plugins/second-party.md	para	Displays the Fast Fourier Transform (FFT) spectrum of all the planes of a video clip.	显示视频片段各平面的快速傅里叶变换（FFT）频谱。	
+421	plugins/second-party.md	para	[:lucide-move-right: Details](#fft-spectrum) · [:fontawesome-brands-github: Source](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/fftspectrum)	[:lucide-move-right: 详情](#fft-spectrum) · [:fontawesome-brands-github: 源码](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/fftspectrum)	
+422	plugins/second-party.md	item	- :lucide-list-plus: **FrameProps Extended**	- :lucide-list-plus: <strong>FrameProps Extended</strong>	
+423	plugins/second-party.md	para	Extends the built-in [Frame Properties](first-party.md#frame-properties) tool with specialized categories and formatters.	为内置的 [Frame Properties](first-party.md#frame-properties) 工具扩展专用类别与格式化器。	
+424	plugins/second-party.md	para	[:lucide-move-right: Details](#frameprops-extended) · [:fontawesome-brands-github: Source](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/frameprops-extended)	[:lucide-move-right: 详情](#frameprops-extended) · [:fontawesome-brands-github: 源码](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/frameprops-extended)	
+425	plugins/second-party.md	item	- :lucide-bar-chart-2: **Histogram**	- :lucide-bar-chart-2: <strong>Histogram</strong>	
+426	plugins/second-party.md	para	Per-frame video scopes: Levels, Luma, Vectorscope, and Waveform.	逐帧视频示波器：Levels、Luma、Vectorscope 与 Waveform。	
+427	plugins/second-party.md	para	[:lucide-move-right: Details](#histogram) · [:fontawesome-brands-github: Source](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/histogram)	[:lucide-move-right: 详情](#histogram) · [:fontawesome-brands-github: 源码](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/histogram)	
+428	plugins/second-party.md	item	- :lucide-monitor-up: **Remote**	- :lucide-monitor-up: <strong>Remote</strong>	
+429	plugins/second-party.md	para	Remote VapourSynth execution and frame streaming workspace powered by [vsremote](https://github.com/Ichunjo/vs-remote).	由 [vsremote](https://github.com/Ichunjo/vs-remote) 驱动的远程 VapourSynth 执行与帧流式传输工作区。	
+430	plugins/second-party.md	para	[:lucide-move-right: Details](../usage/workspaces/remote.md) · [:fontawesome-brands-github: Source](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/workspaces/remote)	[:lucide-move-right: 详情](../usage/workspaces/remote.md) · [:fontawesome-brands-github: 源码](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/workspaces/remote)	
+431	plugins/second-party.md	item	- :lucide-layers-2: **Split Planes**	- :lucide-layers-2: <strong>Split Planes</strong>	
+432	plugins/second-party.md	para	Visualize individual planes (e.g., Y, U, V) of a video clip to inspect channel-specific artifacts.	单独查看视频片段的各个平面（例如 Y、U、V），以检查通道特有的伪影。	
+433	plugins/second-party.md	para	[:lucide-move-right: Details](#split-planes) · [:fontawesome-brands-github: Source](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/split-planes)	[:lucide-move-right: 详情](#split-planes) · [:fontawesome-brands-github: 源码](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/split-planes)	
+434	plugins/second-party.md	heading	## Installation	## 安装（Installation）	
+435	plugins/second-party.md	para	Second-party plugins are officially maintained but distributed as separate Python packages. Note that many of these also require specific **native VapourSynth plugins** to be installed in your VapourSynth environment.	第二方插件由官方维护，但以独立 Python 包形式分发。注意其中许多插件还需要在 VapourSynth 环境中安装特定的<strong>原生 VapourSynth 插件</strong>。	
+436	plugins/second-party.md	para	You can install plugins individually or choose one of the pre-configured bundles.	你可以单独安装插件，也可以选择预配置的合集。	
+437	plugins/second-party.md	admonition	!!! tip "Optional: Recommended & Full Bundles" * The **recommended** bundle includes **Split Planes**, **FrameProps Extended**, and **Comparison**. * The **full** bundle includes everything in the **recommended** bundle, plus **Histogram**, **Editor**, and the third-party [**Native Resolution**](third-party.md#native-resolution) plugin. === "pip" ```bash title="Install recommended bundle" pip install vsview[recommended] ``` ```bash title="Install full bundle" pip install vsview[full] ``` === "uv" ```bash title="Add recommended bundle" uv add vsview --extra recommended ``` ```bash title="Add full bundle" uv add vsview --extra full ```	!!! tip "可选：recommended 与 full 合集" * <strong>recommended</strong> 合集包含 <strong>Split Planes</strong>、<strong>FrameProps Extended</strong> 与 <strong>Comparison</strong>。 * <strong>full</strong> 合集包含 <strong>recommended</strong> 中的全部插件，另加 <strong>Histogram</strong>、<strong>Editor</strong> 以及第三方 [<strong>Native Resolution</strong>](third-party.md#native-resolution) 插件。 === "pip" ```bash title="安装 recommended 合集" pip install vsview[recommended] ``` ```bash title="安装 full 合集" pip install vsview[full] ``` === "uv" ```bash title="添加 recommended 合集" uv add vsview --extra recommended ``` ```bash title="添加 full 合集" uv add vsview --extra full ```	
+438	plugins/second-party.md	para	Detailed installation for individual packages can be found in their respective sections below.	各独立包的详细安装方式见下文对应用户章节。	
+439	plugins/second-party.md	heading	## Comparison [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/comp){ title="Source Code" }	## Comparison [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/comp){ title="Source Code" }	
+440	plugins/second-party.md	marker	=== "pip"	=== "pip"	
+441	plugins/second-party.md	marker	=== "uv"	=== "uv"	
+442	plugins/second-party.md	para	The Comparison plugin provides an integrated workflow for extracting frames and uploading them directly to [Slow.pics](https://slow.pics/).	Comparison 插件提供了一套完整流程：提取帧并直接上传到 [Slow.pics](https://slow.pics/)。	
+443	plugins/second-party.md	para	It features automated frame selection, filtering by picture type, and integration with TMDB.	它具备自动选帧、按画面类型过滤以及与 TMDB 集成的能力。	
+444	plugins/second-party.md	heading	### Features	### 功能	
+445	plugins/second-party.md	item	- **Frame Selection**:	- <strong>选帧</strong>：	
+446	plugins/second-party.md	item	- Choose frames manually or automatically based on frame count and time range.	- 按帧数与时间范围手动或自动选择帧。	
+447	plugins/second-party.md	item	- Filter by picture types (I/P/B-frames) and combed frames.	- 按画面类型（I/P/B 帧）与混合帧（combed）过滤。	
+448	plugins/second-party.md	item	- Select the darkest and/or lightest frames using asymmetric Gaussian brightness scoring.	- 使用非对称高斯亮度评分选出最暗和/或最亮的帧。	
+449	plugins/second-party.md	item	- **Probability Curve**:	- <strong>概率曲线</strong>：	
+450	plugins/second-party.md	item	- Bias which part of the timeline random frames are drawn from using an interactive curve editor.	- 通过交互式曲线编辑器，调整随机帧在时间轴上的抽取偏向。	
+451	plugins/second-party.md	item	- Click **Curve...** next to the random frame count to open the editor.	- 点击随机帧数旁的 <strong>Curve...</strong> 打开编辑器。	
+452	plugins/second-party.md	item	- **TMDB Integration**:	- <strong>TMDB 集成</strong>：	
+453	plugins/second-party.md	item	- Search and retrieve metadata from TMDB to automatically populate collection names.	- 从 TMDB 搜索并获取元数据，自动填充合集名称。	
+454	plugins/second-party.md	item	- Customize the naming format in the plugin **Settings**.	- 在插件 <strong>Settings</strong> 中自定义命名格式。	
+455	plugins/second-party.md	item	- **Direct Upload**:	- <strong>直接上传</strong>：	
+456	plugins/second-party.md	item	- Upload extracted frames to [Slow.pics](https://slow.pics/).	- 将提取的帧上传到 [Slow.pics](https://slow.pics/)。	
+457	plugins/second-party.md	item	- Configure login in the plugin **Settings** to upload directly.	- 在插件 <strong>Settings</strong> 中配置登录信息后即可直接上传。	
+458	plugins/second-party.md	heading	### Settings	### 设置	
+459	plugins/second-party.md	item	| Setting                    | Default  | Description                                                                                     |	| 设置项                      | 默认值   | 说明                                                                                            |	
+460	plugins/second-party.md	item	| **Browser ID**             | auto     | UUID sent to Slow.pics on every upload. (see [Browser ID](#browser-id)).                        |	| <strong>Browser ID</strong>              | 自动     | 每次上传时发送给 Slow.pics 的 UUID。（见 [Browser ID](#browser-id)）                             |	
+461	plugins/second-party.md	item	| **Allowed frame searches** | 150      | Max attempts per frame slot before giving up.                                                   |	| <strong>Allowed frame searches</strong>  | 150      | 每个帧位在放弃前的最大尝试次数。                                                                |	
+462	plugins/second-party.md	item	| **Brightness candidates**  | 0 (auto) | Candidate frames to analyze for dark/light selection. `0` auto-scales from clip length and FPS. |	| <strong>Brightness candidates</strong>   | 0（自动）| 用于暗/亮帧选择的候选帧数量。`0` 表示根据片段长度与 FPS 自动缩放。                              |	
+463	plugins/second-party.md	heading	### Frame List Context Menu	### 帧列表右键菜单	
+464	plugins/second-party.md	para	Right-clicking any thumbnail in the selected frames list opens a context menu for managing and copying frame data. Multi-selection (++ctrl++-click or ++shift++-click) is supported:	在已选帧列表中右键点击任意缩略图，会打开用于管理与复制帧数据的菜单。支持多选（++ctrl++ 点击或 ++shift++ 点击）：	
+465	plugins/second-party.md	item	| Action                   | Description                                                                     |	| 操作                     | 说明                                                                       |	
+466	plugins/second-party.md	item	| **Copy timestamp(s)**    | Copies the timestamp (`HH:MM:SS.mmm`) or a list of timestamps to the clipboard. |	| <strong>Copy timestamp(s)</strong>    | 将时间戳（`HH:MM:SS.mmm`）或时间戳列表复制到剪贴板。                       |	
+467	plugins/second-party.md	item	| **Copy frame number(s)** | Copies the frame number or a list of frame numbers to the clipboard.            |	| <strong>Copy frame number(s)</strong> | 将帧号或帧号列表复制到剪贴板。                                             |	
+468	plugins/second-party.md	item	| **Remove frame(s)**      | Removes the selected frame(s) from the list (also supported via ++delete++).    |	| <strong>Remove frame(s)</strong>      | 从列表中移除所选帧（也支持 ++delete++）。                                  |	
+469	plugins/second-party.md	para	Double-clicking any thumbnail in the list seeks the playback directly to that frame.	双击列表中的任意缩略图，可将播放直接跳转到该帧。	
+470	plugins/second-party.md	heading	### Probability Curve Editor	### 概率曲线编辑器	
+471	plugins/second-party.md	para	Click **Curve...** (next to the random frame count) to open the curve editor and bias where in the timeline random frames are sampled from.	点击 <strong>Curve...</strong>（位于随机帧数旁）打开曲线编辑器，调整随机帧在时间轴上的采样偏向。	
+472	plugins/second-party.md	item	| Action                                   | Effect                                         |	| 操作                                     | 效果                                |	
+473	plugins/second-party.md	item	| Double-click on the graph                | Add a control point                            |	| 在图表上双击                             | 添加一个控制点                      |	
+474	plugins/second-party.md	item	| Drag a point                             | Adjust its position and weight (Y-axis, 0 – 5) |	| 拖动控制点                               | 调整其位置与权重（Y 轴，0 – 5）     |	
+475	plugins/second-party.md	item	| Double-click on a point                  | Open popover to set exact frame and weight     |	| 在控制点上双击                           | 打开浮层以精确设置帧号与权重        |	
+476	plugins/second-party.md	item	| Right-click / ++delete++ / ++backspace++ | Remove the point                               |	| 右键 / ++delete++ / ++backspace++        | 删除该控制点                        |	
+477	plugins/second-party.md	item	| **Reset**                                | Restore flat uniform distribution              |	| <strong>Reset</strong>                                | 恢复为扁平均匀分布                  |	
+478	plugins/second-party.md	para	The boundary points (start/end frame) are fixed horizontally but their weights are editable. Y = 1 everywhere gives uniform sampling.	边界点（起始帧/结束帧）在水平方向固定，但权重可编辑。各处 Y = 1 即为均匀采样。	
+479	plugins/second-party.md	heading	### Dark / Light Frame Selection	### 暗帧 / 亮帧选择	
+480	plugins/second-party.md	para	Candidate frames are scored with an **asymmetric Gaussian** on their average luma (`PlaneStatsAverage`):	候选帧会针对其平均亮度（`PlaneStatsAverage`）使用<strong>非对称高斯</strong>评分：	
+481	plugins/second-party.md	item	- **Dark**: peak ≈ 6.5 % (σ left = 0.015, σ right = 0.15)	- <strong>暗帧</strong>：峰值 ≈ 6.5 %（左侧 σ = 0.015，右侧 σ = 0.15）	
+482	plugins/second-party.md	item	- **Light**: peak ≈ 75 % (σ left = 0.45, σ right = 0.90)	- <strong>亮帧</strong>：峰值 ≈ 75 %（左侧 σ = 0.45，右侧 σ = 0.90）	
+483	plugins/second-party.md	heading	### Browser ID	### Browser ID	
+484	plugins/second-party.md	para	Every upload is tagged with a persistent **Browser ID** UUID so Slow.pics can associate it with your browser session.	每次上传都会带上一枚持久化的 <strong>Browser ID</strong> UUID，以便 Slow.pics 将其与你的浏览器会话关联。	
+485	plugins/second-party.md	admonition	!!! tip "Claiming an anonymous upload" If you uploaded without being logged in, you can still claim the comparison afterwards: 1. Copy your **Browser ID** from the plugin **Settings** (clipboard button). 2. In your browser's dev tools (++f12++), go to **Application → Cookies → `slow.pics`** and set `BROWSER-ID` to that value. 3. Reload the comparison page and claim it from the page menu. When uploading while logged in, Slow.pics returns its own `BROWSER-ID`; the plugin adopts it automatically.	!!! tip "认领匿名上传" 如果你在未登录状态下上传，事后仍可认领该对比： 1. 从插件 <strong>Settings</strong> 中复制你的 <strong>Browser ID</strong>（点击剪贴板按钮）。 2. 在浏览器开发者工具（++f12++）中进入 **Application → Cookies → `slow.pics`**，把 `BROWSER-ID` 设为该值。 3. 刷新对比页面，并从页面菜单中认领。 若在上传时已登录，Slow.pics 会返回它自己的 `BROWSER-ID`，插件会自动采用它。	
+486	plugins/second-party.md	heading	### Script Integration	### 脚本集成	
+487	plugins/second-party.md	para	All `set_output` outputs are available by default. Pass `allow_comp` to explicitly exclude specific outputs.	默认情况下，所有 `set_output` 输出都是可用的。传入 `allow_comp` 可显式排除特定输出。	
+488	plugins/second-party.md	heading	### VapourSynth Requirements	### VapourSynth 依赖	
+489	plugins/second-party.md	item	- [**fpng**](https://github.com/Mikewando/vsfpng) (Optional): For slightly faster frame extraction.	- [<strong>fpng</strong>](https://github.com/Mikewando/vsfpng)（可选）：可略微加快帧提取速度。	
+490	plugins/second-party.md	heading	## FFT Spectrum [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/fftspectrum){ title="Source Code" }	## FFT Spectrum [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/fftspectrum){ title="Source Code" }	
+491	plugins/second-party.md	marker	=== "pip"	=== "pip"	
+492	plugins/second-party.md	marker	=== "uv"	=== "uv"	
+493	plugins/second-party.md	para	The FFT Spectrum tool provides a visualization of the Fast Fourier Transform (FFT) spectrum of all the planes of a video clip.	FFT Spectrum 工具可将视频片段各平面的快速傅里叶变换（FFT）频谱可视化。	
+494	plugins/second-party.md	heading	## Histogram [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/histogram){ title="Source Code" }	## Histogram [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/histogram){ title="Source Code" }	
+495	plugins/second-party.md	marker	=== "pip"	=== "pip"	
+496	plugins/second-party.md	marker	=== "uv"	=== "uv"	
+497	plugins/second-party.md	para	Provides per-frame video scopes as tabs inside a single panel.	在单个面板中以标签页形式提供逐帧视频示波器。	
+498	plugins/second-party.md	item	- Updates are paused during playback and resume on the active tab when playback stops.	- 播放期间暂停更新，播放停止后恢复当前活动标签页的更新。	
+499	plugins/second-party.md	item	- Right-click any plot to copy or save the view.	- 右键点击任意图表可复制或保存视图。	
+500	plugins/second-party.md	admonition	!!! note The Luma tab uses [Numba](https://numba.pydata.org/) JIT compilation. A background pre-warm runs at startup; the tab is inactive until it completes.	!!! note Luma 标签页使用 [Numba](https://numba.pydata.org/) JIT 编译。启动时会在后台预热；预热完成前该标签页不可用。	
+501	plugins/second-party.md	heading	### Levels	### Levels	
+502	plugins/second-party.md	para	Plots a per-plane pixel value histogram for the current frame.	绘制当前帧按平面统计的像素值直方图。	
+503	plugins/second-party.md	item	| Control               | Options              | Description                                                                             |	| 控件                  | 选项                 | 说明                                                                                    |	
+504	plugins/second-party.md	item	| **Bin resolution**    | Auto, 256, 512, 1024 | Number of histogram bins. Auto scales to the panel width.                               |	| <strong>Bin resolution</strong>    | Auto、256、512、1024 | 直方图的分箱数量。Auto 会根据面板宽度缩放。                                             |	
+505	plugins/second-party.md	item	| **Clamp factor**      | 0.001 % – 100 %      | Clips peak bin counts to this percentage of total pixels, making smaller peaks visible. |	| <strong>Clamp factor</strong>      | 0.001 % – 100 %      | 将峰值分箱计数裁剪到总像素的这一百分比，使较小的峰值也能显示。                          |	
+506	plugins/second-party.md	item	| **Show unsafe zones** | on / off             | Highlights broadcast-illegal ranges (YUV limited range only).                           |	| <strong>Show unsafe zones</strong> | 开 / 关              | 高亮广播非法范围（仅 YUV 有限范围）。                                                   |	
+507	plugins/second-party.md	heading	### Luma	### Luma	
+508	plugins/second-party.md	para	Displays a luma scope using a VapourSynth `ModifyFrame` node, rendered through the standard graphics view.	使用 VapourSynth 的 `ModifyFrame` 节点显示亮度示波器，并通过标准图形视图渲染。	
+509	plugins/second-party.md	item	| Control               | Options                      | Description                                                         |	| 控件                  | 选项                          | 说明                                                        |	
+510	plugins/second-party.md	item	| **Frequency (Shift)** | 2 – 256 cycles (shift 1 – 8) | Controls the number of luma cycles displayed across the scope.      |	| <strong>Frequency (Shift)</strong> | 2 – 256 周期（shift 1 – 8）   | 控制示波器上显示的亮度周期数量。                            |	
+511	plugins/second-party.md	item	| **Sawtooth style**    | on / off                     | Switches the rendering style from sine-like to a sawtooth waveform. |	| <strong>Sawtooth style</strong>    | 开 / 关                       | 将渲染风格从类正弦波形切换为锯齿波形。                      |	
+512	plugins/second-party.md	para	Only GRAY and YUV inputs are supported. RGB input shows an error overlay.	仅支持 GRAY 与 YUV 输入。RGB 输入会显示错误提示层。	
+513	plugins/second-party.md	heading	### Vectorscope	### Vectorscope	
+514	plugins/second-party.md	para	Plots chroma (U/V) distribution on a 2D plane.	在二维平面上绘制色度（U/V）分布。	
+515	plugins/second-party.md	para	Graticules show 75 % and 100 % saturation circles, a skin-tone reference line, and primary/secondary color targets that automatically adjust based on the clip's color matrix (supporting Rec. 601, Rec. 709, Rec. 2020, and ST 240M).	示波网格显示 75 % 与 100 % 饱和度圆、肤色参考线，以及会自动根据片段色彩矩阵调整的主/次色目标点 （支持 Rec. 601、Rec. 709、Rec. 2020 与 ST 240M）。	
+516	plugins/second-party.md	item	| Control        | Options                                | Description                                                                                                                                           |	| 控件           | 选项                                   | 说明                                                                                                                                                    |	
+517	plugins/second-party.md	item	| **Mode**       | Density, Chroma Wheel, Pixel Color     | **Density**: logarithmic heat-map with a phosphor color table.<br>**Chroma Wheel**: density map drawn over a full-color UV background wheel.<br>**Pixel Color**: each pixel plotted at its actual RGB-converted color. |	| <strong>Mode</strong>       | Density、Chroma Wheel、Pixel Color     | <strong>Density</strong>：带荧光色表的对数热力图。<br><strong>Chroma Wheel</strong>：在全彩 UV 背景轮上绘制密度图。<br><strong>Pixel Color</strong>：每个像素以其实际转换后的 RGB 颜色绘制。   |	
+518	plugins/second-party.md	item	| **Resolution** | Auto, 256, 512, 1024                   | Size of the internal scope image (square). Auto caps to the bit depth limit.                                                                           |	| <strong>Resolution</strong> | Auto、256、512、1024                   | 内部示波图像（正方形）的尺寸。Auto 会以位深上限为界。                                                                                                   |	
+519	plugins/second-party.md	item	| **Matrix**     | Auto, BT.709, BT.601, BT.2020, ST 240M | Color matrix coefficients used for target graticules and signal conversion. Auto detects from clip properties or resolution.                            |	| <strong>Matrix</strong>     | Auto、BT.709、BT.601、BT.2020、ST 240M | 用于目标网格与信号转换的色彩矩阵系数。Auto 会根据片段属性或分辨率自动识别。                                                                             |	
+520	plugins/second-party.md	item	| **Luma**       | 0.01 – 2.00                            | Brightness scaling factor applied to the point cloud/glow. Only active in `Chroma Wheel` mode.                                                      |	| <strong>Luma</strong>       | 0.01 – 2.00                            | 应用于点云/辉光的亮度缩放系数。仅在 `Chroma Wheel` 模式下生效。                                                                                        |	
+521	plugins/second-party.md	para	RGB input is not supported and shows a warning. GRAY input plots all pixels at neutral chroma.	不支持 RGB 输入，会显示警告。GRAY 输入会将所有像素绘制在中性色度位置。	
+522	plugins/second-party.md	heading	### Waveform	### Waveform	
+523	plugins/second-party.md	para	Plots pixel values column-by-column as a waveform. Logarithmic density scaling is applied per-column.	按列绘制像素值，形成波形图。每一列都会应用对数密度缩放。	
+524	plugins/second-party.md	item	| Control          | Options              | Description                                                                                                             |	| 控件             | 选项                 | 说明                                                                                                                    |	
+525	plugins/second-party.md	item	| **Mode**         | Luma, RGB/YUV Parade | **Luma**: single Y-plane waveform.<br>**Parade**: one waveform per plane side-by-side (R/G/B or Y/U/V, depending on color family). |	| <strong>Mode</strong>         | Luma、RGB/YUV Parade | <strong>Luma</strong>：单条 Y 平面波形。<br><strong>Parade</strong>：每个平面并排显示一条波形（取决于色彩家族，为 R/G/B 或 Y/U/V）。              |	
+526	plugins/second-party.md	item	| **Resolution**   | Auto, 256, 512, 1024 | Vertical resolution of the scope. Auto caps to the bit depth limit.                                                     |	| <strong>Resolution</strong>   | Auto、256、512、1024 | 示波器的垂直分辨率。Auto 会以位深上限为界。                                                                             |	
+527	plugins/second-party.md	item	| **Show zones**   | on / off             | Overlays the neutral line and broadcast-limit lines (16/235 for luma, 16/240 for chroma) with shaded unsafe regions.    |	| <strong>Show zones</strong>   | 开 / 关              | 叠加中性线与广播限制线（亮度为 16/235，色度为 16/240），并标出阴影化的非法区域。                                        |	
+528	plugins/second-party.md	item	| **Dynamic gain** | on / off             | When on, scales brightness relative to the densest column. When off, scales relative to frame height.                   |	| <strong>Dynamic gain</strong> | 开 / 关              | 开启时按最密集的列缩放亮度；关闭时按帧高缩放。                                                                          |	
+529	plugins/second-party.md	item	| **Gain**         | 0.1x – 10.0x         | Multiplier applied on top of the logarithmic scale.                                                                     |	| <strong>Gain</strong>         | 0.1x – 10.0x         | 在对数刻度之上再乘的倍数。                                                                                              |	
+530	plugins/second-party.md	heading	### CIE Chromaticity	### CIE Chromaticity	
+531	plugins/second-party.md	para	Plots the chromaticity coordinates of the frame pixels onto a standard CIE chromaticity diagram (CIE 1931 xy or CIE 1976 u'v'). This allows visualizing the gamut coverage and color distribution of the video.	将帧像素的色度坐标绘制到标准 CIE 色度图上（CIE 1931 xy 或 CIE 1976 u'v'）。借此可以直观看到视频的色域覆盖与颜色分布。	
+532	plugins/second-party.md	para	Graticules show the boundary triangles for common color gamuts (**Rec. 709**, **Rec. 601**, **DCI-P3**, and **Rec. 2020**) and a reference crosshair for the **D65** white point.	示波网格显示常见色域的边界三角形（<strong>Rec. 709</strong>、<strong>Rec. 601</strong>、<strong>DCI-P3</strong> 与 <strong>Rec. 2020</strong>），以及 <strong>D65</strong> 白点参考十字线。	
+533	plugins/second-party.md	item	| Control        | Options                               | Description                                                                                                                                                                                                                                                |	| 控件            | 选项                                  | 说明                                                                                                                                                                                                                                                        |	
+534	plugins/second-party.md	item	| **CIE Mode**   | CIE 1931 (xy), CIE 1976 (u'v')        | Toggles between the CIE 1931 standard color space representation and the CIE 1976 Uniform Chromaticity Scale (UCS) representation.                                                                                                                         |	| <strong>CIE Mode</strong>    | CIE 1931 (xy)、CIE 1976 (u'v')        | 在 CIE 1931 标准色彩空间表示与 CIE 1976 均匀色度标度（UCS）表示之间切换。                                                                                                                                                                                   |	
+535	plugins/second-party.md	item	| **Render Mode**| Density, Chroma Wheel, Pixel Color    | **Density**: logarithmic heat-map showing pixel density using a phosphor color table.<br>**Chroma Wheel**: density map drawn as a white glow over a full-color background chromaticity diagram.<br>**Pixel Color**: each pixel plotted at its actual RGB color, scaled by density and luma settings. |	| <strong>Render Mode</strong> | Density、Chroma Wheel、Pixel Color    | <strong>Density</strong>：使用荧光色表显示像素密度的对数热力图。<br><strong>Chroma Wheel</strong>：在全彩背景色度图上以白色辉光绘制密度图。<br><strong>Pixel Color</strong>：每个像素以其实际 RGB 颜色绘制，并按密度与亮度设置缩放。                                                               |	
+536	plugins/second-party.md	item	| **Resolution** | Native, 256x256, 512x512, 1024x1024   | Size of the internal scope image. `Native` uses the height of the frame.                                                                                                                                                   |	| <strong>Resolution</strong>  | Native、256x256、512x512、1024x1024   | 内部示波图像的尺寸。`Native` 使用帧的高度。                                                                                                                                                                                                                |	
+537	plugins/second-party.md	item	| **Luma**       | 0.01 – 2.00                           | Brightness scaling factor applied to the point cloud/glow. Only active in `Pixel Color` and `Chroma Wheel` modes.                                                                                                                                          |	| <strong>Luma</strong>        | 0.01 – 2.00                           | 应用于点云/辉光的亮度缩放系数。仅在 `Pixel Color` 与 `Chroma Wheel` 模式下生效。                                                                                                                                                                           |	
+538	plugins/second-party.md	item	| **Gamuts**     | Rec. 709, Rec. 601, DCI-P3, Rec. 2020 | Checkboxes to toggle the display of the target gamut boundary triangles and labels on the diagram.                                                                                                                                                         |	| <strong>Gamuts</strong>      | Rec. 709、Rec. 601、DCI-P3、Rec. 2020 | 用于切换色度图上目标色域边界三角形与标签显示的复选框。                                                                                                                                                                                                      |	
+539	plugins/second-party.md	para	Only RGB input is supported. Other formats, or clips without a valid `_Primaries` frame property, will display an error overlay.	仅支持 RGB 输入。其他格式，或缺少有效 `_Primaries` 帧属性的片段，会显示错误提示层。	
+540	plugins/second-party.md	heading	## FrameProps Extended [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/frameprops-extended){ title="Source Code" }	## FrameProps Extended [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/frameprops-extended){ title="Source Code" }	
+541	plugins/second-party.md	marker	=== "pip"	=== "pip"	
+542	plugins/second-party.md	marker	=== "uv"	=== "uv"	
+543	plugins/second-party.md	para	This plugin adds more categories and formatters to the built-in [Frame Properties](first-party.md#frame-properties) panel.	该插件为内置的 [Frame Properties](first-party.md#frame-properties) 面板增加更多类别与格式化器。	
+544	plugins/second-party.md	heading	## Split Planes [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/split-planes){ title="Source Code" }	## Split Planes [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/tree/main/src/plugins/split-planes){ title="Source Code" }	
+545	plugins/second-party.md	marker	=== "pip"	=== "pip"	
+546	plugins/second-party.md	marker	=== "uv"	=== "uv"	
+547	plugins/second-party.md	para	Split Planes splits a video clip into its individual planes for inspection.	Split Planes 将视频片段拆分为各个独立平面以便检查。	
+548	plugins/second-party.md	heading	### Features	### 功能	
+549	plugins/second-party.md	item	- Extends the Graphics View's default context menu to provide a way to offset chroma plane values.	- 扩展图形视图的默认右键菜单，提供偏移色度平面数值的方式。	
+550	plugins/third-party.md	heading	# Third-Party Plugins	# 第三方插件	
+551	plugins/third-party.md	para	Third-party plugins are maintained by independent developers.	第三方插件由独立开发者维护。	
+552	plugins/third-party.md	heading	## Overview	## 概览	
+553	plugins/third-party.md	item	- :lucide-box: **Native Resolution**	- :lucide-box: <strong>Native Resolution</strong>	
+554	plugins/third-party.md	para	Descale analysis suite for VSView, featuring `Get Native`, `Get Scaler`, and `Get Frequencies`.	面向 VSView 的反缩放（descale）分析套件，提供 `Get Native`、`Get Scaler` 与 `Get Frequencies`。	
+555	plugins/third-party.md	para	[:lucide-move-right: Details](#native-resolution) · [:fontawesome-brands-github: Source](https://github.com/Jaded-Encoding-Thaumaturgy/native-res)	[:lucide-move-right: 详情](#native-resolution) · [:fontawesome-brands-github: 源码](https://github.com/Jaded-Encoding-Thaumaturgy/native-res)	
+556	plugins/third-party.md	heading	## Native Resolution [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/native-res){ title="Source Code" }	## Native Resolution [ :fontawesome-brands-github: ](https://github.com/Jaded-Encoding-Thaumaturgy/native-res){ title="Source Code" }	
+557	plugins/third-party.md	marker	=== "pip"	=== "pip"	
+558	plugins/third-party.md	marker	=== "uv"	=== "uv"	
+559	plugins/third-party.md	admonition	!!! tip "Installation via Bundle" `vsview-nativeres` is also included in the **full** bundle. You can install it along with all other plugins by using: === "pip" ```bash pip install vsview[full] ``` === "uv" ```bash uv add vsview --extra full ```	!!! tip "通过合集安装" `vsview-nativeres` 也包含在 <strong>full</strong> 合集中。你可以连同所有其他插件一起安装： === "pip" ```bash pip install vsview[full] ``` === "uv" ```bash uv add vsview --extra full ```	
+560	plugins/third-party.md	para	`vsview-nativeres` provides a frontend for [nativeres](https://github.com/Jaded-Encoding-Thaumaturgy/nativeres), allowing resolution analysis within VSView.	`vsview-nativeres` 为 [nativeres](https://github.com/Jaded-Encoding-Thaumaturgy/nativeres) 提供前端，可在 VSView 内分析分辨率。	
+561	plugins/third-party.md	heading	### Features	### 功能	
+562	plugins/third-party.md	item	- **Get Native**: Plots descale error across a specified dimension range.	- <strong>Get Native</strong>：在指定的尺寸范围内绘制反缩放误差曲线。	
+563	plugins/third-party.md	item	- **Get Scaler**: Ranks kernels against target dimensions.	- <strong>Get Scaler</strong>：针对目标尺寸对各个内核（kernel）进行排名。	
+564	plugins/third-party.md	item	- **Get Frequencies**: Visualizes DCT-based frequency distributions.	- <strong>Get Frequencies</strong>：可视化基于 DCT 的频率分布。	
+565	plugins/third-party.md	para	More information can be found in the [nativeres documentation](https://github.com/Jaded-Encoding-Thaumaturgy/nativeres) and [vsview-nativeres documentation](https://github.com/Jaded-Encoding-Thaumaturgy/nativeres/blob/master/src/plugin/README.md).	更多信息见 [nativeres 文档](https://github.com/Jaded-Encoding-Thaumaturgy/nativeres)与 [vsview-nativeres 文档](https://github.com/Jaded-Encoding-Thaumaturgy/nativeres/blob/master/src/plugin/README.md)。	
+566	plugins/third-party.md	heading	### Requirements	### 依赖	
+567	plugins/third-party.md	item	- [**nativeres**](https://github.com/Jaded-Encoding-Thaumaturgy/nativeres)	- [<strong>nativeres</strong>](https://github.com/Jaded-Encoding-Thaumaturgy/nativeres)	
+568	usage/appearance.md	heading	# Appearance	# 外观	
+569	usage/appearance.md	para	Appearance settings configure the application's theme, widget style, icon set, and custom styling.	外观设置用于配置应用的配色方案、控件样式、图标集与自定义样式。	
+570	usage/appearance.md	heading	## Settings Dialog	## Settings 对话框	
+571	usage/appearance.md	para	Open the appearance settings from the menu bar:	从菜单栏打开外观设置：	
+572	usage/appearance.md	item	- **Settings** > **Appearance** (or press <kbd>Ctrl</kbd> + <kbd>,</kbd> / <kbd>Cmd</kbd> + <kbd>,</kbd>)	- <strong>Settings</strong> > <strong>Appearance</strong>（或按 <kbd>Ctrl</kbd> + <kbd>,</kbd> / <kbd>Cmd</kbd> + <kbd>,</kbd>）	
+573	usage/appearance.md	para	Settings are saved to `global_settings.json`.	设置会保存到 `global_settings.json`。	
+574	usage/appearance.md	image	![](../assets/appearance_settings.png){ .lightboxOn }	![](../assets/appearance_settings.png){ .lightboxOn }	
+575	usage/appearance.md	heading	## Options	## 选项	
+576	usage/appearance.md	heading	### Color Scheme	### Color Scheme（配色方案）	
+577	usage/appearance.md	para	Sets the OS-level color scheme.	设置操作系统级别的配色方案。	
+578	usage/appearance.md	item	-  **System Default**: Follows the operating system theme.	-  <strong>System Default</strong>：跟随操作系统主题。	
+579	usage/appearance.md	item	-  **Light**: Forces light mode for window decorations and menus.	-  <strong>Light</strong>：强制窗口装饰与菜单使用浅色模式。	
+580	usage/appearance.md	item	-  **Dark**: Forces dark mode for window decorations and menus.	-  <strong>Dark</strong>：强制窗口装饰与菜单使用深色模式。	
+581	usage/appearance.md	para	Selecting **Light** or **Dark** filters the **Palette Theme** dropdown to matching themes.	选择 <strong>Light</strong> 或 <strong>Dark</strong> 后，<strong>Palette Theme</strong> 下拉列表会筛选出与之匹配的主题。	
+582	usage/appearance.md	heading	### Widget Style	### Widget Style（控件样式）	
+583	usage/appearance.md	para	Sets the Qt widget style (e.g., `Fusion`, `Windows`).	设置 Qt 控件样式（例如 `Fusion`、`Windows`）。	
+584	usage/appearance.md	admonition	!!! tip "Recommended Style" It is recommended to use the **Fusion** widget style when a custom widget style is selected, as it provides the most consistent appearance across all controls.	!!! tip "推荐样式" 在使用自定义控件样式时，推荐选择 <strong>Fusion</strong>， 因为它在所有控件上提供最一致的外观。	
+585	usage/appearance.md	heading	### Palette Theme	### Palette Theme（调色板主题）	
+586	usage/appearance.md	para	Applies a color palette across the UI. The examples below use the Fusion widget style.	为整个界面应用一套配色。以下示例均使用 Fusion 控件样式。	
+587	usage/appearance.md	marker	=== "Stock (Default)"	=== "Stock（默认）"	
+588	usage/appearance.md	image	![](../assets/palette_theme/stock_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/stock_light.png#only-light){ .lightboxOn }	
+589	usage/appearance.md	image	![](../assets/palette_theme/stock_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/stock_dark.png#only-dark){ .lightboxOn }	
+590	usage/appearance.md	marker	=== "Adwaita"	=== "Adwaita"	
+591	usage/appearance.md	image	![](../assets/palette_theme/adwaita_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/adwaita_light.png#only-light){ .lightboxOn }	
+592	usage/appearance.md	image	![](../assets/palette_theme/adwaita_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/adwaita_dark.png#only-dark){ .lightboxOn }	
+593	usage/appearance.md	marker	=== "Atom One Dark"	=== "Atom One Dark"	
+594	usage/appearance.md	image	![](../assets/palette_theme/atom_one.png){ .lightboxOn }	![](../assets/palette_theme/atom_one.png){ .lightboxOn }	
+595	usage/appearance.md	marker	=== "Ayu"	=== "Ayu"	
+596	usage/appearance.md	image	![](../assets/palette_theme/ayu_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/ayu_light.png#only-light){ .lightboxOn }	
+597	usage/appearance.md	image	![](../assets/palette_theme/ayu_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/ayu_dark.png#only-dark){ .lightboxOn }	
+598	usage/appearance.md	marker	=== "Ayu Mirage"	=== "Ayu Mirage"	
+599	usage/appearance.md	image	![](../assets/palette_theme/ayu_mirage.png){ .lightboxOn }	![](../assets/palette_theme/ayu_mirage.png){ .lightboxOn }	
+600	usage/appearance.md	marker	=== "Blender Dark"	=== "Blender Dark"	
+601	usage/appearance.md	image	![](../assets/palette_theme/blender.png){ .lightboxOn }	![](../assets/palette_theme/blender.png){ .lightboxOn }	
+602	usage/appearance.md	marker	=== "Breeze"	=== "Breeze"	
+603	usage/appearance.md	image	![](../assets/palette_theme/breeze_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/breeze_light.png#only-light){ .lightboxOn }	
+604	usage/appearance.md	image	![](../assets/palette_theme/breeze_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/breeze_dark.png#only-dark){ .lightboxOn }	
+605	usage/appearance.md	marker	=== "Catppuccin Frappé"	=== "Catppuccin Frappé"	
+606	usage/appearance.md	image	![](../assets/palette_theme/catppuccin_frappe.png){ .lightboxOn }	![](../assets/palette_theme/catppuccin_frappe.png){ .lightboxOn }	
+607	usage/appearance.md	marker	=== "Catppuccin Macchiato"	=== "Catppuccin Macchiato"	
+608	usage/appearance.md	image	![](../assets/palette_theme/catppuccin_macchiato.png){ .lightboxOn }	![](../assets/palette_theme/catppuccin_macchiato.png){ .lightboxOn }	
+609	usage/appearance.md	marker	=== "Catppuccin Mocha"	=== "Catppuccin Mocha"	
+610	usage/appearance.md	image	![](../assets/palette_theme/catppuccin_latte.png#only-light){ .lightboxOn }	![](../assets/palette_theme/catppuccin_latte.png#only-light){ .lightboxOn }	
+611	usage/appearance.md	image	![](../assets/palette_theme/catppuccin_mocha.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/catppuccin_mocha.png#only-dark){ .lightboxOn }	
+612	usage/appearance.md	marker	=== "Dracula"	=== "Dracula"	
+613	usage/appearance.md	image	![](../assets/palette_theme/dracula.png){ .lightboxOn }	![](../assets/palette_theme/dracula.png){ .lightboxOn }	
+614	usage/appearance.md	marker	=== "Everforest"	=== "Everforest"	
+615	usage/appearance.md	image	![](../assets/palette_theme/everforest_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/everforest_light.png#only-light){ .lightboxOn }	
+616	usage/appearance.md	image	![](../assets/palette_theme/everforest_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/everforest_dark.png#only-dark){ .lightboxOn }	
+617	usage/appearance.md	marker	=== "GitHub"	=== "GitHub"	
+618	usage/appearance.md	image	![](../assets/palette_theme/github_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/github_light.png#only-light){ .lightboxOn }	
+619	usage/appearance.md	image	![](../assets/palette_theme/github_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/github_dark.png#only-dark){ .lightboxOn }	
+620	usage/appearance.md	marker	=== "Gruvbox"	=== "Gruvbox"	
+621	usage/appearance.md	image	![](../assets/palette_theme/gruvbox_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/gruvbox_light.png#only-light){ .lightboxOn }	
+622	usage/appearance.md	image	![](../assets/palette_theme/gruvbox_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/gruvbox_dark.png#only-dark){ .lightboxOn }	
+623	usage/appearance.md	marker	=== "Kanagawa"	=== "Kanagawa"	
+624	usage/appearance.md	image	![](../assets/palette_theme/kanagawa_lotus.png#only-light){ .lightboxOn }	![](../assets/palette_theme/kanagawa_lotus.png#only-light){ .lightboxOn }	
+625	usage/appearance.md	image	![](../assets/palette_theme/kanagawa_wave.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/kanagawa_wave.png#only-dark){ .lightboxOn }	
+626	usage/appearance.md	marker	=== "Kanagawa Dragon"	=== "Kanagawa Dragon"	
+627	usage/appearance.md	image	![](../assets/palette_theme/kanagawa_dragon.png){ .lightboxOn }	![](../assets/palette_theme/kanagawa_dragon.png){ .lightboxOn }	
+628	usage/appearance.md	marker	=== "Modern"	=== "Modern"	
+629	usage/appearance.md	image	![](../assets/palette_theme/modern_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/modern_light.png#only-light){ .lightboxOn }	
+630	usage/appearance.md	image	![](../assets/palette_theme/modern_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/modern_dark.png#only-dark){ .lightboxOn }	
+631	usage/appearance.md	marker	=== "Monokai"	=== "Monokai"	
+632	usage/appearance.md	image	![](../assets/palette_theme/monokai.png){ .lightboxOn }	![](../assets/palette_theme/monokai.png){ .lightboxOn }	
+633	usage/appearance.md	marker	=== "Nord"	=== "Nord"	
+634	usage/appearance.md	image	![](../assets/palette_theme/nord.png){ .lightboxOn }	![](../assets/palette_theme/nord.png){ .lightboxOn }	
+635	usage/appearance.md	marker	=== "One Dark Two"	=== "One Dark Two"	
+636	usage/appearance.md	image	![](../assets/palette_theme/one_dark_two.png){ .lightboxOn }	![](../assets/palette_theme/one_dark_two.png){ .lightboxOn }	
+637	usage/appearance.md	marker	=== "Rosé Pine"	=== "Rosé Pine"	
+638	usage/appearance.md	image	![](../assets/palette_theme/rose_pine_dawn.png#only-light){ .lightboxOn }	![](../assets/palette_theme/rose_pine_dawn.png#only-light){ .lightboxOn }	
+639	usage/appearance.md	image	![](../assets/palette_theme/rose_pine.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/rose_pine.png#only-dark){ .lightboxOn }	
+640	usage/appearance.md	marker	=== "Rosé Pine Moon"	=== "Rosé Pine Moon"	
+641	usage/appearance.md	image	![](../assets/palette_theme/rose_pine_moon.png){ .lightboxOn }	![](../assets/palette_theme/rose_pine_moon.png){ .lightboxOn }	
+642	usage/appearance.md	marker	=== "Solarized"	=== "Solarized"	
+643	usage/appearance.md	image	![](../assets/palette_theme/solarized_light.png#only-light){ .lightboxOn }	![](../assets/palette_theme/solarized_light.png#only-light){ .lightboxOn }	
+644	usage/appearance.md	image	![](../assets/palette_theme/solarized_dark.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/solarized_dark.png#only-dark){ .lightboxOn }	
+645	usage/appearance.md	marker	=== "Tokyo Night"	=== "Tokyo Night"	
+646	usage/appearance.md	image	![](../assets/palette_theme/tokyo_night_day.png#only-light){ .lightboxOn }	![](../assets/palette_theme/tokyo_night_day.png#only-light){ .lightboxOn }	
+647	usage/appearance.md	image	![](../assets/palette_theme/tokyo_night.png#only-dark){ .lightboxOn }	![](../assets/palette_theme/tokyo_night.png#only-dark){ .lightboxOn }	
+648	usage/appearance.md	marker	=== "Tokyo Night Storm"	=== "Tokyo Night Storm"	
+649	usage/appearance.md	image	![](../assets/palette_theme/tokyo_night_storm.png){ .lightboxOn }	![](../assets/palette_theme/tokyo_night_storm.png){ .lightboxOn }	
+650	usage/appearance.md	heading	### Custom Stylesheet	### Custom Stylesheet（自定义样式表）	
+651	usage/appearance.md	para	Applies a custom Qt Style Sheet (`.qss`) file on top of the active style and palette. Leave empty to disable.	在当前样式与调色板之上应用自定义 Qt 样式表（`.qss`）文件。留空表示禁用。	
+652	usage/appearance.md	heading	### Icons	### Icons（图标）	
+653	usage/appearance.md	item	- **Icon Provider**: Selects the icon set.	- <strong>Icon Provider</strong>：选择图标集。	
+654	usage/appearance.md	item	- **Icon Weight**: Sets the stroke weight. Available weights depend on the selected provider.	- <strong>Icon Weight</strong>：设置描边粗细。可选粗细取决于所选的图标提供方。	
+655	usage/appearance.md	heading	## Custom Themes	## 自定义主题	
+656	usage/appearance.md	para	Custom JSON themes can be placed in the `themes` directory inside the settings folder:	自定义 JSON 主题可以放在设置目录下的 `themes` 目录中：	
+657	usage/appearance.md	marker	=== "Windows"	=== "Windows"	
+658	usage/appearance.md	marker	=== "Linux"	=== "Linux"	
+659	usage/appearance.md	marker	=== "macOS"	=== "macOS"	
+660	usage/appearance.md	para	Run `vsview config path` to print your active settings directory.	运行 `vsview config path` 可打印当前生效的设置目录。	
+661	usage/appearance.md	heading	### Format	### 格式	
+662	usage/appearance.md	para	Themes in this directory are loaded automatically on launch.	该目录中的主题会在启动时自动加载。	
+663	usage/color-management.md	heading	# Color Management	# 色彩管理	
+664	usage/color-management.md	para	When displaying VapourSynth clips, **VSView** must convert the output to packed RGB for rendering on the screen.	显示 VapourSynth 片段时，<strong>VSView</strong> 必须先将输出转换为 packed RGB 才能渲染到屏幕上。	
+665	usage/color-management.md	para	By default, this conversion targets the **BT.709** color space (primaries and transfer characteristics) for standard dynamic range (SDR) rendering, but this can be configured globally or overridden per-clip.	默认情况下，这一转换以 <strong>BT.709</strong> 色彩空间（原色与传递特性）为目标，用于标准动态范围（SDR）渲染， 但你可以全局配置，也可以按片段分别覆盖。	
+666	usage/color-management.md	para	If you are working with high dynamic range content (HDR), VSView supports native end-to-end HDR rendering on HDR-capable displays.	处理高动态范围（HDR）内容时，VSView 可在支持 HDR 的显示器上实现原生端到端 HDR 渲染。	
+667	usage/color-management.md	admonition	!!! info "No Tone Mapping" VSView does not perform any tone mapping of HDR content in either SDR or HDR modes. - **In SDR mode**: HDR content and out-of-range values will be clipped to the target SDR gamut (which defaults to BT.709). - **In HDR mode**: Native linear PQ values are converted directly to linear scRGB and passed to the OS compositor. Any tone mapping or luminance mapping (to fit the display's peak brightness) is handled entirely by the OS and the display hardware. This behavior affects preview only. It does not change the source clip in your script.	!!! info "不做色调映射" VSView 在 SDR 与 HDR 模式下都不对 HDR 内容做任何色调映射。 - <strong>在 SDR 模式下</strong>：HDR 内容与超范围数值会被裁剪到目标 SDR 色域（默认为 BT.709）。 - <strong>在 HDR 模式下</strong>：原生线性 PQ 值会被直接转换为线性 scRGB 并交给操作系统合成器。 任何色调映射或亮度映射（以适配显示器峰值亮度）完全由操作系统与显示硬件处理。 该行为只影响预览，不会改变脚本中的源片段。	
+668	usage/color-management.md	heading	## SDR Output Target	## SDR 输出目标	
+669	usage/color-management.md	para	Configure the target color space for SDR rendering.	配置 SDR 渲染的目标色彩空间。	
+670	usage/color-management.md	heading	### Global Settings	### 全局设置	
+671	usage/color-management.md	para	Under **Settings** > **View**:	位于 <strong>Settings</strong> > <strong>View</strong> 下：	
+672	usage/color-management.md	item	- **Output Transfer**: Target transfer characteristics (default: `BT709`).	- <strong>Output Transfer</strong>：目标传递特性（默认：`BT709`）。	
+673	usage/color-management.md	item	- **Output Primaries**: Target color primaries (default: `BT709`).	- <strong>Output Primaries</strong>：目标原色（默认：`BT709`）。	
+674	usage/color-management.md	heading	### Script Override	### 脚本覆盖	
+675	usage/color-management.md	para	Pass `transfer` and/or `primaries` to `set_output()` to override settings per-clip:	向 `set_output()` 传入 `transfer` 和/或 `primaries`，即可按片段覆盖设置：	
+676	usage/color-management.md	heading	## Required Properties	## 必需的帧属性	
+677	usage/color-management.md	para	VSView relies on VapourSynth frame properties [`_Matrix`](https://www.vapoursynth.com/doc/apireference.html#reserved-frame-properties), [`_Primaries`](https://www.vapoursynth.com/doc/apireference.html#reserved-frame-properties) and [`_Transfer`](https://www.vapoursynth.com/doc/apireference.html#reserved-frame-properties) to properly interpret a clip's color space during conversion.	VSView 依赖 VapourSynth 帧属性 [`_Matrix`](https://www.vapoursynth.com/doc/apireference.html#reserved-frame-properties)、 [`_Primaries`](https://www.vapoursynth.com/doc/apireference.html#reserved-frame-properties) 与 [`_Transfer`](https://www.vapoursynth.com/doc/apireference.html#reserved-frame-properties) 来在转换期间正确解释片段的色彩空间。	
+678	usage/color-management.md	para	If these are missing, the conversion may fail or colors may appear incorrect.	如果缺少这些属性，转换可能失败，或颜色显示不正确。	
+679	usage/color-management.md	admonition	!!! info "Explicit Handling" VSView does not infer or "guess" missing properties. You must ensure your clip has the correct properties set, or configure a fallback policy.	!!! info "显式处理" VSView 不会推断或“猜测”缺失的属性。 你必须确保片段设置了正确的属性，或配置一个回退策略。	
+680	usage/color-management.md	heading	## Frame Property Policy	## 帧属性策略	
+681	usage/color-management.md	para	You can control how VSView reacts to missing properties via the **Settings Dialog**.	你可以通过 <strong>Settings 对话框</strong>控制 VSView 对缺失属性的反应方式。	
+682	usage/color-management.md	admonition	!!! danger "YUV Conversion" If the clip's color family is `YUV` and `_Matrix` is unknown or unspecified, VSView will always fail to convert the output to RGB.	!!! danger "YUV 转换" 如果片段的色彩家族为 `YUV` 且 `_Matrix` 未知或未指定，VSView 一定无法将输出转换为 RGB。	
+683	usage/color-management.md	item	- **Error (Default)**	- <strong>Error（默认）</strong>	
+684	usage/color-management.md	para	If `_Transfer`, or `_Primaries` are missing, VSView stops rendering and displays a failure image because VapourSynth does not have enough information to convert between color spaces.	如果缺少 `_Transfer` 或 `_Primaries`，VSView 会停止渲染并显示一张失败提示图， 因为 VapourSynth 没有足够的信息在色彩空间之间转换。	
+685	usage/color-management.md	item	-  **Warn**	-  <strong>Warn</strong>	
+686	usage/color-management.md	para	If `_Transfer` or `_Primaries` are missing, no transfer or primaries conversion is performed and a warning is logged instead.	如果缺少 `_Transfer` 或 `_Primaries`，则不执行传递特性或原色转换，改为记录一条警告日志。	
+687	usage/color-management.md	item	-  **Ignore**	-  <strong>Ignore</strong>	
+688	usage/color-management.md	para	Follows the same steps as **Warn**, but no warnings are emitted to the log.	执行与 <strong>Warn</strong> 相同的步骤，但不向日志输出警告。	
+689	usage/color-management.md	heading	## High Dynamic Range (HDR)	## 高动态范围（HDR）	
+690	usage/color-management.md	para	VSView supports native HDR display output via high bit-depth color conversion and hardware acceleration.	VSView 通过高位深色彩转换与硬件加速，支持原生 HDR 显示输出。	
+691	usage/color-management.md	para	To preview content in HDR, you must meet the following requirements:	要以 HDR 预览内容，必须满足以下条件：	
+692	usage/color-management.md	item	1. **System & Display**: An HDR-capable display must be connected and HDR must be enabled in your operating system settings.	1. <strong>系统与显示器</strong>：已连接支持 HDR 的显示器，并在操作系统设置中启用了 HDR。	
+693	usage/color-management.md	item	2. **Command Line Flag**: Launch VSView with the [`--hdr` CLI option](configuration.md#-hdr) (or set the `VSVIEW_HDR=true` environment variable).	2. <strong>命令行参数</strong>：使用 [`--hdr` 命令行选项](configuration.md#-hdr) 启动 VSView（或设置环境变量 `VSVIEW_HDR=true`）。	
+694	usage/color-management.md	heading	### Script Configuration	### 脚本配置	
+695	usage/color-management.md	para	By default, when `--hdr` is enabled, all outputs will attempt HDR conversion. You can explicitly override this behavior or disable HDR on a per-output basis in your VapourSynth script by passing `hdr=False` to `set_output()`.	默认情况下，启用 `--hdr` 后，所有输出都会尝试 HDR 转换。 你可以在 VapourSynth 脚本中向 `set_output()` 传入 `hdr=False`，显式覆盖该行为，或按输出禁用 HDR。	
+696	usage/configuration.md	heading	# Configuration & CLI	# 配置与命令行	
+697	usage/configuration.md	para	VSView can be configured through **command-line arguments** and **environment variables**.	VSView 可通过<strong>命令行参数</strong>与<strong>环境变量</strong>配置。	
+698	usage/configuration.md	admonition	!!! note Application settings (appearance, timeline, playback, etc.) are managed through the built-in **Settings Dialog** accessible from the menu bar.	!!! note 应用设置（外观、时间轴、播放等）通过菜单栏中的内置 <strong>Settings 对话框</strong>管理。	
+699	usage/configuration.md	heading	## Usage	## 用法	
+700	usage/configuration.md	para	Preview VapourSynth scripts, videos, images and audio in a desktop viewer. Open one or more input files directly, or start without files to open the default workspaces.	在桌面预览器中预览 VapourSynth 脚本、视频、图片与音频。 直接打开一个或多个输入文件，或不带文件启动以打开默认工作区。	
+701	usage/configuration.md	para	`[FILE]...` :   Path to input file(s); video(s), image(s) or script(s). VSView detects the type automatically:	`[FILE]...` :   输入文件路径；可以是视频、图片或脚本。VSView 会自动识别类型：	
+702	usage/configuration.md	item	- `.py` / `.vpy` files open as VapourSynth scripts	- `.py` / `.vpy` 文件作为 VapourSynth 脚本打开	
+703	usage/configuration.md	item	- Everything else opens as a video or image	- 其余文件作为视频或图片打开	
+704	usage/configuration.md	para	If omitted, VSView launches with default workspaces.	若省略，VSView 将以默认工作区启动。	
+705	usage/configuration.md	heading	## Options	## 选项	
+706	usage/configuration.md	heading	#### `--arg` / `-a` `KEY=VALUE`	#### `--arg` / `-a` `KEY=VALUE`	
+707	usage/configuration.md	para	:   Pass an argument to the script environment. Can be specified multiple times.	:   向脚本环境传入一个参数。可重复指定多次。	
+708	usage/configuration.md	para	This follows the same convention as `vspipe --arg`.	这与 `vspipe --arg` 的约定一致。	
+709	usage/configuration.md	para	The script can then access them via `#!python globals()`:	脚本中随后可通过 `#!python globals()` 访问它们：	
+710	usage/configuration.md	admonition	!!! info All values are passed as **strings**. Your script is responsible for any type conversion.	!!! info 所有值都以<strong>字符串</strong>形式传入。 类型转换由脚本自行负责。	
+711	usage/configuration.md	heading	#### `--qt-arg` / `-q` `ARG`	#### `--qt-arg` / `-q` `ARG`	
+712	usage/configuration.md	para	:   Pass an argument directly to the underlying Qt (PySide6) application.	:   将参数直接传给底层的 Qt（PySide6）应用。	
+713	usage/configuration.md	para	You can specify multiple arguments by repeating the flag or by using a quoted string.	可以重复该选项，或使用一个带引号的字符串来传入多个参数。	
+714	usage/configuration.md	heading	#### `--hdr`	#### `--hdr`	
+715	usage/configuration.md	para	:   Enable High Dynamic Range (HDR) support and configure target graphics API (Direct3D12, Vulkan, Metal).	:   启用高动态范围（HDR）支持，并配置目标图形 API（Direct3D12、Vulkan、Metal）。	
+716	usage/configuration.md	para	**Env:** `VSVIEW_HDR`	<strong>环境变量：</strong> `VSVIEW_HDR`	
+717	usage/configuration.md	heading	#### `--verbose` / `-v`	#### `--verbose` / `-v`	
+718	usage/configuration.md	para	:   Enable verbose output. Repeat to increase verbosity (`-vv`, `-vvv`).	:   启用详细输出。重复使用以提高详细程度（`-vv`、`-vvv`）。	
+719	usage/configuration.md	heading	#### `--help`	#### `--help`	
+720	usage/configuration.md	para	:   Print help.	:   打印帮助信息。	
+721	usage/configuration.md	heading	#### `--version`	#### `--version`	
+722	usage/configuration.md	para	:   Show the installed vsview version and exit (or use the `vsview version` command).	:   显示已安装的 vsview 版本并退出（也可使用 `vsview version` 命令）。	
+723	usage/configuration.md	heading	## Workspace Options	## 工作区选项	
+724	usage/configuration.md	heading	#### `--workspace` / `-w` `WORKSPACE`	#### `--workspace` / `-w` `WORKSPACE`	
+725	usage/configuration.md	para	:   Open a specific workspace on startup. Can be specified multiple times to open several at once.	:   启动时打开指定工作区。可重复指定以同时打开多个。	
+726	usage/configuration.md	para	The value is a **workspace slug**. The workspace title lowercased with spaces replaced by hyphens. Built-in slugs:	取值为<strong>工作区标识（slug）</strong>，即工作区标题转为小写并将空格替换为连字符。内置标识：	
+727	usage/configuration.md	item	| Slug           | Workspace               |	| 标识           | 工作区                  |	
+728	usage/configuration.md	item	| `script`       | Python Script workspace |	| `script`       | Python 脚本工作区       |	
+729	usage/configuration.md	item	| `file`         | Video File workspace    |	| `file`         | 视频文件工作区          |	
+730	usage/configuration.md	item	| `quick-script` | Quick Script workspace  |	| `quick-script` | 快速脚本工作区          |	
+731	usage/configuration.md	para	Plugin-provided workspaces are also accepted if the plugin is installed.	若已安装相应插件，也接受插件提供的工作区标识。	
+732	usage/configuration.md	heading	#### `--no-default-workspace`	#### `--no-default-workspace`	
+733	usage/configuration.md	para	:   Start the app without opening any workspace.	:   启动应用时不打开任何工作区。	
+734	usage/configuration.md	para	Suppresses the three default workspaces (Python Script, Video File, Quick Script) that are normally opened when no files or `--workspace` flags are provided.	这会抑制三个默认工作区（Python 脚本、视频文件、快速脚本）， 它们通常在没有提供文件或 `--workspace` 参数时自动打开。	
+735	usage/configuration.md	para	**Env:** `VSVIEW_NO_DEFAULT_WORKSPACE`	<strong>环境变量：</strong> `VSVIEW_NO_DEFAULT_WORKSPACE`	
+736	usage/configuration.md	heading	## Settings Options	## 设置选项	
+737	usage/configuration.md	para	These options control how VSView handles its configuration files.	这些选项控制 VSView 如何处理其配置文件。	
+738	usage/configuration.md	heading	#### `--no-settings`	#### `--no-settings`	
+739	usage/configuration.md	para	:   Run without loading or saving any settings for this session.	:   本次会话不加载也不保存任何设置。	
+740	usage/configuration.md	para	**Env:** `VSVIEW_NO_SETTINGS`	<strong>环境变量：</strong> `VSVIEW_NO_SETTINGS`	
+741	usage/configuration.md	heading	#### `--settings-roaming`	#### `--settings-roaming`	
+742	usage/configuration.md	para	:   **Windows only.** Store global settings in `%APPDATA%\vsview\` instead of `%LOCALAPPDATA%\vsview\`.	:   <strong>仅限 Windows。</strong> 将全局设置保存在 `%APPDATA%\vsview\`，而非 `%LOCALAPPDATA%\vsview\`。	
+743	usage/configuration.md	para	**Env:** `VSVIEW_GLOBAL_SETTINGS_ROAMING`	<strong>环境变量：</strong> `VSVIEW_GLOBAL_SETTINGS_ROAMING`	
+744	usage/configuration.md	heading	#### `--settings-env`	#### `--settings-env`	
+745	usage/configuration.md	para	:   Scope settings to the active Python environment.	:   将设置限定到当前 Python 环境。	
+746	usage/configuration.md	para	Each environment gets its own subdirectory, preventing conflicts across virtual environments.	每个环境拥有独立子目录，避免不同虚拟环境之间产生冲突。	
+747	usage/configuration.md	para	**Env:** `VSVIEW_GLOBAL_SETTINGS_ENVIRONMENT`	<strong>环境变量：</strong> `VSVIEW_GLOBAL_SETTINGS_ENVIRONMENT`	
+748	usage/configuration.md	heading	#### `--settings-env-copy`	#### `--settings-env-copy`	
+749	usage/configuration.md	para	:   If `--settings-env` is set and the scoped file doesn't exist yet, seed it from the base `global_settings.json`.	:   若已设置 `--settings-env`，且限定后的文件尚不存在，则从基础 `global_settings.json` 复制一份作为初始内容。	
+750	usage/configuration.md	para	**Env:** `VSVIEW_GLOBAL_SETTINGS_ENVIRONMENT_COPY`	<strong>环境变量：</strong> `VSVIEW_GLOBAL_SETTINGS_ENVIRONMENT_COPY`	
+751	usage/configuration.md	heading	## Logging Options	## 日志选项	
+752	usage/configuration.md	para	These options control application log verbosity.	这些选项控制应用日志的详细程度。	
+753	usage/configuration.md	heading	#### `--file-log`	#### `--file-log`	
+754	usage/configuration.md	para	:   Enable file logging in the platform's standard log directory.	:   在平台的标准日志目录中启用文件日志。	
+755	usage/configuration.md	item	- `%LOCALAPPDATA%\vsview\Logs` on Windows	- Windows：`%LOCALAPPDATA%\vsview\Logs`	
+756	usage/configuration.md	item	- `~/.local/state/vsview/log` on Linux	- Linux：`~/.local/state/vsview/log`	
+757	usage/configuration.md	item	- `~/Library/Logs/vsview` on macOS	- macOS：`~/Library/Logs/vsview`	
+758	usage/configuration.md	para	**Env:** `VSVIEW_FILE_LOG`	<strong>环境变量：</strong> `VSVIEW_FILE_LOG`	
+759	usage/configuration.md	heading	#### `--vapoursynth-log-level` / `-vs-ll` `LEVEL`	#### `--vapoursynth-log-level` / `-vs-ll` `LEVEL`	
+760	usage/configuration.md	para	:   Set the log level for the VapourSynth core environment. Available levels: `critical`, `fatal`, `error`, `warn`, `warning`, `info`, `debug`, `notset`.	:   设置 VapourSynth 核心环境的日志级别。 可用级别：`critical`、`fatal`、`error`、`warn`、`warning`、`info`、`debug`、`notset`。	
+761	usage/configuration.md	para	Default to `INFO` or verbosity level if `--verbose` is specified.	默认为 `INFO`，或在使用 `--verbose` 时跟随详细程度。	
+762	usage/configuration.md	para	**Env:** `VSVIEW_VS_LOG_LEVEL`	<strong>环境变量：</strong> `VSVIEW_VS_LOG_LEVEL`	
+763	usage/configuration.md	heading	#### `--vsengine-log-level` / `-vse-ll` `LEVEL`	#### `--vsengine-log-level` / `-vse-ll` `LEVEL`	
+764	usage/configuration.md	para	:   Set the log level for the VSEngine subsystem. Available levels: `critical`, `fatal`, `error`, `warn`, `warning`, `info`, `debug`, `notset`.	:   设置 VSEngine 子系统的日志级别。 可用级别：`critical`、`fatal`、`error`、`warn`、`warning`、`info`、`debug`、`notset`。	
+765	usage/configuration.md	para	Default to `INFO`.	默认为 `INFO`。	
+766	usage/configuration.md	para	**Env:** `VSVIEW_VSENGINE_LOG_LEVEL`	<strong>环境变量：</strong> `VSVIEW_VSENGINE_LOG_LEVEL`	
+767	usage/configuration.md	heading	#### `--qt-log-level` / `-qt-ll` `LEVEL`	#### `--qt-log-level` / `-qt-ll` `LEVEL`	
+768	usage/configuration.md	para	:   Set the log level for Qt / PySide6 system messages. Available levels: `critical`, `fatal`, `error`, `warn`, `warning`, `info`, `debug`, `notset`.	:   设置 Qt / PySide6 系统消息的日志级别。 可用级别：`critical`、`fatal`、`error`、`warn`、`warning`、`info`、`debug`、`notset`。	
+769	usage/configuration.md	para	Default to `INFO` or verbosity level if `--verbose` is specified.	默认为 `INFO`，或在使用 `--verbose` 时跟随详细程度。	
+770	usage/configuration.md	para	**Env:** `VSVIEW_QT_LOG_LEVEL`	<strong>环境变量：</strong> `VSVIEW_QT_LOG_LEVEL`	
+771	usage/configuration.md	heading	## Commands	## 命令	
+772	usage/configuration.md	heading	### `vsview help`	### `vsview help`	
+773	usage/configuration.md	para	Print help message or the help of the given subcommand(s).	打印帮助信息，或指定子命令的帮助。	
+774	usage/configuration.md	heading	### `vsview config`	### `vsview config`	
+775	usage/configuration.md	para	Manage the configuration directory via the CLI.	通过命令行管理配置目录。	
+776	usage/configuration.md	heading	#### `vsview config help`	#### `vsview config help`	
+777	usage/configuration.md	para	:   Print this message or the help of the given config subcommand(s).	:   打印本信息或 config 子命令的帮助。	
+778	usage/configuration.md	heading	#### `vsview config path`	#### `vsview config path`	
+779	usage/configuration.md	para	:   Print to stdout the resolved configuration path and exit.	:   将解析后的配置路径输出到标准输出并退出。	
+780	usage/configuration.md	para	Default base directory:	默认基础目录：	
+781	usage/configuration.md	item	- `%LOCALAPPDATA%\vsview\` on Windows	- Windows：`%LOCALAPPDATA%\vsview\`	
+782	usage/configuration.md	item	- `~/.config/vsview/` on Linux	- Linux：`~/.config/vsview/`	
+783	usage/configuration.md	item	- `~/Library/Application Support/vsview/` on macOS	- macOS：`~/Library/Application Support/vsview/`	
+784	usage/configuration.md	heading	#### `vsview config wipe`	#### `vsview config wipe`	
+785	usage/configuration.md	para	:   Delete the configuration path directory (as shown by `vsview config path`) and exit.	:   删除配置目录（即 `vsview config path` 显示的路径）并退出。	
+786	usage/configuration.md	heading	### `vsview settings`	### `vsview settings`	
+787	usage/configuration.md	para	Manage application settings via the CLI.	通过命令行管理应用设置。	
+788	usage/configuration.md	heading	#### `vsview settings help`	#### `vsview settings help`	
+789	usage/configuration.md	para	:   Print this message or the help of the given settings subcommand(s).	:   打印本信息或 settings 子命令的帮助。	
+790	usage/configuration.md	heading	#### `vsview settings path`	#### `vsview settings path`	
+791	usage/configuration.md	para	:   Print to stdout the resolved `global_settings.json` path and exit.	:   将解析后的 `global_settings.json` 路径输出到标准输出并退出。	
+792	usage/configuration.md	para	The resolved path respects environment scoping if `--settings-env` is active.	若 `--settings-env` 生效，解析结果会遵循环境限定。	
+793	usage/configuration.md	para	Default base directory:	默认基础目录：	
+794	usage/configuration.md	item	- `%LOCALAPPDATA%\vsview\` on Windows	- Windows：`%LOCALAPPDATA%\vsview\`	
+795	usage/configuration.md	item	- `~/.config/vsview/` on Linux	- Linux：`~/.config/vsview/`	
+796	usage/configuration.md	item	- `~/Library/Application Support/vsview/` on macOS	- macOS：`~/Library/Application Support/vsview/`	
+797	usage/configuration.md	heading	#### `vsview settings wipe`	#### `vsview settings wipe`	
+798	usage/configuration.md	para	:   Delete the `global_settings.json` file (as shown by `vsview settings path`) and exit.	:   删除 `global_settings.json` 文件（即 `vsview settings path` 显示的路径）并退出。	
+799	usage/configuration.md	heading	### `vsview version`	### `vsview version`	
+800	usage/configuration.md	para	Show the installed vsview version and exit (alternative to `--version`).	显示已安装的 vsview 版本并退出（`--version` 的替代方式）。	
+801	usage/configuration.md	heading	## Standalone Environment Management (`env`)	## 独立环境管理（Standalone Environment Management env）	
+802	usage/configuration.md	para	Pre-built standalone executables feature an embedded Python runtime managed via the `vsview env` CLI command namespace.	预编译的独立可执行文件内置 Python 运行时，由 `vsview env` 命令行命名空间管理。	
+803	usage/configuration.md	heading	### Subcommands	### 子命令	
+804	usage/configuration.md	heading	#### `vsview env pip` `[ARGS]...`	#### `vsview env pip` `[ARGS]...`	
+805	usage/configuration.md	para	:   Directly invoke `pip` using the standalone executable's embedded Python runtime.	:   使用独立可执行文件内置的 Python 运行时直接调用 `pip`。	
+806	usage/configuration.md	para	Use this command to install VapourSynth plugins or other Python dependencies:	可用此命令安装 VapourSynth 插件或其他 Python 依赖：	
+807	usage/configuration.md	marker	=== "PowerShell (Windows)"	=== "PowerShell (Windows)"	
+808	usage/configuration.md	marker	=== "Bash / Zsh (macOS & Linux)"	=== "Bash / Zsh (macOS & Linux)"	
+809	usage/configuration.md	heading	#### `vsview env python` `[ARGS]...`	#### `vsview env python` `[ARGS]...`	
+810	usage/configuration.md	para	:   Directly invoke the standalone executable's embedded Python interpreter.	:   直接调用独立可执行文件内置的 Python 解释器。	
+811	usage/configuration.md	marker	=== "PowerShell (Windows)"	=== "PowerShell (Windows)"	
+812	usage/configuration.md	marker	=== "Bash / Zsh (macOS & Linux)"	=== "Bash / Zsh (macOS & Linux)"	
+813	usage/configuration.md	heading	#### `vsview env python-path`	#### `vsview env python-path`	
+814	usage/configuration.md	para	:   Output the absolute path to the embedded Python executable powering the standalone application and exit.	:   输出驱动独立应用的嵌入式 Python 可执行文件绝对路径并退出。	
+815	usage/configuration.md	marker	=== "PowerShell (Windows)"	=== "PowerShell (Windows)"	
+816	usage/configuration.md	marker	=== "Bash / Zsh (macOS & Linux)"	=== "Bash / Zsh (macOS & Linux)"	
+817	usage/configuration.md	heading	#### `vsview env update`	#### `vsview env update`	
+818	usage/configuration.md	para	:   Upgrades VSView to the latest version inside the standalone executable environment.	:   在独立可执行文件环境中将 VSView 升级到最新版本。	
+819	usage/configuration.md	para	This upgrades `vsview` and its direct dependencies in-place, leaving custom installed packages and plugins intact.	这会就地升级 `vsview` 及其直接依赖，同时保留自行安装的包与插件。	
+820	usage/configuration.md	para	**Options:**	<strong>选项：</strong>	
+821	usage/configuration.md	item	- `--pre`: Allow upgrading to pre-release and development versions.	- `--pre`：允许升级到预发布与开发版本。	
+822	usage/configuration.md	item	- `--restore` / `-r`: Wipe the environment first and perform a clean re-installation with full build extras (e.g. `vsview[all]`).	- `--restore` / `-r`：先清空环境，再以完整构建附加项（如 `vsview[all]`）干净重装。	
+823	usage/configuration.md	marker	=== "PowerShell (Windows)"	=== "PowerShell (Windows)"	
+824	usage/configuration.md	marker	=== "Bash / Zsh (macOS & Linux)"	=== "Bash / Zsh (macOS & Linux)"	
+825	usage/configuration.md	heading	#### `vsview env restore`	#### `vsview env restore`	
+826	usage/configuration.md	para	:   Reset and reinstall the embedded Python environment back to its original clean state.	:   将嵌入式 Python 环境重置并重装为最初的干净状态。	
+827	usage/configuration.md	marker	=== "PowerShell (Windows)"	=== "PowerShell (Windows)"	
+828	usage/configuration.md	marker	=== "Bash / Zsh (macOS & Linux)"	=== "Bash / Zsh (macOS & Linux)"	
+829	usage/configuration.md	heading	#### `vsview env remove`	#### `vsview env remove`	
+830	usage/configuration.md	para	:   Delete the standalone executable's environment directory from disk.	:   从磁盘删除独立可执行文件的环境目录。	
+831	usage/configuration.md	marker	=== "PowerShell (Windows)"	=== "PowerShell (Windows)"	
+832	usage/configuration.md	marker	=== "Bash / Zsh (macOS & Linux)"	=== "Bash / Zsh (macOS & Linux)"	
+833	usage/configuration.md	heading	#### `vsview env cache` `[dist|pip|uv]`	#### `vsview env cache` `[dist|pip|uv]`	
+834	usage/configuration.md	para	:   Inspect or manage cached distribution archives, pip wheels, or uv cache assets used by the standalone executable launcher.	:   查看或管理独立可执行文件启动器使用的分发压缩包、pip wheel 或 uv 缓存资源。	
+835	usage/configuration.md	para	Available cache targets:	可用缓存目标：	
+836	usage/configuration.md	item	* `dist`: Cached compressed Python runtime archive.	* `dist`：缓存的 Python 运行时压缩包。	
+837	usage/configuration.md	item	* `pip`: Cached `pip` wheels and package download artifacts.	* `pip`：缓存的 `pip` wheel 与包下载产物。	
+838	usage/configuration.md	item	* `uv`: Cached `uv` installer binaries and resolution data.	* `uv`：缓存的 `uv` 安装器二进制与解析数据。	
+839	usage/configuration.md	admonition	!!! tip "Safe Disk Cleanup" Removing any cached asset (`--remove` or `-r`) is completely safe and reclaims disk space without affecting your active VSView environment. Archives are automatically recreated or re-downloaded if needed later (e.g. during `restore`).	!!! tip "安全的磁盘清理" 删除任何缓存资源（`--remove` 或 `-r`）都是完全安全的，可回收磁盘空间，且不会影响你当前使用的 VSView 环境。 之后如有需要（例如执行 `restore` 时），压缩包会自动重建或重新下载。	
+840	usage/configuration.md	para	Pass `-r` / `--remove` to wipe a specific cached asset:	传入 `-r` / `--remove` 可清除指定的缓存资源：	
+841	usage/configuration.md	marker	=== "PowerShell (Windows)"	=== "PowerShell (Windows)"	
+842	usage/configuration.md	marker	=== "Bash / Zsh (macOS & Linux)"	=== "Bash / Zsh (macOS & Linux)"	
+843	usage/configuration.md	heading	## Environment Files (.env)	## 环境文件（.env）	
+844	usage/configuration.md	para	VSView automatically searches for and loads `.env` files on startup.	VSView 启动时会自动查找并加载 `.env` 文件。	
+845	usage/configuration.md	para	The search starts from your **current working directory** and moves up through parent directories until a `.env` file is found.	查找从<strong>当前工作目录</strong>开始，逐级向上遍历父目录，直到找到 `.env` 文件为止。	
+846	usage/configuration.md	para	Setting `VSVIEW_NO_DOTENV` will disable .env file loading.	设置 `VSVIEW_NO_DOTENV` 可禁用 .env 文件加载。	
+847	usage/overview.md	heading	# Usage Overview	# 使用概览	
+848	usage/overview.md	para	This page provides an overview of the **VSView** interface and its core components.	本页概述 <strong>VSView</strong> 的界面及其核心组成部分。	
+849	usage/overview.md	heading	## Launching VSView	## 启动 VSView	
+850	usage/overview.md	heading	### Command Line Interface	### 命令行界面	
+851	usage/overview.md	para	**VSView** detects input types automatically based on file extensions.	<strong>VSView</strong> 会根据文件扩展名自动识别输入类型。	
+852	usage/overview.md	item	| Extension                            | Type               |	| 扩展名                               | 类型            |	
+853	usage/overview.md	item	| `.py`, `.vpy`                        | VapourSynth script |	| `.py`、`.vpy`                        | VapourSynth 脚本 |	
+854	usage/overview.md	item	| `.mkv`, `.mp4`, `.png`, `.jpg`, etc. | Video & Image file |	| `.mkv`、`.mp4`、`.png`、`.jpg` 等    | 视频与图片文件   |	
+855	usage/overview.md	admonition	!!! tip "Advanced CLI options & environment variables" VSView supports additional flags for settings management and environment scoping. See the [Configuration & CLI](configuration.md) page for the full reference.	!!! tip "进阶命令行选项与环境变量" VSView 还支持用于设置管理与环境作用域的额外参数。 完整参见[配置与命令行](configuration.md)。	
+856	usage/overview.md	heading	### Registering Outputs in Scripts	### 在脚本中注册输出	
+857	usage/overview.md	para	Register clips in VapourSynth scripts using `set_output()`:	在 VapourSynth 脚本中使用 `set_output()` 注册片段（clip）：	
+858	usage/overview.md	heading	## Interface at a Glance	## 界面速览	
+859	usage/overview.md	para	**VSView** uses a workspace-based layout to organize scripts and files and provides access to integrated tools.	<strong>VSView</strong> 采用工作区（workspace）布局来组织脚本与文件，并提供集成工具的入口。	
+860	usage/overview.md	image	![](../assets/app_overview.png){ .lightboxOn }	![](../assets/app_overview.png){ .lightboxOn }	
+861	usage/overview.md	heading	## 1. The Sidebar	## 1. 侧边栏	
+862	usage/overview.md	para	The sidebar on the left is the main navigation area. Each open workspace is represented by an icon. It can be toggled on or off from the **View** menu if more space is needed for the content area.	左侧边栏是主导航区域。每个已打开的工作区由一个图标表示。 如果内容区域需要更多空间，可以通过 <strong>View</strong> 菜单显示或隐藏侧边栏。	
+863	usage/overview.md	heading	### Navigation & Management	### 导航与管理	
+864	usage/overview.md	item	- **Switching Workspaces**: Click an icon to switch the main content area to that workspace.	- <strong>切换工作区</strong>：点击图标即可将主内容区域切换到对应工作区。	
+865	usage/overview.md	item	- **Reordering**: You can click and drag icons to move them up or down.	- <strong>排序</strong>：可以按住图标拖动，上下调整顺序。	
+866	usage/overview.md	item	- **Context Menu**: Right-click any sidebar icon to access workspace-specific actions:	- <strong>右键菜单</strong>：右键点击任意侧边栏图标，可访问该工作区专属操作：	
+867	usage/overview.md	item	- **Reload**: Refresh the active workspace.	- <strong>Reload</strong>：重新加载当前工作区。	
+868	usage/overview.md	admonition	!!! info "Hot Reloading" When reloading, only **local** Python modules are refreshed. Standard library modules and installed packages (those found in `site-packages`) are skipped to ensure environment stability.	!!! info "热重载" 重新加载时，只会刷新<strong>本地</strong> Python 模块。 标准库模块与已安装的包（即位于 `site-packages` 中的模块）会被跳过，以保证环境稳定。	
+869	usage/overview.md	item	- **Clear**: Reset the workspace to its default state.	- <strong>Clear</strong>：将工作区重置为默认状态。	
+870	usage/overview.md	item	- **Delete**: Close the workspace and free up its resources.	- <strong>Delete</strong>：关闭工作区并释放其占用的资源。	
+871	usage/overview.md	heading	## 2. The Menu Bar	## 2. 菜单栏	
+872	usage/overview.md	para	The top menu bar provides global controls that affect the entire application.	顶部菜单栏提供影响整个应用的全局控制项。	
+873	usage/overview.md	heading	### `New` Menu	### `New` 菜单	
+874	usage/overview.md	para	Bring new content into **VSView**:	向 <strong>VSView</strong> 中载入新内容：	
+875	usage/overview.md	item	- **`Load Script...`**: Open a VapourSynth (`.vpy`) or Python (`.py`) script.	- **`Load Script...`**：打开 VapourSynth（`.vpy`）或 Python（`.py`）脚本。	
+876	usage/overview.md	item	- **`Load File...`**: Open a video or image file.	- **`Load File...`**：打开视频或图片文件。	
+877	usage/overview.md	item	- **Workspace Submenu**: Manually create an empty workspace of a specific type.	- <strong>Workspace 子菜单</strong>：手动创建一个指定类型的空工作区。	
+878	usage/overview.md	heading	### `View` Menu	### `View` 菜单	
+879	usage/overview.md	para	Manage your workspace environment:	管理工作区环境：	
+880	usage/overview.md	item	- **`Sidebar`**: Toggle the visibility of the primary navigation sidebar.	- **`Sidebar`**：显示或隐藏主导航侧边栏。	
+881	usage/overview.md	item	- **`Tool Docks`**: Toggle the visibility of persistent dock tools.	- **`Tool Docks`**：显示或隐藏常驻的停靠工具。	
+882	usage/overview.md	item	- **`Tool Panels`**: Toggle the visibility of tabbed tools.	- **`Tool Panels`**：显示或隐藏以标签页形式呈现的工具面板。	
+883	usage/overview.md	heading	### `Settings`	### `Settings`	
+884	usage/overview.md	para	Opens the **Settings Dialog**, where you can customize shortcuts, application and plugin settings.	打开 <strong>Settings 对话框</strong>，可在其中自定义快捷键、应用设置与插件设置。	
+885	usage/overview.md	heading	## 3. The Main Content Area	## 3. 主内容区域	
+886	usage/overview.md	para	The main area displays the active workspace's content. See [Workspaces](workspaces/workspace.md) for more information.	主区域显示当前工作区的内容。 更多信息参见[工作区](workspaces/workspace.md)。	
+887	usage/vscode.md	heading	# Visual Studio Code Integration	# Visual Studio Code 集成	
+888	usage/vscode.md	para	You can set up a Visual Studio Code task to launch VSView on the file you are currently editing. This is useful for quickly previewing VapourSynth scripts.	可配置 Visual Studio Code 任务，对正在编辑的文件启动 VSView。 这对快速预览 VapourSynth 脚本非常有用。	
+889	usage/vscode.md	heading	## Task configuration	## 任务配置	
+890	usage/vscode.md	para	Create (or extend) `.vscode/tasks.json` in your project:	在项目中创建（或追加）`.vscode/tasks.json`：	
+891	usage/vscode.md	para	`${command:python.interpreterPath}` resolves to the Python interpreter currently selected in Visual Studio Code (via the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)), so the task works regardless of where the virtual environment lives or which platform you are on. Make sure VSView is installed in that interpreter's environment.	`${command:python.interpreterPath}` 会解析为 Visual Studio Code 中当前选中的 Python 解释器（通过 [Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python)）， 因此无论虚拟环境位于何处、使用哪种平台，该任务都能正常工作。 请确保 VSView 已安装在对应解释器的环境中。	
+892	usage/vscode.md	para	With your script open, run the task via **Terminal → Run Task… → VSView**, or bind it to a shortcut by adding a keybinding for `workbench.action.tasks.runTask` with `"args": "VSView"`.	打开脚本后，通过 <strong>Terminal → Run Task… → VSView</strong> 运行该任务， 或为 `workbench.action.tasks.runTask` 添加带 `"args": "VSView"` 的快捷键绑定。	
+893	usage/vscode.md	admonition	!!! warning "Avoid `launch.json` / debugpy" Prefer a task over a debug launch configuration (`type: "debugpy"` in `launch.json`). Running VSView under the debugger can degrade performance and cause deadlocks, especially when breakpoints are set.	!!! warning "避免使用 `launch.json` / debugpy" 请优先使用任务，而不是调试启动配置（`launch.json` 中的 `type: "debugpy"`）。 在调试器下运行 VSView 会降低性能，并可能导致死锁，设置断点时尤其明显。	
+894	usage/workspaces/editor.md	heading	# Editor Workspace	# 编辑器工作区	
+895	usage/workspaces/editor.md	para	The **Editor Workspace** embeds a Monaco-based code editor and integrated Python environment inside **VSView**.	<strong>编辑器工作区</strong>在 <strong>VSView</strong> 中内嵌了基于 Monaco 的代码编辑器与集成 Python 环境。	
+896	usage/workspaces/editor.md	para	It provides script editing, live language server diagnostics, multi-tab file management, and an execution output console alongside the video frame preview.	它在视频帧预览之外，同时提供脚本编辑、语言服务器实时诊断、多标签页文件管理以及执行输出控制台。	
+897	usage/workspaces/editor.md	para	Refer to the [Workspaces Overview](workspace.md) for general workspace layout and viewer controls.	通用工作区布局与查看器控件请参阅[工作区概览](workspace.md)。	
+898	usage/workspaces/editor.md	heading	## Installation	## 安装	
+899	usage/workspaces/editor.md	marker	=== "pip"	=== "pip"	
+900	usage/workspaces/editor.md	marker	=== "uv"	=== "uv"	
+901	usage/workspaces/editor.md	heading	## Workspace Layout	## 工作区布局	
+902	usage/workspaces/editor.md	para	The Editor workspace consists of two main dockable panels:	编辑器工作区由两个主要的可停靠面板组成：	
+903	usage/workspaces/editor.md	item	1. **Code Editor Panel (Left)**: Contains the toolbar, multi-tab bar, Monaco editor viewport, output console, and status bar.	1. <strong>代码编辑面板（左侧）</strong>：包含工具栏、多标签栏、Monaco 编辑器视口、输出控制台与状态栏。	
+904	usage/workspaces/editor.md	item	2. **Preview Stack Panel (Right)**: Displays rendered video frames and playback controls. Refer to the [Workspaces Overview](workspace.md) for general workspace layout and viewer controls.	2. <strong>预览堆栈面板（右侧）</strong>：显示渲染后的视频帧与播放控制。通用工作区布局与查看器控件请参阅[工作区概览](workspace.md)。	
+905	usage/workspaces/editor.md	image	![](../../assets/workspace_editor_layout.png){ .lightboxOn }	![](../../assets/workspace_editor_layout.png){ .lightboxOn }	
+906	usage/workspaces/editor.md	heading	## Toolbar Controls	## 工具栏控件	
+907	usage/workspaces/editor.md	para	The editor toolbar provides access to script management, formatting, and execution controls:	编辑器工具栏提供脚本管理、格式化与执行相关的控件：	
+908	usage/workspaces/editor.md	item	| Icon                      | Control               | Default Shortcut | Action                                                                 |	| 图标                      | 控件                  | 默认快捷键       | 操作                                                                    |	
+909	usage/workspaces/editor.md	item	| :lucide-file-plus:        | **New Script**        | ++ctrl+n++       | Opens a new untitled script tab (`untitled_<id>.py`).                  |	| :lucide-file-plus:        | <strong>New Script</strong>        | ++ctrl+n++       | 打开一个新的未命名脚本标签页（`untitled_<id>.py`）。                    |	
+910	usage/workspaces/editor.md	item	| :lucide-file-down:        | **Open Script**       | ++ctrl+o++       | Displays a file picker to open an existing script.                     |	| :lucide-file-down:        | <strong>Open Script</strong>       | ++ctrl+o++       | 显示文件选择器，打开已有脚本。                                          |	
+911	usage/workspaces/editor.md	item	| :lucide-save:             | **Save Script**       | ++ctrl+s++       | Saves the active tab buffer to disk.                                   |	| :lucide-save:             | <strong>Save Script</strong>       | ++ctrl+s++       | 将当前标签页的缓冲区保存到磁盘。                                        |	
+912	usage/workspaces/editor.md	item	| :lucide-file-up:          | **Save Script As...** | ++ctrl+shift+s++ | Displays a file picker to save the active buffer to a new path.        |	| :lucide-file-up:          | <strong>Save Script As...</strong> | ++ctrl+shift+s++ | 显示文件选择器，将当前缓冲区另存到新路径。                              |	
+913	usage/workspaces/editor.md	item	| :lucide-code:             | **Format Code**       | ++shift+alt+f++  | Formats the active tab code using Ruff.                                |	| :lucide-code:             | <strong>Format Code</strong>       | ++shift+alt+f++  | 使用 Ruff 格式化当前标签页的代码。                                       |	
+914	usage/workspaces/editor.md	item	| :lucide-text-align-start: | **Toggle Word Wrap**  | ++alt+z++        | Toggles soft line wrapping in the editor.                              |	| :lucide-text-align-start: | <strong>Toggle Word Wrap</strong>  | ++alt+z++        | 切换编辑器中的自动换行。                                                |	
+915	usage/workspaces/editor.md	item	| :lucide-square-terminal:  | **Toggle Console**    | ++ctrl+grave++   | Shows or hides the integrated output console.                          |	| :lucide-square-terminal:  | <strong>Toggle Console</strong>    | ++ctrl+grave++   | 显示或隐藏集成输出控制台。                                              |	
+916	usage/workspaces/editor.md	item	| :lucide-play:             | **Run Script**        | ++f5++           | Reloads and executes the designated main script in the preview engine. |	| :lucide-play:             | <strong>Run Script</strong>        | ++f5++           | 重新加载并在预览引擎中执行指定的主脚本。                                 |	
+917	usage/workspaces/editor.md	heading	## Interface Components	## 界面组件	
+918	usage/workspaces/editor.md	heading	### Multi-Tab System	### 多标签页系统	
+919	usage/workspaces/editor.md	para	The tab bar manages open script buffers.	标签栏用于管理已打开的脚本缓冲区。	
+920	usage/workspaces/editor.md	para	The execution target is identified by a `MAIN` badge on the tab. Clicking **Run Script** (++f5++) executes the `MAIN` script regardless of which tab is currently visible.	执行目标由标签页上的 `MAIN` 徽标标识。无论当前显示哪个标签页，点击 <strong>Run Script</strong>（++f5++）都会执行 `MAIN` 脚本。	
+921	usage/workspaces/editor.md	para	Right-click any tab and select **Set as Main Script** to designate it as the execution target.	右键点击任意标签页并选择 <strong>Set as Main Script</strong>，即可将其指定为执行目标。	
+922	usage/workspaces/editor.md	heading	### Monaco Editor Viewport	### Monaco 编辑器视口	
+923	usage/workspaces/editor.md	para	The code viewport is powered by [Monaco Editor](https://github.com/microsoft/monaco-editor), the same code editor that powers VS Code.	代码视口由 [Monaco Editor](https://github.com/microsoft/monaco-editor) 驱动，这与 VS Code 使用的是同一个代码编辑器。	
+924	usage/workspaces/editor.md	item	- **Autocompletion & IntelliSense**: Trigger code suggestions with ++ctrl+space++.	- <strong>自动补全与 IntelliSense</strong>：按 ++ctrl+space++ 触发代码建议。	
+925	usage/workspaces/editor.md	item	- **Hover & Diagnostics**: Hovering over symbols displays docstrings and type signatures. Syntax and type errors are underlined inline.	- <strong>悬停与诊断</strong>：将鼠标悬停在符号上会显示文档字符串与类型签名。语法与类型错误会在行内以下划线标出。	
+926	usage/workspaces/editor.md	item	- **Peek Definition**: Peek definitions with ++ctrl+left-button++.	- <strong>速览定义</strong>：按 ++ctrl+left-button++ 速览定义。	
+927	usage/workspaces/editor.md	item	- **Color Themes**: Customize the editor appearance with built-in Light, Dark, High Contrast, Visual Studio, and GitHub color themes.	- <strong>配色主题</strong>：使用内置的 Light、Dark、High Contrast、Visual Studio 与 GitHub 配色主题自定义编辑器外观。	
+928	usage/workspaces/editor.md	heading	### Output Console	### 输出控制台	
+929	usage/workspaces/editor.md	para	The integrated xterm.js terminal panel displays execution logs.	集成的 xterm.js 终端面板用于显示执行日志。	
+930	usage/workspaces/editor.md	heading	### Status Bar	### 状态栏	
+931	usage/workspaces/editor.md	para	The status bar at the bottom left of the editor dock displays the current cursor line and column position (`Ln X, Col Y`).	编辑器停靠面板左下角的状态栏显示当前光标所在的行与列（`Ln X, Col Y`）。	
+932	usage/workspaces/editor.md	heading	## Language Server (Basedpyright)	## 语言服务器（Basedpyright）	
+933	usage/workspaces/editor.md	para	The workspace runs an embedded instance of the [Basedpyright Language Server](https://github.com/detachhead/basedpyright) in the background.	该工作区会在后台运行 [Basedpyright Language Server](https://github.com/detachhead/basedpyright) 的嵌入实例。	
+934	usage/workspaces/editor.md	para	VapourSynth stubs are automatically generated when the workspace starts. You can also force them to be regenerated by opening the Monaco **Show All Commands** palette with ++f1++ or ++ctrl+shift+p++, and selecting "VapourSynth: Generate Stubs".	工作区启动时会自动生成 VapourSynth 存根（stubs）。 你也可以按 ++f1++ 或 ++ctrl+shift+p++ 打开 Monaco 的 <strong>Show All Commands</strong> 面板， 选择 “VapourSynth: Generate Stubs” 强制重新生成。	
+935	usage/workspaces/editor.md	para	Like any other plugin, the language server can be configured through the **Settings** menu.	与其他插件一样，语言服务器可以通过 <strong>Settings</strong> 菜单进行配置。	
+936	usage/workspaces/editor.md	heading	## Configuration Settings	## 配置项	
+937	usage/workspaces/editor.md	para	The Editor workspace settings can be configured in VSView settings under the `Plugin - Editor` plugin section.	编辑器工作区的设置可在 VSView 设置的 `Plugin - Editor` 插件分区中配置。	
+938	usage/workspaces/file.md	heading	# File Workspace	# 文件工作区	
+939	usage/workspaces/file.md	para	The **File Workspace** is designed for direct media previewing. Most of the functionality is identical to the general workspace model described in the [Workspaces Overview](workspace.md).	<strong>文件工作区</strong>用于直接预览媒体文件。其大部分功能与[工作区概览](workspace.md)中描述的通用工作区模型相同。	
+940	usage/workspaces/file.md	para	However, unlike script-based workspaces, an indexed file supports only a single output.	不过，与基于脚本的工作区不同，一个已建立索引的文件只支持单个输出。	
+941	usage/workspaces/quick-script.md	heading	# Quick Script	# 快速脚本	
+942	usage/workspaces/quick-script.md	para	The **Quick Script** workspace is used for testing and experiments. It provides an environment to write and execute VapourSynth code without creating a dedicated script file.	<strong>快速脚本</strong>工作区用于测试与实验。它无需创建脚本文件，即可编写并执行 VapourSynth 代码。	
+943	usage/workspaces/quick-script.md	para	Refer to the [Workspaces Overview](workspace.md) for general workspace layout and viewer controls.	通用工作区布局与查看器控件请参阅[工作区概览](workspace.md)。	
+944	usage/workspaces/quick-script.md	heading	## Integrated Code Editor	## 内置代码编辑器	
+945	usage/workspaces/quick-script.md	para	The editor is a **dockable widget**, which can be moved, floated, or docked to different sides of the workspace.	编辑器是一个<strong>可停靠控件</strong>，可以移动、浮动，或停靠到工作区的不同侧边。	
+946	usage/workspaces/quick-script.md	heading	### Toolbar Actions	### 工具栏操作	
+947	usage/workspaces/quick-script.md	item	- :lucide-play: **Run script** (++f5++ or ++ctrl+r++): Executes the code. If the script is already running, it triggers a reload.	- :lucide-play: <strong>Run script</strong>（++f5++ 或 ++ctrl+r++）：执行代码。如果脚本已在运行，则会触发重新加载。	
+948	usage/workspaces/quick-script.md	item	- :lucide-save: **Save script to file**: Exports the current code to a `.vpy` file.	- :lucide-save: <strong>Save script to file</strong>：将当前代码导出为 `.vpy` 文件。	
+949	usage/workspaces/quick-script.md	heading	### Themes & Customization	### 主题与自定义	
+950	usage/workspaces/quick-script.md	para	The editor's appearance is configurable in the **Appearance** section of the settings:	编辑器的外观可在设置的 <strong>Appearance</strong> 部分配置：	
+951	usage/workspaces/quick-script.md	item	- **Editor Themes**: Sourced directly from **Pygments**. The available styles can be expanded by adding more Pygments styles to the environment.	- <strong>Editor Themes</strong>：直接取自 <strong>Pygments</strong>。向环境中添加更多 Pygments 样式即可扩展可用主题。	
+952	usage/workspaces/quick-script.md	item	- **UI Elements**: Syntax highlighting, line numbers, and the active line indicator adjust according to the selected theme.	- <strong>UI Elements</strong>：语法高亮、行号与当前行指示会随所选主题自动调整。	
+953	usage/workspaces/quick-script.md	heading	### Key Shortcuts	### 快捷键	
+954	usage/workspaces/quick-script.md	item	| Action           | Shortcut             | Description            |	| 操作             | 快捷键               | 说明                 |	
+955	usage/workspaces/quick-script.md	item	| **Run / Reload** | ++f5++ or ++ctrl+r++ | Executes the code.     |	| <strong>Run / Reload</strong> | ++f5++ 或 ++ctrl+r++ | 执行代码。           |	
+956	usage/workspaces/quick-script.md	item	| **Zoom In/Out**  | ++ctrl++ + **Wheel** | Adjusts the font size. |	| <strong>Zoom In/Out</strong>  | ++ctrl++ + <strong>Wheel</strong> | 调整字体大小。       |	
+957	usage/workspaces/remote.md	heading	# Remote Workspace	# 远程工作区	
+958	usage/workspaces/remote.md	para	The **Remote Workspace** enables remote script execution leveraging [vsremote](https://github.com/Ichunjo/vs-remote). It loads a local script from the client and sends the code to a remote server for execution. The resulting video outputs are streamed back to the client for preview and inspection.	<strong>远程工作区</strong>借助 [vsremote](https://github.com/Ichunjo/vs-remote) 实现远程脚本执行。 它从客户端载入本地脚本，把代码发送到远程服务器执行，再把产生的视频输出流式传回客户端以供预览与检查。	
+959	usage/workspaces/remote.md	para	Refer to the [Workspaces Overview](workspace.md) for general workspace layout and viewer controls.	通用工作区布局与查看器控件请参阅[工作区概览](workspace.md)。	
+960	usage/workspaces/remote.md	heading	## Installation	## 安装	
+961	usage/workspaces/remote.md	marker	=== "uv"	=== "uv"	
+962	usage/workspaces/remote.md	marker	=== "pip"	=== "pip"	
+963	usage/workspaces/remote.md	heading	## Usage	## 用法	
+964	usage/workspaces/remote.md	heading	### 1. Start the Remote Server	### 1. 启动远程服务器	
+965	usage/workspaces/remote.md	para	The server must be started with `--allow-eval` to allow dynamic script execution:	服务器必须以 `--allow-eval` 启动，以允许动态执行脚本：	
+966	usage/workspaces/remote.md	admonition	!!! danger Running with `--allow-eval` permits arbitrary Python code execution on the server. Refer to the [vsremote Security section](https://github.com/Ichunjo/vs-remote#security) for securing the connection (SSH tunneling, CurveZMQ encryption, client whitelisting).	!!! danger 使用 `--allow-eval` 运行意味着允许在服务器上执行任意 Python 代码。 关于如何保护连接（SSH 隧道、CurveZMQ 加密、客户端白名单），请参阅 [vsremote 的安全说明](https://github.com/Ichunjo/vs-remote#security)。	
+967	usage/workspaces/remote.md	heading	### 2. Open Script in VSView	### 2. 在 VSView 中打开脚本	
+968	usage/workspaces/remote.md	para	Open your local `.vpy` or `.py` script via **New &rarr; Workspace &rarr; Remote**.	通过 <strong>New &rarr; Workspace &rarr; Remote</strong> 打开本地的 `.vpy` 或 `.py` 脚本。	
+969	usage/workspaces/remote.md	para	A connection dialog will prompt for server connection details before executing the script. It can be opened at any time using ++ctrl+alt+r++ to reconfigure connection parameters and reload the active script	执行脚本前会弹出连接对话框，要求填写服务器连接信息。 随时可以按 ++ctrl+alt+r++ 重新打开该对话框，修改连接参数并重新加载当前脚本	
+970	usage/workspaces/remote.md	heading	## Configuration Settings	## 配置项	
+971	usage/workspaces/remote.md	para	Plugin preferences can be adjusted in VSView settings under **Plugin &rarr; Remote**. Sensitive values (auth token, Curve secret key) are stored in encrypted plugin secrets.	插件偏好可在 VSView 设置的 <strong>Plugin &rarr; Remote</strong> 中调整。敏感值（auth token、Curve 密钥）会保存在加密的插件密钥存储中。	
+972	usage/workspaces/remote.md	heading	## Authoring Script on Server (Shim)	## 在服务器上编写脚本（Shim）	
+973	usage/workspaces/remote.md	para	If you author and host the script directly on the server (e.g. `vsremote serve script.vpy`), `--allow-eval` is not required. You can connect from a standard Script or Editor workspace using a local shim:	如果你直接在服务器上编写并托管脚本（例如 `vsremote serve script.vpy`），则不需要 `--allow-eval`。 此时可以从标准的脚本工作区或编辑器工作区，通过一个本地 shim 连接：	
+974	usage/workspaces/script.md	heading	# Script Workspace	# 脚本工作区	
+975	usage/workspaces/script.md	para	The **Script Workspace** is the standard environment for working with VapourSynth scripts.	<strong>脚本工作区</strong>是处理 VapourSynth 脚本的标准环境。	
+976	usage/workspaces/script.md	para	Refer to the [Workspaces Overview](workspace.md) for full workspace functionality.	工作区的完整功能请参阅[工作区概览](workspace.md)。	
+977	usage/workspaces/workspace.md	heading	# Workspaces	# 工作区	
+978	usage/workspaces/workspace.md	para	**VSView** currently provides three built-in workspace types, and one plugin workspace type:	<strong>VSView</strong> 目前提供三种内置工作区类型，以及一种插件工作区类型：	
+979	usage/workspaces/workspace.md	item	- [**Script Workspace**](script.md): The primary environment for VapourSynth script development and previewing.	- [<strong>脚本工作区</strong>](script.md)：用于 VapourSynth 脚本开发与预览的主要环境。	
+980	usage/workspaces/workspace.md	item	- [**File Workspace**](file.md): For directly previewing media files without a script.	- [<strong>文件工作区</strong>](file.md)：无需脚本，直接预览媒体文件。	
+981	usage/workspaces/workspace.md	item	- [**Quick Script**](quick-script.md): A workspace for one-off testing and experiments using an integrated code editor.	- [<strong>快速脚本</strong>](quick-script.md)：借助内置代码编辑器进行一次性测试与实验的工作区。	
+982	usage/workspaces/workspace.md	item	- [**Editor Workspace**](editor.md): A workspace for VapourSynth script development using an integrated code editor and Python environment.	- [<strong>编辑器工作区</strong>](editor.md)：借助内置代码编辑器与 Python 环境进行 VapourSynth 脚本开发的工作区。	
+983	usage/workspaces/workspace.md	para	These workspaces share the same core interface. The sections below describe behavior that applies to all three unless stated otherwise.	这些工作区共享同一套核心界面。下文中除特别说明外，描述的行为适用于所有工作区。	
+984	usage/workspaces/workspace.md	heading	## Overview	## 概览	
+985	usage/workspaces/workspace.md	para	When you load a script or file into a workspace, the interface is split into the following areas:	将脚本或文件载入工作区后，界面分为以下几个区域：	
+986	usage/workspaces/workspace.md	image	![](../../assets/workspace_overview.png){ .lightboxOn }	![](../../assets/workspace_overview.png){ .lightboxOn }	
+987	usage/workspaces/workspace.md	item	1. [**Workspace Tabs**](#1-workspace-tabs): Output tabs for the currently loaded script or file.	1. [<strong>工作区标签页</strong>](#1-workspace-tabs)：当前载入的脚本或文件所提供的输出标签页。	
+988	usage/workspaces/workspace.md	item	2. [**Frame Viewer**](#2-frame-viewer): Displays the current frame of the active output.	2. [<strong>帧查看器</strong>](#2-frame-viewer)：显示当前输出的当前帧。	
+989	usage/workspaces/workspace.md	item	3. [**Playback Controls**](#3-playback-controls): Video and audio transport controls.	3. [<strong>播放控制</strong>](#3-playback-controls)：视频与音频的播放操作控件。	
+990	usage/workspaces/workspace.md	item	4. [**Timeline**](#4-timeline): Frame/time navigation for the active output.	4. [<strong>时间轴</strong>](#4-timeline)：当前输出的帧/时间导航。	
+991	usage/workspaces/workspace.md	item	5. [**Tool Docks**](#5-tool-docks): Plugin tools as dockable windows.	5. [<strong>工具停靠面板</strong>](#5-tool-docks)：以可停靠窗口形式呈现的插件工具。	
+992	usage/workspaces/workspace.md	item	6. [**Tool Panels**](#6-tool-panels): Plugin tools as a tabbed side panel.	6. [<strong>工具面板</strong>](#6-tool-panels)：以侧边标签面板形式呈现的插件工具。	
+993	usage/workspaces/workspace.md	item	7. [**Status Bar**](#7-status-bar): Workspace state, media details, and runtime messages.	7. [<strong>状态栏</strong>](#7-status-bar)：工作区状态、媒体信息与运行时消息。	
+994	usage/workspaces/workspace.md	heading	## 1. Workspace Tabs	## 1. 工作区标签页（Workspace Tabs）	
+995	usage/workspaces/workspace.md	para	Workspace tabs represent each available output from the currently loaded source.	工作区标签页对应当前载入源提供的每个输出。	
+996	usage/workspaces/workspace.md	item	- In **Script Workspace** and **Quick Script**, multiple outputs can be exposed and switched with tabs.	- 在<strong>脚本工作区</strong>与<strong>快速脚本</strong>中，可以暴露多个输出并通过标签页切换。	
+997	usage/workspaces/workspace.md	item	- In **File Workspace**, there is only one output tab.	- 在<strong>文件工作区</strong>中，只有一个输出标签页。	
+998	usage/workspaces/workspace.md	item	- Selecting a tab updates the Frame Viewer, Timeline, and related tools to that output.	- 切换标签页时，帧查看器、时间轴以及相关工具都会同步切换到该输出。	
+999	usage/workspaces/workspace.md	para	Additionally, the top-right corner of the tab bar contains buttons that control cross-tab behavior and panel visibility:	此外，标签栏右上角有一组按钮，用于控制跨标签页行为与面板可见性：	
+1000	usage/workspaces/workspace.md	image	![](../../assets/workspace_tab_buttons.png){ loading=lazy }	![](../../assets/workspace_tab_buttons.png){ loading=lazy }	
+1001	usage/workspaces/workspace.md	item	- **Toggle Plugin Tool Docks**: Shows or hides the side Tool Docks area used by plugin tools.	- <strong>Toggle Plugin Tool Docks</strong>：显示或隐藏插件工具使用的侧边工具停靠面板区域。	
+1002	usage/workspaces/workspace.md	item	- **Sync playhead**: Cycles through four modes for cross-tab timeline sync:	- <strong>Sync playhead</strong>：在四种跨标签页时间轴同步模式间循环：	
+1003	usage/workspaces/workspace.md	item	- **Adaptive link**: Follows the current Timeline display mode (Time or Frame).	- <strong>Adaptive link</strong>：跟随当前时间轴的显示模式（时间或帧）。	
+1004	usage/workspaces/workspace.md	item	- **Link by time**: Seeks all tabs to matching timestamps.	- <strong>Link by time</strong>：将所有标签页定位到相同时间戳。	
+1005	usage/workspaces/workspace.md	item	- **Link by frame**: Seeks all tabs to matching frame numbers.	- <strong>Link by frame</strong>：将所有标签页定位到相同帧号。	
+1006	usage/workspaces/workspace.md	item	- **Unlink**: Disables cross-tab playhead sync. The tooltip updates live to show the current active mode.	- <strong>Unlink</strong>：关闭跨标签页播放头同步。 工具提示会实时更新，显示当前生效的模式。	
+1007	usage/workspaces/workspace.md	item	- **Sync zoom**: Links zoom level across outputs. Zooming in one tab applies the same zoom to all tabs.	- <strong>Sync zoom</strong>：联动各输出的缩放级别。在任一标签页缩放，所有标签页都会应用相同缩放。	
+1008	usage/workspaces/workspace.md	item	- **Sync scroll**: Links pan/scroll position across outputs. Panning in one tab updates the viewed region in all tabs.	- <strong>Sync scroll</strong>：联动各输出的平移/滚动位置。在任一标签页平移，所有标签页都会更新查看区域。	
+1009	usage/workspaces/workspace.md	item	- **Autofit all views**: Automatically fits each output to the Frame Viewer viewport when enabled.	- <strong>Autofit all views</strong>：启用后自动将每个输出适配到帧查看器视口。	
+1010	usage/workspaces/workspace.md	item	- **Toggle Plugin Tool Panel**: Shows or hides the side Tool Panel area used by plugin tools.	- <strong>Toggle Plugin Tool Panel</strong>：显示或隐藏插件工具使用的侧边工具面板区域。	
+1011	usage/workspaces/workspace.md	heading	## 2. Frame Viewer	## 2. 帧查看器（Frame Viewer）	
+1012	usage/workspaces/workspace.md	para	The Frame Viewer is the main preview area. It displays the current frame from the active output tab. Any playback action, play, scrub, or step forward/backward, refreshes this view in real time.	帧查看器是主要的预览区域。 它显示当前输出标签页的当前帧。 任何播放操作（播放、拖动、单帧前进/后退）都会实时刷新该视图。	
+1013	usage/workspaces/workspace.md	para	Right-clicking the displayed frame opens the following context menu:	在显示的帧上点击右键，会打开以下上下文菜单：	
+1014	usage/workspaces/workspace.md	image	![](../../assets/frame_viewer_context_menu.png){ loading=lazy }	![](../../assets/frame_viewer_context_menu.png){ loading=lazy }	
+1015	usage/workspaces/workspace.md	item	- **Zoom**: Zoom in and out. Also available via **++ctrl++** + **mouse wheel**.	- <strong>Zoom</strong>：放大与缩小。也可通过 <strong>++ctrl++</strong> + <strong>鼠标滚轮</strong> 操作。	
+1016	usage/workspaces/workspace.md	item	- **Autofit**: Fits the current output to the Frame Viewer viewport.	- <strong>Autofit</strong>：将当前输出适配到帧查看器视口。	
+1017	usage/workspaces/workspace.md	item	- **Toggle SAR**: Toggles display of sample aspect ratio (SAR) correction for the current output (available only when SAR is not 1:1).	- <strong>Toggle SAR</strong>：切换当前输出的采样宽高比（SAR）校正显示（仅当 SAR 不为 1:1 时可用）。	
+1018	usage/workspaces/workspace.md	item	- **Save Current Image**: Opens a save dialog and writes the currently displayed frame to disk.	- <strong>Save Current Image</strong>：打开保存对话框，将当前显示的帧写入磁盘。	
+1019	usage/workspaces/workspace.md	item	- **Copy Image to Clipboard**: Copies the currently displayed frame to the system clipboard.	- <strong>Copy Image to Clipboard</strong>：将当前显示的帧复制到系统剪贴板。	
+1020	usage/workspaces/workspace.md	heading	## 3. Playback Controls	## 3. 播放控制（Playback Controls）	
+1021	usage/workspaces/workspace.md	para	Playback Controls combine transport buttons, direct navigation fields, and audio controls.	播放控制区集合了播放按钮、直接跳转输入框与音频控制。	
+1022	usage/workspaces/workspace.md	image	![](../../assets/playback_controls.png){ loading=lazy }	![](../../assets/playback_controls.png){ loading=lazy }	
+1023	usage/workspaces/workspace.md	item	- **Seek N Backward / Forward**: Jumps by the configured seek step.	- <strong>Seek N Backward / Forward</strong>：按配置的跳转步长前后跳转。	
+1024	usage/workspaces/workspace.md	item	- **Seek 1 Backward / Forward**: Moves exactly one frame.	- <strong>Seek 1 Backward / Forward</strong>：精确移动一帧。	
+1025	usage/workspaces/workspace.md	item	- **Play / Pause**: Starts or stops playback. During playback, seek buttons and time/frame fields are disabled, but Play / Pause remains available to stop playback.	- <strong>Play / Pause</strong>：开始或停止播放。播放期间，跳转按钮与时间/帧输入框会被禁用，但 Play / Pause 仍可用于停止播放。	
+1026	usage/workspaces/workspace.md	item	- **Time field**: Seeks directly to a specific timestamp.	- <strong>时间输入框</strong>：直接跳转到指定时间戳。	
+1027	usage/workspaces/workspace.md	item	- **Frame field**: Seeks directly to a specific frame number.	- <strong>帧输入框</strong>：直接跳转到指定帧号。	
+1028	usage/workspaces/workspace.md	item	- **Mute + Volume**: Toggles mute and adjusts playback volume (enabled only when audio outputs are available).	- <strong>Mute + Volume</strong>：切换静音并调整播放音量（仅在存在音频输出时可用）。	
+1029	usage/workspaces/workspace.md	para	Right-click the Playback Controls area for advanced settings:	在播放控制区域点击右键可打开进阶设置：	
+1030	usage/workspaces/workspace.md	image	![](../../assets/playback_controls_context_menu.png){ loading=lazy }	![](../../assets/playback_controls_context_menu.png){ loading=lazy }	
+1031	usage/workspaces/workspace.md	item	- **Seek Step**: Sets the N-frame jump size, with **Reset to Global** to restore the default value from the global settings.	- <strong>Seek Step</strong>：设置 N 帧的跳转步长，并提供 <strong>Reset to Global</strong> 以恢复全局设置中的默认值。	
+1032	usage/workspaces/workspace.md	item	- **Speed Limit**: Sets playback speed from 0.25x to 8.00x in 0.25x steps, with a reset button for 1.00x.	- <strong>Speed Limit</strong>：设置 0.25x 至 8.00x 的播放速度，步进为 0.25x，并提供恢复 1.00x 的重置按钮。	
+1033	usage/workspaces/workspace.md	item	- **Uncap FPS**: Removes the speed limit.	- <strong>Uncap FPS</strong>：取消速度上限。	
+1034	usage/workspaces/workspace.md	item	- **Zone Playback**: Defines a zone by time/frame, then plays that zone with optional **Loop** and configurable **Play Step** (negative values allowed!).	- <strong>Zone Playback</strong>：按时间/帧定义区间，然后播放该区间，可选 <strong>Loop</strong> 以及可配置的 <strong>Play Step</strong>（允许负值！）。	
+1035	usage/workspaces/workspace.md	item	- **Audio Output / Delay**: Selects audio output and adjusts sync delay (-10000 ms to +10000 ms), with **Reset to Global** to restore the default value from the global settings.	- <strong>Audio Output / Delay</strong>：选择音频输出并调整同步延迟（-10000 ms 至 +10000 ms），并提供 <strong>Reset to Global</strong> 以恢复全局设置中的默认值。	
+1036	usage/workspaces/workspace.md	heading	## 4. Timeline	## 4. 时间轴（Timeline）	
+1037	usage/workspaces/workspace.md	para	The Timeline provides precise navigation and visual reference markers for the active output.	时间轴为当前输出提供精确导航与可视化参考标记。	
+1038	usage/workspaces/workspace.md	item	- **Scrub with left-click + drag** on the timeline bar to seek interactively.	- <strong>左键按住拖动</strong>时间轴条即可交互式跳转。	
+1039	usage/workspaces/workspace.md	item	- **Hover preview**: Moving the mouse over the timeline shows the current hover position as frame/time; optional hover zoom can be enabled in timeline settings.	- <strong>悬停预览</strong>：鼠标移过时间轴时，会以帧/时间形式显示当前悬停位置；可在时间轴设置中启用悬停放大。	
+1040	usage/workspaces/workspace.md	item	- **Frame / Time display modes**: The scale and labels can be shown as frame numbers or timestamps.	- <strong>帧/时间显示模式</strong>：刻度与标签可以按帧号或时间戳显示。	
+1041	usage/workspaces/workspace.md	item	- **Custom markers/notches**: Plugins and tools can add timeline markers (for example, bookmarks/keyframe-like markers), including optional ranges.	- <strong>自定义标记/刻度（notches）</strong>：插件与工具可以向时间轴添加标记（例如书签、类似关键帧的标记），并支持可选区间。	
+1042	usage/workspaces/workspace.md	para	Right-click the Timeline to switch display mode:	在时间轴上点击右键可切换显示模式：	
+1043	usage/workspaces/workspace.md	item	- **Frame**: Shows frame-based scale labels.	- <strong>Frame</strong>：显示基于帧的刻度标签。	
+1044	usage/workspaces/workspace.md	item	- **Time**: Shows timestamp-based scale labels.	- <strong>Time</strong>：显示基于时间戳的刻度标签。	
+1045	usage/workspaces/workspace.md	heading	## 5. Tool Docks	## 5. 工具停靠面板（Tool Docks）	
+1046	usage/workspaces/workspace.md	para	Tool docks are movable plugin windows attached to the workspace layout. You can drag a dock by its title bar to reposition it, dock it to an edge, stack it with other docks, or leave it floating as a separate window.	工具停靠面板是附着在工作区布局中的可移动插件窗口。 你可以拖动标题栏重新定位、将其停靠到边缘、与其他停靠面板堆叠，或将其浮动为独立窗口。	
+1047	usage/workspaces/workspace.md	para	You can also toggle their visibility by using the **Toggle Plugin Tool Docks** button in the [Workspace Tabs](#1-workspace-tabs).	也可以使用[工作区标签页](#1-workspace-tabs)中的 <strong>Toggle Plugin Tool Docks</strong> 按钮切换其可见性。	
+1048	usage/workspaces/workspace.md	para	Your browser does not support the video tag.	你的浏览器不支持 video 标签。	
+1049	usage/workspaces/workspace.md	para	See [Plugins](../../plugins/overview.md) for more information.	更多信息参见[插件](../../plugins/overview.md)。	
+1050	usage/workspaces/workspace.md	heading	## 6. Tool Panels	## 6. 工具面板（Tool Panels）	
+1051	usage/workspaces/workspace.md	para	Tool Panels provide the same plugin tooling in a compact tabbed panel located on the right side of the workspace.	工具面板以位于工作区右侧的紧凑标签面板形式，提供相同的插件工具。	
+1052	usage/workspaces/workspace.md	para	The panel is part of a **horizontal splitter**, which means you can click and drag the handle between the main content and the panel to resize it.	该面板属于一个<strong>水平分隔器</strong>，因此你可以拖动主内容区与面板之间的手柄来调整其大小。	
+1053	usage/workspaces/workspace.md	para	You can also hide the panel by dragging it to the edge or by using the **Toggle Plugin Tool Panel** button in the [Workspace Tabs](#1-workspace-tabs).	也可以将其拖到边缘，或使用[工作区标签页](#1-workspace-tabs)中的 <strong>Toggle Plugin Tool Panel</strong> 按钮来隐藏面板。	
+1054	usage/workspaces/workspace.md	para	Your browser does not support the video tag.	你的浏览器不支持 video 标签。	
+1055	usage/workspaces/workspace.md	para	See [Plugins](../../plugins/overview.md) for more information.	更多信息参见[插件](../../plugins/overview.md)。	
+1056	usage/workspaces/workspace.md	heading	## 7. Status Bar	## 7. 状态栏（Status Bar）	
+1057	usage/workspaces/workspace.md	para	The Status Bar shows live information about the active workspace / output	状态栏实时显示当前工作区/输出的信息	
+1058	usage/workspaces/workspace.md	item	- Runtime/log messages for the workspace and its associated plugins.	- 工作区及其关联插件的运行时/日志消息。	
+1059	usage/workspaces/workspace.md	item	- Contextual media information for the selected output.	- 所选输出的上下文媒体信息。	
+1060	translation.md	heading		# 关于本翻译	中文版专有页面，无英文原文
+1061	translation.md	para		本页说明这份简体中文文档的范围、约定、同步方式与许可。	中文版专有页面，无英文原文
+1062	translation.md	admonition		!!! warning "非官方翻译" 本翻译由社区维护，<strong>不是</strong> VSView 官方文档。 上游项目：[Jaded-Encoding-Thaumaturgy/vs-view](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view) · 英文原文：[jaded-encoding-thaumaturgy.github.io/vs-view](https://jaded-encoding-thaumaturgy.github.io/vs-view/) 遇到与英文原文不一致之处，<strong>以英文原文为准</strong>。	中文版专有页面，无英文原文
+1063	translation.md	heading		## 翻译基线	中文版专有页面，无英文原文
+1064	translation.md	item		- 对应上游提交：[`f30eb89`](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/commit/f30eb89)（`cli: add config path management commands`）	中文版专有页面，无英文原文
+1065	translation.md	item		- 对应上游分支：`main`	中文版专有页面，无英文原文
+1066	translation.md	item		- 基线日期：2026-10-21	中文版专有页面，无英文原文
+1067	translation.md	para		文档更新频繁，本翻译不承诺与上游实时同步。	中文版专有页面，无英文原文
+1068	translation.md	heading		## 翻译范围	中文版专有页面，无英文原文
+1069	translation.md	item		| 内容 | 是否翻译 | 说明 |	中文版专有页面，无英文原文
+1070	translation.md	item		| 使用文档、安装、配置、插件介绍 | 是 | 全部页面 |	中文版专有页面，无英文原文
+1071	translation.md	item		| 导航与页面标题 | 是 | `zensical.zh.toml` 中的 `nav` |	中文版专有页面，无英文原文
+1072	translation.md	item		| 页面内截图 | 否 | 沿用英文截图，图中界面为英文 |	中文版专有页面，无英文原文
+1073	translation.md	item		| API 参考页正文 | 否 | 由 `mkdocstrings` 从源码 docstring 生成，保留英文更利于对照 |	中文版专有页面，无英文原文
+1074	translation.md	item		| API 参考页的标题与说明 | 是 | 仅翻译页面标题与引导语，`:::` 指令与成员列表不动 |	中文版专有页面，无英文原文
+1075	translation.md	item		| 代码块、命令、路径、配置键、标识符 | 否 | 原样保留；注释在不影响复制粘贴的前提下可译为中文 |	中文版专有页面，无英文原文
+1076	translation.md	item		| 应用界面文本 | 部分 | 见下文“应用内汉化” |	中文版专有页面，无英文原文
+1077	translation.md	item		| 命令行 `--help` 输出 | 否 | 见下文 |	中文版专有页面，无英文原文
+1078	translation.md	item		| 日志与异常信息 | 否 | 见下文 |	中文版专有页面，无英文原文
+1079	translation.md	heading		## 应用内汉化	中文版专有页面，无英文原文
+1080	translation.md	para		上游代码目前<strong>没有任何 i18n 基础设施</strong>（无 `QTranslator`、无 `.ts/.qm`、无 `tr()` 包裹、无语言设置项），界面字符串硬编码在 Python 源码中。	中文版专有页面，无英文原文
+1081	translation.md	para		本分支因此新增了一个最小化、可选、默认关闭的翻译层：	中文版专有页面，无英文原文
+1082	translation.md	item		- `src/vsview/i18n.py`：基于英文原文键的查表翻译，未命中时原样返回英文。	中文版专有页面，无英文原文
+1083	translation.md	item		- `src/vsview/locales/zh_CN.json`：翻译目录。	中文版专有页面，无英文原文
+1084	translation.md	item		- 语言通过环境变量 `VSVIEW_LANG=zh_CN` 选择；默认仍为英文，因此不改变上游行为。	中文版专有页面，无英文原文
+1085	translation.md	admonition		!!! note "为什么用环境变量而不是设置项" 新增“语言”设置项需要改动设置模型、默认值、迁移逻辑与设置 UI，属于独立议题。 在维护者确认方向前，环境变量可以最小化改动面，也便于 A/B 对照。	中文版专有页面，无英文原文
+1086	translation.md	heading		### 刻意不翻译的部分	中文版专有页面，无英文原文
+1087	translation.md	item		- <strong>命令行帮助文本</strong>：`--help` 由 `cyclopts` 从 docstring 与参数声明生成，翻译需要重构 CLI 元数据。开发者在终端中通常也需要与英文文档/issue 中的选项名对照。	中文版专有页面，无英文原文
+1088	translation.md	item		- <strong>日志与异常</strong>：保持英文，便于向上游提交 issue、搜索已有报告，也避免翻译破坏日志解析。	中文版专有页面，无英文原文
+1089	translation.md	item		- <strong>第三方插件界面</strong>：其字符串不在本仓库中，无法在本分支翻译。	中文版专有页面，无英文原文
+1090	translation.md	item		- **`vspackrgb` / `histogram` 的 Rust 部分**：不涉及用户界面文本。	中文版专有页面，无英文原文
+1091	translation.md	heading		## 术语表	中文版专有页面，无英文原文
+1092	translation.md	item		| 英文 | 中文 | 备注 |	中文版专有页面，无英文原文
+1093	translation.md	item		| workspace | 工作区 | |	中文版专有页面，无英文原文
+1094	translation.md	item		| tool dock | 工具停靠面板 | 可停靠窗口 |	中文版专有页面，无英文原文
+1095	translation.md	item		| tool panel | 工具面板 | 标签式侧栏 |	中文版专有页面，无英文原文
+1096	translation.md	item		| output | 输出 | `set_output` 注册的节点 |	中文版专有页面，无英文原文
+1097	translation.md	item		| clip | 片段 | VapourSynth 节点 |	中文版专有页面，无英文原文
+1098	translation.md	item		| frame | 帧 | |	中文版专有页面，无英文原文
+1099	translation.md	item		| frame properties / frameprops | 帧属性 | |	中文版专有页面，无英文原文
+1100	translation.md	item		| timeline | 时间轴 | |	中文版专有页面，无英文原文
+1101	translation.md	item		| playhead | 播放头 | |	中文版专有页面，无英文原文
+1102	translation.md	item		| notch | 刻度 | 时间轴标记 |	中文版专有页面，无英文原文
+1103	translation.md	item		| scening | 场景标记 | 工具名保留原样 |	中文版专有页面，无英文原文
+1104	translation.md	item		| region selector | 区域选择器 | 工具名保留原样 |	中文版专有页面，无英文原文
+1105	translation.md	item		| color picker | 取色器 | 工具名保留原样 |	中文版专有页面，无英文原文
+1106	translation.md	item		| plane | 平面 | 如 Y/U/V 平面 |	中文版专有页面，无英文原文
+1107	translation.md	item		| chroma | 色度 | |	中文版专有页面，无英文原文
+1108	translation.md	item		| luma | 亮度 | |	中文版专有页面，无英文原文
+1109	translation.md	item		| primaries | 原色 | 色彩管理语境 |	中文版专有页面，无英文原文
+1110	translation.md	item		| transfer (characteristics) | 传递特性 | |	中文版专有页面，无英文原文
+1111	translation.md	item		| matrix | 矩阵 | 色彩矩阵 |	中文版专有页面，无英文原文
+1112	translation.md	item		| range | 范围 / 区间 | 视频范围用“范围”，时间轴用“区间” |	中文版专有页面，无英文原文
+1113	translation.md	item		| tone mapping | 色调映射 | |	中文版专有页面，无英文原文
+1114	translation.md	item		| descale | 反缩放 | |	中文版专有页面，无英文原文
+1115	translation.md	item		| kernel | 内核 | 缩放内核 |	中文版专有页面，无英文原文
+1116	translation.md	item		| dither | 抖动 | |	中文版专有页面，无英文原文
+1117	translation.md	item		| sample type | 采样类型 | |	中文版专有页面，无英文原文
+1118	translation.md	item		| shortcut | 快捷键 | |	中文版专有页面，无英文原文
+1119	translation.md	item		| settings dialog | Settings 对话框 | 界面名保留英文 |	中文版专有页面，无英文原文
+1120	translation.md	item		| bundle (recommended/full) | 合集 | pip extra |	中文版专有页面，无英文原文
+1121	translation.md	para		界面元素名（如 `Settings`、`Mark in`、`Levels`）在正文中保留英文，避免与截图不一致。启用中文界面后，应用内会显示对应中文文本（例如 `Settings` 显示为“设置”），对照时请以英文原文与上方术语表为准。	中文版专有页面，无英文原文
+1122	translation.md	heading		## 同步与维护	中文版专有页面，无英文原文
+1123	translation.md	item		1. 拉取上游 `main`，对比 `docs/` 的变更：	中文版专有页面，无英文原文
+1124	translation.md	item		2. 对发生变更的英文页面，更新 `docs/zh/` 中对应文件。	中文版专有页面，无英文原文
+1125	translation.md	item		3. 更新本页“翻译基线”中的提交号与日期。	中文版专有页面，无英文原文
+1126	translation.md	item		4. 重新构建并检查：	中文版专有页面，无英文原文
+1127	translation.md	heading		## 许可	中文版专有页面，无英文原文
+1128	translation.md	para		本翻译与上游一致，采用 <strong>EUPL-1.2</strong> 许可。原始文档版权归 Jaded Encoding Thaumaturgy 所有。	中文版专有页面，无英文原文
+1129	translation.md	heading		## 已知的上游文档问题	中文版专有页面，无英文原文
+1130	translation.md	para		翻译时发现但<strong>未擅自修改</strong>的原文问题，供上游参考：	中文版专有页面，无英文原文
+1131	translation.md	item		- `docs/usage/workspaces/workspace.md` 列出四种工作区，但正文写 “applies to all three”。	中文版专有页面，无英文原文
+1132	translation.md	item		- `docs/plugins/first-party.md` 中 Audio Convert 一节写 “target bidepth”，应为 “bit depth”。	中文版专有页面，无英文原文
+1133	translation.md	item		- `docs/installation.md` 的 Linux 示例命令写作 `/VSView env pip install ...`，缺少可执行文件的相对路径前缀（同一页其他示例使用 `./VSView`）。	中文版专有页面，无英文原文
+1134	translation.md	heading		## 反馈	中文版专有页面，无英文原文
+1135	translation.md	item		- 文档翻译问题：请在本仓库提交 issue。	中文版专有页面，无英文原文
+1136	translation.md	item		- VSView 本身的问题：请提交到[上游仓库](https://github.com/Jaded-Encoding-Thaumaturgy/vs-view/issues)。	中文版专有页面，无英文原文

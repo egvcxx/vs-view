@@ -31,6 +31,7 @@ from PySide6.QtWidgets import (
 )
 
 from ...assets import IconName
+from ...i18n import tr
 from ..icon import IconReloadMixin
 from ..views.components import Accordion
 from .manager import SettingsManager
@@ -265,7 +266,7 @@ class SettingsDialog(QDialog, IconReloadMixin):
         self._wheel_filter = WheelEventFilter(self)
         self._updating_shortcuts_ui = False
 
-        self.setWindowTitle("Settings")
+        self.setWindowTitle(tr("Settings"))
         self.setMinimumSize(750, 550)
         self.resize(950, 650)
 
@@ -311,15 +312,15 @@ class SettingsDialog(QDialog, IconReloadMixin):
         # Update shortcut conflicts
         self._on_shortcut_changed()
 
-        self.tab_widget.addTab(self.global_tab, "Global")
-        self.tab_widget.addTab(self.local_tab, "Local")
-        self.tab_widget.addTab(self.shortcuts_tab, "Shortcuts")
+        self.tab_widget.addTab(self.global_tab, tr("Global"))
+        self.tab_widget.addTab(self.local_tab, tr("Local"))
+        self.tab_widget.addTab(self.shortcuts_tab, tr("Shortcuts"))
         self.global_tab.tree.setFocus()
 
         # Disable local tab if no script path
         if self._script_path is None:
             self.tab_widget.setTabEnabled(1, False)
-            self.tab_widget.setTabToolTip(1, "Load a script to configure local settings")
+            self.tab_widget.setTabToolTip(1, tr("Load a script to configure local settings"))
 
         # Can't set the parent on this one
         button_layout = QHBoxLayout()
@@ -337,7 +338,11 @@ class SettingsDialog(QDialog, IconReloadMixin):
         self.button_box.accepted.connect(self._on_ok)
         self.button_box.rejected.connect(self.reject)
 
+        self.button_box.button(QDialogButtonBox.StandardButton.Ok).setText(tr("OK"))
+        self.button_box.button(QDialogButtonBox.StandardButton.Cancel).setText(tr("Cancel"))
+
         if apply_btn := self.button_box.button(QDialogButtonBox.StandardButton.Apply):
+            apply_btn.setText(tr("Apply"))
             apply_btn.clicked.connect(self._on_apply)
 
         button_layout.addWidget(self.button_box)
@@ -372,7 +377,7 @@ class SettingsDialog(QDialog, IconReloadMixin):
                 self._global_widgets[entry.key] = widget
                 self._apply_wheel_filter(widget)
 
-                form.addRow(f"{entry.metadata.label}:", widget)
+                form.addRow(f"{tr(entry.metadata.label)}:", widget)
 
         return tab
 
@@ -424,7 +429,7 @@ class SettingsDialog(QDialog, IconReloadMixin):
                     row_layout.addWidget(editor)
 
                     reset_btn = self.make_tool_button(
-                        IconName.ARROW_U_TOP_LEFT, f"Reset to default: {definition.default_key or 'None'}"
+                        IconName.ARROW_U_TOP_LEFT, f"{tr('Reset to default')}: {definition.default_key or tr('None')}"
                     )
                     reset_btn.clicked.connect(lambda checked=False, aid=aid: self._reset_shortcut(aid))
                     row_layout.addWidget(reset_btn)
@@ -432,7 +437,7 @@ class SettingsDialog(QDialog, IconReloadMixin):
                     conflict_label = QLabel(self)
                     conflict_label.setFixedWidth(20)
                     conflict_label.setStyleSheet("color: #e74c3c; font-weight: bold;")
-                    conflict_label.setToolTip("This shortcut conflicts with another action")
+                    conflict_label.setToolTip(tr("This shortcut conflicts with another action"))
                     row_layout.addWidget(conflict_label)
 
                     row_layout.addStretch()
@@ -480,7 +485,7 @@ class SettingsDialog(QDialog, IconReloadMixin):
                     continue
                 self._local_widgets[entry.key] = widget
                 self._apply_wheel_filter(widget)
-                form.addRow(f"{entry.metadata.label}:", widget)
+                form.addRow(f"{tr(entry.metadata.label)}:", widget)
 
         return tab
 
@@ -662,7 +667,7 @@ class SettingsDialog(QDialog, IconReloadMixin):
                     for other_aid in key_to_actions[key]
                     if other_aid != aid
                 ]
-                conflict_label.setToolTip(f"Conflicts with: {', '.join(conflicting_with)}")
+                conflict_label.setToolTip(f"{tr('Conflicts with')}: {', '.join(conflicting_with)}")
 
     @cachedproperty
     def _default_shortcuts(self) -> dict[str, QKeySequence]:

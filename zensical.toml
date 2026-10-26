@@ -363,6 +363,9 @@ link = "https://discord.com/invite/XTpc6Fa9eB"
 
 [project.extra]
 generator = false
+alternate = [
+  { name = "简体中文", link = "/zh/", lang = "zh" },
+]
 
 [project.markdown_extensions.abbr]
 [project.markdown_extensions.admonition]

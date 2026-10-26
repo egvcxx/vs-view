@@ -63,6 +63,7 @@ from vsengine import UnifiedFuture
 from vsengine.loops import set_loop
 
 from ..assets import app_icon, load_fonts
+from ..i18n import tr
 from ..vsenv import QtEventLoop, get_policy, unregister_policy
 from .icon import IconReloadMixin
 from .plugins.manager import PluginManager
@@ -213,28 +214,28 @@ class MainWindow(QMainWindow):
         self.menu_bar = self.menuBar()
         self.menu_bar.setNativeMenuBar(False)
 
-        self.new_menu = self.menu_bar.addMenu("New")
+        self.new_menu = self.menu_bar.addMenu(tr("New"))
 
-        self.load_script_action = QAction("Load Script...", self.new_menu)
+        self.load_script_action = QAction(tr("Load Script..."), self.new_menu)
         self.load_script_action.triggered.connect(self._on_load_script)
         self.new_menu.addAction(self.load_script_action)
 
-        self.load_file_action = QAction("Load File...", self.new_menu)
+        self.load_file_action = QAction(tr("Load File..."), self.new_menu)
         self.load_file_action.triggered.connect(self._on_load_file)
         self.new_menu.addAction(self.load_file_action)
 
-        self.workspace_submenu = QMenu("Workspace", self.new_menu)
+        self.workspace_submenu = QMenu(tr("Workspace"), self.new_menu)
         self.new_menu.addMenu(self.workspace_submenu)
 
-        self.script_subaction = QAction(PythonScriptWorkspace.title, self.workspace_submenu)
+        self.script_subaction = QAction(tr(PythonScriptWorkspace.title), self.workspace_submenu)
         self.script_subaction.triggered.connect(lambda: self.add_workspace(PythonScriptWorkspace))
         self.workspace_submenu.addAction(self.script_subaction)
 
-        self.file_subaction = QAction(VideoFileWorkspace.title, self.workspace_submenu)
+        self.file_subaction = QAction(tr(VideoFileWorkspace.title), self.workspace_submenu)
         self.file_subaction.triggered.connect(lambda: self.add_workspace(VideoFileWorkspace))
         self.workspace_submenu.addAction(self.file_subaction)
 
-        self.quick_script_subaction = QAction(QuickScriptWorkspace.title, self.workspace_submenu)
+        self.quick_script_subaction = QAction(tr(QuickScriptWorkspace.title), self.workspace_submenu)
         self.quick_script_subaction.triggered.connect(lambda: self.add_workspace(QuickScriptWorkspace))
         self.workspace_submenu.addAction(self.quick_script_subaction)
 
@@ -243,10 +244,10 @@ class MainWindow(QMainWindow):
             Qt.ConnectionType.SingleShotConnection,
         )
 
-        self.view_menu = self.menu_bar.addMenu("View")
+        self.view_menu = self.menu_bar.addMenu(tr("View"))
 
         self.view_sidebar_action = QAction(
-            "Sidebar",
+            tr("Sidebar"),
             self.view_menu,
             checkable=True,
             checked=self.settings_manager.global_settings.appearance.sidebar_visible,
@@ -255,30 +256,30 @@ class MainWindow(QMainWindow):
         self.view_menu.addAction(self.view_sidebar_action)
         self.view_menu.addSeparator()
 
-        self.view_tooldocks_submenu = QMenu("Tool Docks", self.view_menu)
+        self.view_tooldocks_submenu = QMenu(tr("Tool Docks"), self.view_menu)
         self.view_tooldocks_submenu.aboutToShow.connect(self._populate_tooldocks_menu)
         self.view_menu.addMenu(self.view_tooldocks_submenu)
 
-        self.view_toolpanels_submenu = QMenu("Tool Panels", self.view_menu)
+        self.view_toolpanels_submenu = QMenu(tr("Tool Panels"), self.view_menu)
         self.view_toolpanels_submenu.aboutToShow.connect(self._populate_toolpanels_menu)
         self.view_menu.addMenu(self.view_toolpanels_submenu)
 
-        self.settings_action = QAction("Settings", self)
+        self.settings_action = QAction(tr("Settings"), self)
         self.settings_action.triggered.connect(self._on_open_settings_when_plugins_loaded)
         self.menu_bar.addAction(self.settings_action)
 
-        self.help_menu = self.menu_bar.addMenu("Help")
+        self.help_menu = self.menu_bar.addMenu(tr("Help"))
 
-        self.help_doc_act = QAction("Documentation", self)
+        self.help_doc_act = QAction(tr("Documentation"), self)
         self.help_doc_act.triggered.connect(
             lambda: QDesktopServices.openUrl("https://jaded-encoding-thaumaturgy.github.io/vs-view/usage/overview/")
         )
         self.help_menu.addAction(self.help_doc_act)
 
-        self.help_usage_submenu = QMenu("Workspace", self)
+        self.help_usage_submenu = QMenu(tr("Workspace"), self)
         self.help_menu.addMenu(self.help_usage_submenu)
 
-        self.help_usage_workspace_act = QAction("Workspaces", self)
+        self.help_usage_workspace_act = QAction(tr("Workspaces"), self)
         self.help_usage_workspace_act.triggered.connect(
             lambda: QDesktopServices.openUrl(
                 "https://jaded-encoding-thaumaturgy.github.io/vs-view/usage/workspaces/workspace/"
@@ -286,7 +287,7 @@ class MainWindow(QMainWindow):
         )
         self.help_usage_submenu.addAction(self.help_usage_workspace_act)
 
-        self.help_usage_color_management_act = QAction("Color Management", self)
+        self.help_usage_color_management_act = QAction(tr("Color Management"), self)
         self.help_usage_color_management_act.triggered.connect(
             lambda: QDesktopServices.openUrl(
                 "https://jaded-encoding-thaumaturgy.github.io/vs-view/usage/color-management/"
@@ -294,7 +295,7 @@ class MainWindow(QMainWindow):
         )
         self.help_usage_submenu.addAction(self.help_usage_color_management_act)
 
-        self.help_usage_config_act = QAction("Configuration", self)
+        self.help_usage_config_act = QAction(tr("Configuration"), self)
         self.help_usage_config_act.triggered.connect(
             lambda: QDesktopServices.openUrl(
                 "https://jaded-encoding-thaumaturgy.github.io/vs-view/usage/configuration/"
@@ -302,13 +303,13 @@ class MainWindow(QMainWindow):
         )
         self.help_usage_submenu.addAction(self.help_usage_config_act)
 
-        self.help_usage_plugins_act = QAction("Plugins", self)
+        self.help_usage_plugins_act = QAction(tr("Plugins"), self)
         self.help_usage_plugins_act.triggered.connect(
             lambda: QDesktopServices.openUrl("https://jaded-encoding-thaumaturgy.github.io/vs-view/plugins/overview/")
         )
         self.help_menu.addAction(self.help_usage_plugins_act)
 
-        self.help_usage_contributing_act = QAction("Contributing", self)
+        self.help_usage_contributing_act = QAction(tr("Contributing"), self)
         self.help_usage_contributing_act.triggered.connect(
             lambda: QDesktopServices.openUrl("https://jaded-encoding-thaumaturgy.github.io/vs-view/contributing/")
         )
@@ -375,7 +376,7 @@ class MainWindow(QMainWindow):
         self.disconnect_workspace()
         workspace = workspace_t(self)
 
-        btn = WorkspaceToolButton(self, workspace.title, workspace)
+        btn = WorkspaceToolButton(self, tr(workspace.title), workspace)
         btn.customContextMenuRequested.connect(self._on_sidebar_context_menu_requested)
 
         self.nav_container.add_button(btn)
@@ -603,7 +604,7 @@ class MainWindow(QMainWindow):
             self.workspace_submenu.addSeparator()
 
             for wk_t in self.plugin_manager.workspaces:
-                subaction = QAction(wk_t.title, self.workspace_submenu)
+                subaction = QAction(tr(wk_t.title), self.workspace_submenu)
                 subaction.triggered.connect(partial(self.add_workspace, wk_t))
                 self.workspace_submenu.addAction(subaction)
 
@@ -629,7 +630,7 @@ class MainWindow(QMainWindow):
 
         for i, plugin in enumerate(plugins):
             action = QAction(
-                plugin.display_name,
+                tr(plugin.display_name),
                 menu,
                 checkable=True,
                 checked=settings.get(plugin.identifier, True),

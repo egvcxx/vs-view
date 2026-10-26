@@ -16,6 +16,7 @@ from vsview.api import (
     WidgetPluginBase,
     run_in_loop,
 )
+from vsview.i18n import tr
 
 from .settings import GlobalSettings
 from .utils import CommandLabel, CommandRow, CropValues, CustomRect, CustomSize
@@ -71,7 +72,7 @@ class RegionSelectorPlugin(WidgetPluginBase[GlobalSettings], IconReloadMixin):
         top_bar_layout.addStretch()
         self.main_layout.addLayout(top_bar_layout)
 
-        self.info_group = QGroupBox("Selection Details", self)
+        self.info_group = QGroupBox(tr("Selection Details"), self)
         self.info_grid = QGridLayout(self.info_group)
         self.info_grid.setContentsMargins(8, 8, 8, 8)
         self.info_grid.setSpacing(8)
@@ -86,7 +87,7 @@ class RegionSelectorPlugin(WidgetPluginBase[GlobalSettings], IconReloadMixin):
         self.main_layout.addWidget(self.info_group)
 
         self.cmd_group = QGroupBox(
-            "Command" + ("s" if len(self.settings.global_.code_format) > 1 else ""),
+            tr("Commands") if len(self.settings.global_.code_format) > 1 else tr("Command"),
             self,
         )
         self.cmd_group_layout = QVBoxLayout(self.cmd_group)

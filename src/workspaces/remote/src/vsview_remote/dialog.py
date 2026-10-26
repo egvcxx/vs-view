@@ -23,6 +23,7 @@ from vsengine import UnifiedFuture
 from vsremote import RemoteAuthenticationError, RemoteClient, RemoteTimeoutError, TransportError, VSRemoteError
 
 from vsview.api import CustomSpinBox, PluginSecrets, PluginSettings, run_in_background, run_in_loop
+from vsview.i18n import tr
 
 from ._metadata import AUTH_CONTEXT, AUTH_KEY, CURVE_CONTEXT, CURVE_KEY
 from .settings import GlobalSettings
@@ -34,7 +35,7 @@ class RemoteConnectionDialog(QDialog):
     def __init__(self, parent: QWidget, settings: PluginSettings[GlobalSettings], secrets: PluginSecrets) -> None:
         super().__init__(parent)
 
-        self.setWindowTitle("VSRemote Connection")
+        self.setWindowTitle(tr("VSRemote Connection"))
         self.setMinimumWidth(500)
         self.setModal(True)
 
@@ -46,7 +47,7 @@ class RemoteConnectionDialog(QDialog):
         main_layout.setSpacing(8)
         main_layout.setContentsMargins(12, 12, 12, 12)
 
-        main_layout.addWidget(QLabel("Configure connection details", self, wordWrap=True))
+        main_layout.addWidget(QLabel(tr("Configure connection details"), self, wordWrap=True))
 
         # Connection parameters form
         form_frame = QFrame(self, frameShape=QFrame.Shape.StyledPanel)
@@ -68,25 +69,25 @@ class RemoteConnectionDialog(QDialog):
         self.compression_combo.setCurrentText(self.settings.global_.compression)
 
         self.prefetch_spin = QSpinBox(form_frame, minimum=0, maximum=64, value=self.settings.global_.prefetch)
-        self.prefetch_spin.setToolTip("Number of frames to prefetch ahead of time (0 to disable)")
+        self.prefetch_spin.setToolTip(tr("Number of frames to prefetch ahead of time (0 to disable)"))
 
         self.backlog_spin = CustomSpinBox(form_frame, min_text="Default")
         self.backlog_spin.setRange(0, 128)
         self.backlog_spin.setValue(self.settings.global_.backlog or 0)
-        self.backlog_spin.setToolTip("Maximum buffer of in-flight and prefetched frames")
+        self.backlog_spin.setToolTip(tr("Maximum buffer of in-flight and prefetched frames"))
 
         self.forward_logs_cb = QCheckBox(form_frame)
         self.forward_logs_cb.setChecked(self.settings.global_.forward_logs)
         self.subscribe_streams_cb = QCheckBox(form_frame)
         self.subscribe_streams_cb.setChecked(self.settings.global_.subscribe_streams)
 
-        form_layout.addRow("Host", self.address_edit)
-        form_layout.addRow("Auth Token", self.token_edit)
-        form_layout.addRow("Compression", self.compression_combo)
-        form_layout.addRow("Prefetch Frames", self.prefetch_spin)
-        form_layout.addRow("Backlog Buffer", self.backlog_spin)
-        form_layout.addRow("Forward remote server log records", self.forward_logs_cb)
-        form_layout.addRow("Subscribe remote stdout / stderr streams", self.subscribe_streams_cb)
+        form_layout.addRow(tr("Host"), self.address_edit)
+        form_layout.addRow(tr("Auth Token"), self.token_edit)
+        form_layout.addRow(tr("Compression"), self.compression_combo)
+        form_layout.addRow(tr("Prefetch Frames"), self.prefetch_spin)
+        form_layout.addRow(tr("Backlog Buffer"), self.backlog_spin)
+        form_layout.addRow(tr("Forward remote server log records"), self.forward_logs_cb)
+        form_layout.addRow(tr("Subscribe remote stdout / stderr streams"), self.subscribe_streams_cb)
         main_layout.addWidget(form_frame)
 
         # CurveZMQ Encryption Section
@@ -117,10 +118,10 @@ class RemoteConnectionDialog(QDialog):
         self.curve_secret_key_edit.setText(self.curve_secret_key)
         self._on_curve_toggled(self.use_curve_cb.isChecked())
 
-        form_layout2.addRow("Enable CurveZMQ end-to-end encryption", self.use_curve_cb)
-        form_layout2.addRow("Server key", self.curve_server_key_edit)
-        form_layout2.addRow("Client public key", self.curve_public_key_edit)
-        form_layout2.addRow("Client secret key", self.curve_secret_key_edit)
+        form_layout2.addRow(tr("Enable CurveZMQ end-to-end encryption"), self.use_curve_cb)
+        form_layout2.addRow(tr("Server key"), self.curve_server_key_edit)
+        form_layout2.addRow(tr("Client public key"), self.curve_public_key_edit)
+        form_layout2.addRow(tr("Client secret key"), self.curve_secret_key_edit)
         main_layout.addWidget(form_frame2)
 
         # Test Connection Section
@@ -129,7 +130,7 @@ class RemoteConnectionDialog(QDialog):
         test_layout.setContentsMargins(0, 4, 0, 4)
         test_layout.setSpacing(8)
 
-        self.test_btn = QPushButton("Test Connection", test_container)
+        self.test_btn = QPushButton(tr("Test Connection"), test_container)
         self.test_btn.clicked.connect(self._on_test_connection_clicked)
         test_layout.addWidget(self.test_btn)
 
@@ -142,7 +143,7 @@ class RemoteConnectionDialog(QDialog):
         self.button_box = QDialogButtonBox(
             QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel, self
         )
-        self.button_box.button(QDialogButtonBox.StandardButton.Ok).setText("Connect")
+        self.button_box.button(QDialogButtonBox.StandardButton.Ok).setText(tr("Connect"))
         self.button_box.accepted.connect(self.accept)
         self.button_box.rejected.connect(self.reject)
         main_layout.addWidget(self.button_box)

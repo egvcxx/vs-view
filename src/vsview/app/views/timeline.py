@@ -66,6 +66,7 @@ from PySide6.QtWidgets import (
 )
 
 from ...assets import IconName
+from ...i18n import tr
 from ...types import Frame, Time
 from ...vsenv import run_in_loop
 from ..icon import IconReloadMixin
@@ -530,7 +531,7 @@ class Timeline(QWidget):
         self.context_menu = QMenu(self)
 
         # Segmented control for mode selection
-        self.mode_selector = SegmentedControl(["Frame", "Time"], self)
+        self.mode_selector = SegmentedControl([tr("Frame"), tr("Time")], self)
         self.mode_selector.index = self.MODES.index(self._mode)
         self.mode_selector.segmentChanged.connect(self._on_mode_segment_changed)
 
@@ -1290,7 +1291,7 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         seek_step_layout = QHBoxLayout(seek_step_widget)
         seek_step_layout.setContentsMargins(8, 4, 8, 4)
 
-        seek_step_layout.addWidget(QLabel("Seek Step", seek_step_widget))
+        seek_step_layout.addWidget(QLabel(tr("Seek Step"), seek_step_widget))
 
         self.seek_step_spinbox = QSpinBox(seek_step_widget)
         self.seek_step_spinbox.setMinimum(1)
@@ -1302,7 +1303,7 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         seek_step_action.setDefaultWidget(seek_step_widget)
         self.context_menu.addAction(seek_step_action)
 
-        self.reset_seek_step_to_global_action = self.context_menu.addAction("Reset to Global")
+        self.reset_seek_step_to_global_action = self.context_menu.addAction(tr("Reset to Global"))
         self.reset_seek_step_to_global_action.triggered.connect(self._on_reset_seek_step)
 
         self.context_menu.addSeparator()
@@ -1322,7 +1323,7 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         self.speed_slider.valueChanged.connect(self._on_speed_slider_changed)
         self.speed_slider_max = 8.0
 
-        self.speed_reset_btn = self.make_tool_button(IconName.ARROW_U_TOP_LEFT, "Reset to 1.0x", speed_widget)
+        self.speed_reset_btn = self.make_tool_button(IconName.ARROW_U_TOP_LEFT, tr("Reset to 1.0x"), speed_widget)
         self.speed_reset_btn.clicked.connect(self._on_reset_speed)
 
         speed_row = QWidget(speed_widget)
@@ -1332,7 +1333,7 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         speed_row_layout.addWidget(self.speed_slider)
         speed_row_layout.addWidget(self.speed_reset_btn)
 
-        self.uncap_checkbox = QCheckBox("Uncap FPS")
+        self.uncap_checkbox = QCheckBox(tr("Uncap FPS"))
         self.uncap_checkbox.toggled.connect(self._on_uncap_changed)
 
         uncap_row = QWidget(speed_widget)
@@ -1341,7 +1342,7 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         uncap_row_layout.addStretch()
         uncap_row_layout.addWidget(self.uncap_checkbox)
 
-        speed_layout.addRow("Speed Limit", speed_row)
+        speed_layout.addRow(tr("Speed Limit"), speed_row)
         speed_layout.addRow(uncap_row)
 
         speed_action = QWidgetAction(self.context_menu)
@@ -1375,17 +1376,17 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         zone_edits_layout.addWidget(self.zone_frame_spinbox)
 
         # Play zone button
-        self.play_zone_btn = self.make_tool_button(IconName.PLAY, "Play Zone", zone_widget)
+        self.play_zone_btn = self.make_tool_button(IconName.PLAY, tr("Play Zone"), zone_widget)
         self.play_zone_btn.clicked.connect(self._on_play_zone_clicked)
 
         # Loop checkbox
-        self.loop_checkbox = QCheckBox("Loop")
+        self.loop_checkbox = QCheckBox(tr("Loop"))
         self.loop_checkbox.toggled.connect(self._on_loop_changed)
 
         # Step spinbox
         self.step_frame_spinbox = StepSpinBox(zone_widget, minimum=-1_000_000, maximum=1_000_000, value=1)
         self.step_frame_spinbox.setFixedWidth(90)
-        self.step_frame_spinbox.setToolTip("Step size (negative values are allowed)")
+        self.step_frame_spinbox.setToolTip(tr("Step size (negative values are allowed)"))
         self.step_frame_spinbox.valueChanged.connect(self._on_step_changed)
 
         # Row with play step
@@ -1405,8 +1406,8 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         zone_controls_layout.addWidget(self.play_zone_btn)
         zone_controls_layout.addWidget(self.loop_checkbox)
 
-        zone_layout.addRow("Zone Time/Frame", zone_edits_row)
-        zone_layout.addRow("Play Step", zone_play_step_row)
+        zone_layout.addRow(tr("Zone Time/Frame"), zone_edits_row)
+        zone_layout.addRow(tr("Play Step"), zone_play_step_row)
         zone_layout.addRow(zone_controls_row)
 
         zone_action = QWidgetAction(self.context_menu)
@@ -1423,7 +1424,7 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         audio_layout.setContentsMargins(6, 6, 6, 6)
 
         self.audio_output_combo = QComboBox(self.audio_widget)
-        audio_layout.addRow("Audio Output", self.audio_output_combo)
+        audio_layout.addRow(tr("Audio Output"), self.audio_output_combo)
 
         self.audio_delay_combo = QDoubleSpinBox(
             self.audio_widget,
@@ -1435,7 +1436,7 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         )
         self.audio_delay_combo.valueChanged.connect(self._on_audio_delay_changed)
         audio_delay_layout = QHBoxLayout()
-        audio_delay_layout.addWidget(QLabel("Delay", self.audio_widget))
+        audio_delay_layout.addWidget(QLabel(tr("Delay"), self.audio_widget))
         audio_delay_layout.addWidget(self.audio_delay_combo)
         audio_layout.addRow(audio_delay_layout)
 
@@ -1443,7 +1444,7 @@ class PlaybackContainer(QWidget, IconReloadMixin):
         audio_action.setDefaultWidget(self.audio_widget)
         self.context_menu.addAction(audio_action)
 
-        self.reset_audio_delay_to_global_action = self.context_menu.addAction("Reset to Global")
+        self.reset_audio_delay_to_global_action = self.context_menu.addAction(tr("Reset to Global"))
         self.reset_audio_delay_to_global_action.triggered.connect(self._on_reset_audio_delay)
 
     def _update_mute_icon(self) -> None:

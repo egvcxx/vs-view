@@ -20,6 +20,7 @@ from vsview.api import (
     WidgetPluginBase,
     hookimpl,
 )
+from vsview.i18n import tr
 
 
 class GlobalSettings(BaseModel):
@@ -151,7 +152,7 @@ class SplitPlanesView(PluginGraphicsView):
         self.offset_spinbox.setSingleStep(0.1)
         self.offset_spinbox.setDecimals(3)
         self.offset_spinbox.setValue(0.0)
-        self.offset_spinbox.setToolTip("Fixed offset value for chroma planes")
+        self.offset_spinbox.setToolTip(tr("Fixed offset value for chroma planes"))
         spinbox_layout.addWidget(self.offset_spinbox)
 
         layout.addWidget(self.fixed_spinbox_container)

@@ -45,6 +45,7 @@ from vsview.api import (
     WidgetPluginBase,
     run_in_background,
 )
+from vsview.i18n import tr
 
 from . import specs
 from .constants import PLUGIN_DISPLAY_NAME, PLUGIN_IDENTIFIER
@@ -191,7 +192,7 @@ class SceningPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconReloadM
         scenes_layout.addWidget(self.scenes_toolbar)
 
         self.new_scene_action = self.make_action(IconName.PLUS, "Create a new scene", self.scenes_container)
-        self.new_scene_action.setText("Create new scene")
+        self.new_scene_action.setText(tr("Create new scene"))
         self.new_scene_action.triggered.connect(self.on_new_scene)
         self.scenes_toolbar.addAction(self.new_scene_action)
 
@@ -200,7 +201,7 @@ class SceningPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconReloadM
             "Import a file suitable for scening",
             self.scenes_container,
         )
-        self.import_scene_action.setText("Import scene...")
+        self.import_scene_action.setText(tr("Import scene..."))
         self.import_scene_action.triggered.connect(self.on_import_scene)
         self.scenes_toolbar.addAction(self.import_scene_action)
 
@@ -209,7 +210,7 @@ class SceningPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconReloadM
             "Export a scene to a supported format",
             self.scenes_container,
         )
-        self.export_scene_action.setText("Export scene...")
+        self.export_scene_action.setText(tr("Export scene..."))
         self.export_scene_action.setDisabled(True)
         self.export_scene_action.triggered.connect(self.on_export_scene)
         self.scenes_toolbar.addAction(self.export_scene_action)
@@ -327,7 +328,7 @@ class SceningPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconReloadM
         self.ranges_view.customContextMenuRequested.connect(self._on_ranges_context_menu)
 
         self.copy_frames_action = QAction(
-            "Copy frames",
+            tr("Copy frames"),
             self.ranges_view,
             shortcut=QKeySequence(QKeySequence.StandardKey.Copy),
             shortcutContext=Qt.ShortcutContext.WidgetShortcut,
@@ -846,19 +847,21 @@ class SceningPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconReloadM
 
         menu = QMenu(self.ranges_view)
         menu.addAction(self.copy_frames_action)
-        menu.addAction("Copy start frames only", self._copy_ranges_start_frames)
-        menu.addAction("Copy end frames only", self._copy_ranges_end_frames)
+        menu.addAction(tr("Copy start frames only"), self._copy_ranges_start_frames)
+        menu.addAction(tr("Copy end frames only"), self._copy_ranges_end_frames)
         menu.addSeparator()
 
-        menu.addAction("Copy timestamps", self._copy_ranges_timestamps)
-        menu.addAction("Copy start timestamps only", self._copy_ranges_start_timestamps)
-        menu.addAction("Copy end timestamps only", self._copy_ranges_end_timestamps)
+        menu.addAction(tr("Copy timestamps"), self._copy_ranges_timestamps)
+        menu.addAction(tr("Copy start timestamps only"), self._copy_ranges_start_timestamps)
+        menu.addAction(tr("Copy end timestamps only"), self._copy_ranges_end_timestamps)
         menu.addSeparator()
 
-        menu.addAction("Copy labels", self._copy_ranges_labels)
+        menu.addAction(tr("Copy labels"), self._copy_ranges_labels)
         menu.addSeparator()
 
-        self.remove_range_action.setText("Remove selected range" + ("s" if len(selected_rows) > 1 else ""))
+        self.remove_range_action.setText(
+            tr("Remove selected ranges") if len(selected_rows) > 1 else tr("Remove selected range")
+        )
         menu.addAction(self.remove_range_action)
         menu.addSeparator()
 

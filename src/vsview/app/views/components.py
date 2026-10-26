@@ -50,6 +50,7 @@ from PySide6.QtWidgets import (
 )
 
 from ...assets import loading_icon
+from ...i18n import tr
 from ..icon import IconReloadMixin
 
 
@@ -249,7 +250,7 @@ class DockButton(QToolButton):
         self.setFixedWidth(6)
         self.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Expanding)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.setToolTip("Toggle dock panel")
+        self.setToolTip(tr("Toggle dock panel"))
         self.setStyleSheet("""
             QToolButton#dockButton {
                 background-color: palette(mid);
@@ -287,7 +288,7 @@ class CustomLoadingPage(QWidget):
         self.icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.icon_label.setMinimumHeight(150 + 30)  # Reserve space for bounce
         self.loading_layout.addWidget(self.icon_label)
-        self.loading_layout.addWidget(QLabel("Loading...", self))
+        self.loading_layout.addWidget(QLabel(tr("Loading..."), self))
         self.loading_layout.addWidget(self.progress_bar)
 
         self.icon_animation = QVariantAnimation(
@@ -438,6 +439,10 @@ class Accordion(QFrame):
         self.main_layout = QVBoxLayout(self)
         self.main_layout.setContentsMargins(0, 0, 0, 0)
         self.main_layout.setSpacing(0)
+
+        title = (
+            f"{tr('Plugin')} - {title.removeprefix('Plugin - ')}" if title.startswith("Plugin - ") else tr(title)
+        )
 
         self.header = QToolButton(self)
         self.header.setText(f"  {title}")

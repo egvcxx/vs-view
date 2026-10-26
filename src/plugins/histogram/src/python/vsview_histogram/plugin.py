@@ -16,6 +16,7 @@ from PySide6.QtWidgets import (
 from vstools import core, vs
 
 from vsview.api import PluginAPI, VideoOutputProxy, WidgetPluginBase, run_in_loop
+from vsview.i18n import tr
 
 from .cie import CIEDiagramContainerWidget
 from .levels import HistogramContainerWidget
@@ -67,7 +68,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         # Levels controls
         controls_toolbar = DiagramToolBar(container, movable=False, floatable=False)
 
-        bin_label = QLabel("Bin resolution:", container)
+        bin_label = QLabel(tr("Bin resolution:"), container)
         controls_toolbar.addWidget(bin_label)
 
         self.levels_bin_combo = QComboBox(container)
@@ -82,7 +83,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.levels_bin_combo.currentIndexChanged.connect(self.on_levels_bin_resolution_changed)
         controls_toolbar.addWidget(self.levels_bin_combo)
 
-        factor_label = QLabel("Clamp factor", container)
+        factor_label = QLabel(tr("Clamp factor"), container)
         controls_toolbar.addWidget(factor_label)
 
         self.levels_factor_spin = QDoubleSpinBox(
@@ -100,9 +101,9 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.levels_factor_spin.valueChanged.connect(self.on_levels_factor_changed)
         controls_toolbar.addWidget(self.levels_factor_spin)
 
-        self.levels_unsafe_checkbox = QCheckBox("Show unsafe zones", container)
+        self.levels_unsafe_checkbox = QCheckBox(tr("Show unsafe zones"), container)
         self.levels_unsafe_checkbox.setChecked(self.settings.global_.levels.show_unsafe)
-        self.levels_unsafe_checkbox.setToolTip("Highlight broadcast unsafe ranges in YUV format.")
+        self.levels_unsafe_checkbox.setToolTip(tr("Highlight broadcast unsafe ranges in YUV format."))
         self.levels_unsafe_checkbox.stateChanged.connect(self.on_levels_unsafe_zones_changed)
         controls_toolbar.addWidget(self.levels_unsafe_checkbox)
 
@@ -119,20 +120,22 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
 
         controls_toolbar = DiagramToolBar(container, movable=False, floatable=False)
 
-        shift_label = QLabel("Frequency (Shift):", container)
+        shift_label = QLabel(tr("Frequency (Shift):"), container)
         controls_toolbar.addWidget(shift_label)
 
         self.luma_shift_combo = QComboBox(container)
         for i in range(1, 8 + 1):
             self.luma_shift_combo.addItem(f"{2**i} cycles ({i})", i)
-        self.luma_shift_combo.setToolTip("Controls the number of luma cycles displayed across the scope.")
+        self.luma_shift_combo.setToolTip(tr("Controls the number of luma cycles displayed across the scope."))
         self.luma_shift_combo.setCurrentIndex(self.luma_shift_combo.findData(self.settings.global_.luma.shift))
         self.luma_shift_combo.currentIndexChanged.connect(self.on_luma_shift_changed)
         controls_toolbar.addWidget(self.luma_shift_combo)
 
-        self.luma_sawtooth_checkbox = QCheckBox("Sawtooth style", container)
+        self.luma_sawtooth_checkbox = QCheckBox(tr("Sawtooth style"), container)
         self.luma_sawtooth_checkbox.setChecked(self.settings.global_.luma.sawtooth)
-        self.luma_sawtooth_checkbox.setToolTip("Switches the rendering style from sine-like to a sawtooth waveform.")
+        self.luma_sawtooth_checkbox.setToolTip(
+            tr("Switches the rendering style from sine-like to a sawtooth waveform.")
+        )
         self.luma_sawtooth_checkbox.stateChanged.connect(self.on_luma_sawtooth_changed)
         controls_toolbar.addWidget(self.luma_sawtooth_checkbox)
 
@@ -150,7 +153,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         # Vectorscope controls
         controls_toolbar = DiagramToolBar(container, movable=False, floatable=False)
 
-        mode_label = QLabel("Vectorscope mode:", container)
+        mode_label = QLabel(tr("Vectorscope mode:"), container)
         controls_toolbar.addWidget(mode_label)
 
         self.vectorscope_mode_combo = QComboBox(container)
@@ -167,7 +170,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.vectorscope_mode_combo.currentIndexChanged.connect(self.on_vectorscope_mode_changed)
         controls_toolbar.addWidget(self.vectorscope_mode_combo)
 
-        res_label = QLabel("Resolution:", container)
+        res_label = QLabel(tr("Resolution:"), container)
         controls_toolbar.addWidget(res_label)
 
         self.vectorscope_res_combo = QComboBox(container)
@@ -184,7 +187,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.vectorscope_res_combo.currentIndexChanged.connect(self.on_vectorscope_resolution_changed)
         controls_toolbar.addWidget(self.vectorscope_res_combo)
 
-        matrix_label = QLabel("Matrix:", container)
+        matrix_label = QLabel(tr("Matrix:"), container)
         controls_toolbar.addWidget(matrix_label)
 
         self.vectorscope_matrix_combo = QComboBox(container)
@@ -203,7 +206,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.vectorscope_matrix_combo.currentIndexChanged.connect(self.on_vectorscope_matrix_changed)
         controls_toolbar.addWidget(self.vectorscope_matrix_combo)
 
-        luma_label = QLabel("Luma:", container)
+        luma_label = QLabel(tr("Luma:"), container)
         controls_toolbar.addWidget(luma_label)
 
         self.vectorscope_luma_spin = QDoubleSpinBox(
@@ -234,7 +237,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         # Waveform controls
         controls_toolbar = DiagramToolBar(container, movable=False, floatable=False)
 
-        mode_label = QLabel("Waveform mode:", container)
+        mode_label = QLabel(tr("Waveform mode:"), container)
         controls_toolbar.addWidget(mode_label)
 
         self.waveform_mode_combo = QComboBox(container)
@@ -249,7 +252,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.waveform_mode_combo.currentIndexChanged.connect(self.on_waveform_mode_changed)
         controls_toolbar.addWidget(self.waveform_mode_combo)
 
-        res_label = QLabel("Resolution:", container)
+        res_label = QLabel(tr("Resolution:"), container)
         controls_toolbar.addWidget(res_label)
 
         self.waveform_res_combo = QComboBox(container)
@@ -257,12 +260,12 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.waveform_res_combo.addItem("256 lines", 256)
         self.waveform_res_combo.addItem("512 lines", 512)
         self.waveform_res_combo.addItem("1024 lines", 1024)
-        self.waveform_res_combo.setToolTip("Vertical resolution of the scope.\n'Auto' caps to the bit depth limit.")
+        self.waveform_res_combo.setToolTip(tr("Vertical resolution of the scope.\n'Auto' caps to the bit depth limit."))
         self.waveform_res_combo.setCurrentIndex(self.waveform_res_combo.findData(self.settings.global_.waveform.res))
         self.waveform_res_combo.currentIndexChanged.connect(self.on_waveform_resolution_changed)
         controls_toolbar.addWidget(self.waveform_res_combo)
 
-        self.waveform_zones_checkbox = QCheckBox("Show zones", container)
+        self.waveform_zones_checkbox = QCheckBox(tr("Show zones"), container)
         self.waveform_zones_checkbox.setChecked(self.settings.global_.waveform.show_zones)
         self.waveform_zones_checkbox.setToolTip(
             "Overlay neutral lines and broadcast-limit lines\n"
@@ -271,7 +274,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.waveform_zones_checkbox.stateChanged.connect(self.on_waveform_unsafe_changed)
         controls_toolbar.addWidget(self.waveform_zones_checkbox)
 
-        self.waveform_dynamic_checkbox = QCheckBox("Dynamic gain", container)
+        self.waveform_dynamic_checkbox = QCheckBox(tr("Dynamic gain"), container)
         self.waveform_dynamic_checkbox.setChecked(self.settings.global_.waveform.dynamic_gain)
         self.waveform_dynamic_checkbox.setToolTip(
             "When enabled, scales brightness relative to the densest column.\n"
@@ -280,7 +283,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.waveform_dynamic_checkbox.stateChanged.connect(self.on_waveform_dynamic_gain_changed)
         controls_toolbar.addWidget(self.waveform_dynamic_checkbox)
 
-        gain_label = QLabel("Gain:", container)
+        gain_label = QLabel(tr("Gain:"), container)
         controls_toolbar.addWidget(gain_label)
 
         self.waveform_gain_spin = QDoubleSpinBox(
@@ -292,7 +295,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
             singleStep=0.1,
             value=self.settings.global_.waveform.gain,
         )
-        self.waveform_gain_spin.setToolTip("Brightness multiplier applied on top of the logarithmic scale.")
+        self.waveform_gain_spin.setToolTip(tr("Brightness multiplier applied on top of the logarithmic scale."))
         self.waveform_gain_spin.valueChanged.connect(self.on_waveform_gain_changed)
         controls_toolbar.addWidget(self.waveform_gain_spin)
 
@@ -309,7 +312,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
 
         controls_toolbar = DiagramToolBar(container, movable=False, floatable=False)
 
-        mode_label = QLabel("CIE Mode:", container)
+        mode_label = QLabel(tr("CIE Mode:"), container)
         controls_toolbar.addWidget(mode_label)
 
         self.cie_mode_combo = QComboBox(container)
@@ -319,7 +322,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.cie_mode_combo.currentIndexChanged.connect(self.on_cie_mode_changed)
         controls_toolbar.addWidget(self.cie_mode_combo)
 
-        render_mode_label = QLabel("Render Mode:", container)
+        render_mode_label = QLabel(tr("Render Mode:"), container)
         controls_toolbar.addWidget(render_mode_label)
 
         self.cie_render_mode_combo = QComboBox(container)
@@ -336,7 +339,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.cie_render_mode_combo.currentIndexChanged.connect(self.on_cie_render_mode_changed)
         controls_toolbar.addWidget(self.cie_render_mode_combo)
 
-        res_label = QLabel("Resolution:", container)
+        res_label = QLabel(tr("Resolution:"), container)
         controls_toolbar.addWidget(res_label)
 
         self.cie_res_combo = QComboBox(container)
@@ -348,7 +351,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
         self.cie_res_combo.currentIndexChanged.connect(self.on_cie_resolution_changed)
         controls_toolbar.addWidget(self.cie_res_combo)
 
-        luma_label = QLabel("Luma:", container)
+        luma_label = QLabel(tr("Luma:"), container)
         controls_toolbar.addWidget(luma_label)
 
         self.cie_luma_spin = QDoubleSpinBox(
@@ -359,7 +362,7 @@ class HistogramPlugin(WidgetPluginBase[GlobalSettings]):
             singleStep=0.01,
             value=self.settings.global_.cie.luma,
         )
-        self.cie_luma_spin.setToolTip("Luma / brightness scaling factor for the colored points cloud.")
+        self.cie_luma_spin.setToolTip(tr("Luma / brightness scaling factor for the colored points cloud."))
         self.cie_luma_spin.valueChanged.connect(self.on_cie_luma_changed)
         self.cie_luma_spin.setEnabled(self.settings.global_.cie.render_mode != RenderMode.DENSITY)
         controls_toolbar.addWidget(self.cie_luma_spin)

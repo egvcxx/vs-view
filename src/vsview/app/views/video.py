@@ -58,6 +58,7 @@ from PySide6.QtWidgets import (
 )
 from shiboken6 import Shiboken
 
+from ...i18n import tr
 from ...vsenv import run_in_background, run_in_loop
 from ..settings import ActionID, SettingsManager, ShortcutManager
 
@@ -399,7 +400,7 @@ class BaseGraphicsView(QGraphicsView):
         self.slider.valueChanged.connect(self._on_slider_value_changed)
 
         self.slider_layout = QHBoxLayout(self.slider_container)
-        self.slider_layout.addWidget(QLabel("Zoom", self.slider_container))
+        self.slider_layout.addWidget(QLabel(tr("Zoom"), self.slider_container))
         self.slider_layout.addWidget(self.slider)
 
         self.slider_container.setLayout(self.slider_layout)

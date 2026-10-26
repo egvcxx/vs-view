@@ -1,0 +1,399 @@
+序号	英文原文	中文译文	使用位置
+1	Sample type	采样类型	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:19
+2	Integer 16-bit	16 位整型	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:21
+3	Integer 24-bit	24 位整型	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:22
+4	Integer 32-bit	32 位整型	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:23
+5	Float 32-bit	32 位浮点	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:24
+6	The sample type to convert to	要转换到的采样类型	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:26
+7	Sample rate	采样率	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:32
+8	Very high	非常高	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:51
+9	The SoX resampler quality. Default is 'very high'.	SoX 重采样器质量。默认为“very high”。	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:54
+10	Audio Convert	音频转换	src/plugins/audio-convert/src/vsview_audio_convert/__init__.py:61
+11	Comparison	对比	src/plugins/comp/src/vsview_comp/_metadata.py:2
+12	TMDB Format name	TMDB 命名格式	src/plugins/comp/src/vsview_comp/plugin.py:106
+13	Slow.pics credentials	Slow.pics 凭据	src/plugins/comp/src/vsview_comp/plugin.py:118
+14	The Slowpoke.pics credentials for login	用于登录的 Slow.pics 凭据	src/plugins/comp/src/vsview_comp/plugin.py:121
+15	Allowed frame searches	允许的帧搜索次数	src/plugins/comp/src/vsview_comp/plugin.py:128
+16	The maximum number of search attempts to find a valid normal frame.	查找有效普通帧的最大搜索次数。	src/plugins/comp/src/vsview_comp/plugin.py:131
+17	Brightness candidates	亮度候选帧数	src/plugins/comp/src/vsview_comp/plugin.py:138
+18	Preserve frames on reload	重新加载时保留帧	src/plugins/comp/src/vsview_comp/plugin.py:150
+19	Automatically restore the selected frame list across script reloads.	脚本重新加载后自动恢复已选帧列表。	src/plugins/comp/src/vsview_comp/plugin.py:152
+20	Auto-Copy URL	自动复制 URL	src/plugins/comp/src/vsview_comp/plugin.py:158
+21	Auto-copy Slow.pics URL when the upload is completed.	上传完成后自动复制 Slow.pics 链接。	src/plugins/comp/src/vsview_comp/plugin.py:160
+22	Plugin disabled: the current workspace doesn't have a local storage.	插件已禁用：当前工作区没有本地存储。	src/plugins/comp/src/vsview_comp/plugin.py:259
+23	Configure source clips and select frames for comparison	配置源片段并选择用于对比的帧	src/plugins/comp/src/vsview_comp/plugin.py:271
+24	Select and rename outputs.	选择并重命名输出。	src/plugins/comp/src/vsview_comp/plugin.py:276
+25	0 frames	0 帧	src/plugins/comp/src/vsview_comp/plugin.py:317
+26	Loading thumbnails...	正在加载缩略图…	src/plugins/comp/src/vsview_comp/plugin.py:330
+27	Double-click to seek to frame. Use 'Delete' to remove.	双击可跳转到该帧，按 Delete 可移除。	src/plugins/comp/src/vsview_comp/plugin.py:341
+28	Auto Select	自动选择	src/plugins/comp/src/vsview_comp/plugin.py:361
+29	Automated frame selection tools based on brightness and picture type	基于亮度与画面类型的自动选帧工具	src/plugins/comp/src/vsview_comp/plugin.py:362
+30	Total number of random frames to select	要选择的随机帧总数	src/plugins/comp/src/vsview_comp/plugin.py:375
+31	Curve...	曲线…	src/plugins/comp/src/vsview_comp/plugin.py:378
+32	Edit frame selection probability curve	编辑选帧概率曲线	src/plugins/comp/src/vsview_comp/plugin.py:379
+33	Number of random darkest frames to include	包含的随机暗帧数量	src/plugins/comp/src/vsview_comp/plugin.py:387
+34	Number of random lightest frames to include	包含的随机亮帧数量	src/plugins/comp/src/vsview_comp/plugin.py:394
+35	Dark:	暗帧数：	src/plugins/comp/src/vsview_comp/plugin.py:400
+36	Light:	亮帧数：	src/plugins/comp/src/vsview_comp/plugin.py:403
+37	Total Random:	随机帧总数：	src/plugins/comp/src/vsview_comp/plugin.py:406
+38	Switch between frame-based and time-based range selection	在按帧与按时间选择区间之间切换	src/plugins/comp/src/vsview_comp/plugin.py:410
+39	Range Unit:	区间单位：	src/plugins/comp/src/vsview_comp/plugin.py:411
+40	Start frame for comparison range	对比区间的起始帧	src/plugins/comp/src/vsview_comp/plugin.py:422
+41	End frame for comparison range	对比区间的结束帧	src/plugins/comp/src/vsview_comp/plugin.py:426
+42	Start time for comparison range	对比区间的起始时间	src/plugins/comp/src/vsview_comp/plugin.py:439
+43	End time for comparison range	对比区间的结束时间	src/plugins/comp/src/vsview_comp/plugin.py:443
+44	Range:	区间：	src/plugins/comp/src/vsview_comp/plugin.py:452
+45	Frame Properties	帧属性	src/plugins/comp/src/vsview_comp/plugin.py:455
+46	I-Frame	I 帧	src/plugins/comp/src/vsview_comp/plugin.py:458
+47	Include I-frames (Intra-coded)	包含 I 帧（帧内编码）	src/plugins/comp/src/vsview_comp/plugin.py:459
+48	P-Frame	P 帧	src/plugins/comp/src/vsview_comp/plugin.py:460
+49	Include P-frames (Predictive)	包含 P 帧（前向预测）	src/plugins/comp/src/vsview_comp/plugin.py:461
+50	B-Frame	B 帧	src/plugins/comp/src/vsview_comp/plugin.py:462
+51	Include B-frames (Bi-predictive)	包含 B 帧（双向预测帧）	src/plugins/comp/src/vsview_comp/plugin.py:463
+52	Combed	混合帧	src/plugins/comp/src/vsview_comp/plugin.py:464
+53	Include Combed frames	包含混合帧	src/plugins/comp/src/vsview_comp/plugin.py:465
+54	Select frames	选择帧	src/plugins/comp/src/vsview_comp/plugin.py:482
+55	Collect frames based on the current settings	按当前设置收集帧	src/plugins/comp/src/vsview_comp/plugin.py:484
+56	Extract	提取	src/plugins/comp/src/vsview_comp/plugin.py:490
+57	Extract selected frames to disk	将所选帧提取到磁盘	src/plugins/comp/src/vsview_comp/plugin.py:492
+58	Configure upload settings for Slow.pics	配置 Slow.pics 上传设置	src/plugins/comp/src/vsview_comp/plugin.py:500
+59	The name of the comparison collection	对比合集的名称	src/plugins/comp/src/vsview_comp/plugin.py:505
+60	Collection:	合集名称：	src/plugins/comp/src/vsview_comp/plugin.py:506
+61	Movie or TV show name to fetch metadata from TMDB	用于从 TMDB 获取元数据的电影或剧集名称	src/plugins/comp/src/vsview_comp/plugin.py:513
+62	TMDB Name:	TMDB 名称：	src/plugins/comp/src/vsview_comp/plugin.py:516
+63	Additional tags to help find the comparison	用于帮助查找对比的附加标签	src/plugins/comp/src/vsview_comp/plugin.py:529
+64	Tags:	标签：	src/plugins/comp/src/vsview_comp/plugin.py:530
+65	Public	公开	src/plugins/comp/src/vsview_comp/plugin.py:541
+66	Make the comparison publicly visible	将对比设为公开可见	src/plugins/comp/src/vsview_comp/plugin.py:543
+67	NSFW	NSFW	src/plugins/comp/src/vsview_comp/plugin.py:545
+68	Mark the comparison as Not Safe For Work	将对比标记为不宜在工作场合观看（NSFW）	src/plugins/comp/src/vsview_comp/plugin.py:546
+69	Flags:	标记：	src/plugins/comp/src/vsview_comp/plugin.py:552
+70	 days	 天	src/plugins/comp/src/vsview_comp/plugin.py:558
+71	Remove comparison after N days (0 = never)	N 天后移除对比（0 = 永不）	src/plugins/comp/src/vsview_comp/plugin.py:559
+72	Auto-Remove:	自动移除：	src/plugins/comp/src/vsview_comp/plugin.py:560
+73	Upload	上传	src/plugins/comp/src/vsview_comp/plugin.py:562
+74	Upload extracted frames	上传已提取的帧	src/plugins/comp/src/vsview_comp/plugin.py:564
+75	Extract && Upload	提取 && 上传	src/plugins/comp/src/vsview_comp/plugin.py:576
+76	Extract selected frames → Upload	提取所选帧 → 上传	src/plugins/comp/src/vsview_comp/plugin.py:577
+77	Loading thumbnails ({}/{})...	正在加载缩略图（{}/{}）…	src/plugins/comp/src/vsview_comp/plugin.py:762
+78	{} frame	{} 帧	src/plugins/comp/src/vsview_comp/plugin.py:769
+79	Too many frames selected! Uploading may not be supported.	选择的帧过多！可能无法上传。	src/plugins/comp/src/vsview_comp/plugin.py:773
+80	Browser ID	浏览器 ID	src/plugins/comp/src/vsview_comp/plugin.py:95
+81	Include this output	包含此输出	src/plugins/comp/src/vsview_comp/ui.py:139
+82	Frame Selection Probability Curve	选帧概率曲线	src/plugins/comp/src/vsview_comp/ui.py:1780
+83	Overall progress of extraction and upload tasks	提取与上传任务的总进度	src/plugins/comp/src/vsview_comp/ui.py:594
+84	Auto fit	自动适配	src/plugins/fftspectrum/src/vsview_fftspectrum/__init__.py:25
+85	Enable autofit by default when opening the plugin tab	打开插件标签页时默认启用自动适配	src/plugins/fftspectrum/src/vsview_fftspectrum/__init__.py:27
+86	Stacking direction	排列方向	src/plugins/fftspectrum/src/vsview_fftspectrum/__init__.py:36
+87	Write plane name	写入平面名称	src/plugins/fftspectrum/src/vsview_fftspectrum/__init__.py:42
+88	FFT Spectrum	FFT 频谱	src/plugins/fftspectrum/src/vsview_fftspectrum/__init__.py:68
+89	Show unsafe zones	显示非法范围	src/plugins/histogram/src/python/vsview_histogram/plugin.py:104
+90	Highlight broadcast unsafe ranges in YUV format.	高亮 YUV 格式下广播非法范围。	src/plugins/histogram/src/python/vsview_histogram/plugin.py:106
+91	Frequency (Shift):	频率（Shift）：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:123
+92	Controls the number of luma cycles displayed across the scope.	控制示波器上显示的亮度周期数。	src/plugins/histogram/src/python/vsview_histogram/plugin.py:129
+93	Sawtooth style	锯齿波形风格	src/plugins/histogram/src/python/vsview_histogram/plugin.py:134
+94	Switches the rendering style from sine-like to a sawtooth waveform.	将渲染风格从类正弦切换为锯齿波形。	src/plugins/histogram/src/python/vsview_histogram/plugin.py:137
+95	Vectorscope mode:	矢量示波器模式：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:156
+96	Chroma Wheel	色度轮	src/plugins/histogram/src/python/vsview_histogram/plugin.py:161
+97	Pixel Color	像素颜色	src/plugins/histogram/src/python/vsview_histogram/plugin.py:162
+98	Resolution:	分辨率：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:173
+99	Matrix:	矩阵：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:190
+100	Luma:	亮度：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:209
+101	Waveform mode:	波形模式：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:240
+102	RGB/YUV Parade	RGB/YUV 并列	src/plugins/histogram/src/python/vsview_histogram/plugin.py:245
+103	256 lines	256 行	src/plugins/histogram/src/python/vsview_histogram/plugin.py:260
+104	512 lines	512 行	src/plugins/histogram/src/python/vsview_histogram/plugin.py:261
+105	1024 lines	1024 行	src/plugins/histogram/src/python/vsview_histogram/plugin.py:262
+106	Vertical resolution of the scope. 'Auto' caps to the bit depth limit.	示波器的垂直分辨率。 “自动”会以位深上限为界。	src/plugins/histogram/src/python/vsview_histogram/plugin.py:263
+107	Show zones	显示范围	src/plugins/histogram/src/python/vsview_histogram/plugin.py:268
+108	Dynamic gain	动态增益	src/plugins/histogram/src/python/vsview_histogram/plugin.py:277
+109	Gain:	增益：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:286
+110	Brightness multiplier applied on top of the logarithmic scale.	在对数刻度之上叠加的亮度倍数。	src/plugins/histogram/src/python/vsview_histogram/plugin.py:298
+111	CIE Mode:	CIE 模式：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:315
+112	Render Mode:	渲染模式：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:325
+113	Histogram	直方图	src/plugins/histogram/src/python/vsview_histogram/plugin.py:34
+114	Luma / brightness scaling factor for the colored points cloud.	彩色点云的亮度缩放系数。	src/plugins/histogram/src/python/vsview_histogram/plugin.py:365
+115	Bin resolution:	分箱分辨率：	src/plugins/histogram/src/python/vsview_histogram/plugin.py:71
+116	Auto (Width-based)	自动（按宽度）	src/plugins/histogram/src/python/vsview_histogram/plugin.py:75
+117	256 bins	256 个分箱	src/plugins/histogram/src/python/vsview_histogram/plugin.py:76
+118	512 bins	512 个分箱	src/plugins/histogram/src/python/vsview_histogram/plugin.py:77
+119	1024 bins	1024 个分箱	src/plugins/histogram/src/python/vsview_histogram/plugin.py:78
+120	Clamp factor	裁剪系数	src/plugins/histogram/src/python/vsview_histogram/plugin.py:86
+121	Offset Chroma	色度偏移	src/plugins/split-planes/src/vsview_split_planes/__init__.py:133
+122	Fixed offset value for chroma planes	色度平面的固定偏移值	src/plugins/split-planes/src/vsview_split_planes/__init__.py:155
+123	Shift float chroma	偏移浮点色度	src/plugins/split-planes/src/vsview_split_planes/__init__.py:39
+124	If checked, shift U and V by +0.5 when working in float YUV formats	勾选后，在处理浮点 YUV 格式时将 U、V 偏移 +0.5	src/plugins/split-planes/src/vsview_split_planes/__init__.py:41
+125	Offset chroma	偏移色度	src/plugins/split-planes/src/vsview_split_planes/__init__.py:47
+126	Split Planes	分离平面	src/plugins/split-planes/src/vsview_split_planes/__init__.py:97
+127	Error	错误	src/vsview/app/error.py:170
+128	A {} exception was raised while running the script{}.	运行脚本时引发了 {} 异常{}。	src/vsview/app/error.py:203
+129	New	新建	src/vsview/app/main.py:217
+130	Load File...	载入文件…	src/vsview/app/main.py:223
+131	Workspace	工作区	src/vsview/app/main.py:227
+132	View	视图	src/vsview/app/main.py:247
+133	Sidebar	侧边栏	src/vsview/app/main.py:250
+134	Tool Docks	工具停靠面板	src/vsview/app/main.py:259
+135	Tool Panels	工具面板	src/vsview/app/main.py:263
+136	Settings	设置	src/vsview/app/main.py:267
+137	Help	帮助	src/vsview/app/main.py:271
+138	Documentation	文档	src/vsview/app/main.py:273
+139	Workspaces	工作区	src/vsview/app/main.py:282
+140	Color Management	色彩管理	src/vsview/app/main.py:290
+141	Configuration	配置	src/vsview/app/main.py:298
+142	Plugins	插件	src/vsview/app/main.py:306
+143	Contributing	贡献	src/vsview/app/main.py:312
+144	Sync Playhead	同步播放头	src/vsview/app/settings/action.py:48
+145	Sync Zoom	同步缩放	src/vsview/app/settings/action.py:49
+146	Sync Scroll	同步滚动	src/vsview/app/settings/action.py:50
+147	Global	全局	src/vsview/app/settings/dialog.py:315
+148	Local	局部	src/vsview/app/settings/dialog.py:316
+149	Shortcuts	快捷键	src/vsview/app/settings/dialog.py:317
+150	Load a script to configure local settings	载入脚本后才能配置局部设置	src/vsview/app/settings/dialog.py:323
+151	OK	确定	src/vsview/app/settings/dialog.py:341
+152	Cancel	取消	src/vsview/app/settings/dialog.py:342
+153	Apply	应用	src/vsview/app/settings/dialog.py:345
+154	None	无	src/vsview/app/settings/dialog.py:432
+155	Reset to default	重置为默认值	src/vsview/app/settings/dialog.py:432
+156	This shortcut conflicts with another action	该快捷键与其他操作冲突	src/vsview/app/settings/dialog.py:440
+157	Path:	路径：	src/vsview/app/settings/dialog.py:463
+158	Conflicts with	冲突于	src/vsview/app/settings/dialog.py:670
+159	Appearance	外观	src/vsview/app/settings/models.py:153
+160	Color Scheme	配色方案	src/vsview/app/settings/models.py:158
+161	System Default	系统默认	src/vsview/app/settings/models.py:159
+162	Widget Style	控件样式	src/vsview/app/settings/models.py:171
+163	Palette Theme	调色板主题	src/vsview/app/settings/models.py:185
+164	Custom Stylesheet	自定义样式表	src/vsview/app/settings/models.py:201
+165	Path to a custom .qss stylesheet file to apply on top of the active style.	在当前样式之上应用的自定义 .qss 样式表路径。	src/vsview/app/settings/models.py:204
+166	Icon Provider	图标提供方	src/vsview/app/settings/models.py:211
+167	Provider for icon rendering	用于图标渲染的提供方	src/vsview/app/settings/models.py:213
+168	Icon Weight	图标粗细	src/vsview/app/settings/models.py:220
+169	Weight of icons	图标粗细	src/vsview/app/settings/models.py:224
+170	Theme for the editor of the Quick Script workspace	快速脚本工作区编辑器的主题	src/vsview/app/settings/models.py:236
+171	Tab Bar	标签栏	src/vsview/app/settings/models.py:245
+172	Timeline	时间轴	src/vsview/app/settings/models.py:264
+173	Display Mode	显示模式	src/vsview/app/settings/models.py:269
+174	Display mode for the timeline	时间轴的显示模式	src/vsview/app/settings/models.py:271
+175	Display Scale	显示比例	src/vsview/app/settings/models.py:278
+176	Display scale for the timeline	时间轴的显示比例	src/vsview/app/settings/models.py:283
+177	Label Notches Margin	刻度标签边距	src/vsview/app/settings/models.py:290
+178	Margin for notches in the timeline	时间轴刻度的边距	src/vsview/app/settings/models.py:294
+179	Default Seek Step	默认跳转步长	src/vsview/app/settings/models.py:301
+180	Default seek step for the timeline	时间轴的默认跳转步长	src/vsview/app/settings/models.py:305
+181	Hover Preview	悬停预览	src/vsview/app/settings/models.py:312
+182	Show a zoomed preview of the timeline and notch labels when hovering.	悬停时显示时间轴与刻度标签的放大预览。	src/vsview/app/settings/models.py:314
+183	Hover Zoom Factor	悬停缩放倍数	src/vsview/app/settings/models.py:321
+184	Magnification factor for the hover preview.	悬停预览的放大倍数。	src/vsview/app/settings/models.py:326
+185	Hover Zoom Radius	悬停缩放半径	src/vsview/app/settings/models.py:333
+186	Radius of the zoomed area in pixels.	缩放区域的半径（像素）。	src/vsview/app/settings/models.py:337
+187	Playback	播放	src/vsview/app/settings/models.py:345
+188	Buffer Size	缓冲区大小	src/vsview/app/settings/models.py:350
+189	Number of frames to buffer during playback	播放期间缓冲的帧数	src/vsview/app/settings/models.py:354
+190	Audio Buffer Size	音频缓冲区大小	src/vsview/app/settings/models.py:361
+191	Cache size	缓存大小	src/vsview/app/settings/models.py:373
+192	Number of frames to cache	缓存的帧数	src/vsview/app/settings/models.py:377
+193	FPS History Size (0 = auto)	FPS 历史长度（0 = 自动）	src/vsview/app/settings/models.py:384
+194	Number of frames to keep in the FPS history	FPS 历史中保留的帧数	src/vsview/app/settings/models.py:388
+195	Default Volume	默认音量	src/vsview/app/settings/models.py:395
+196	Audio Delay	音频延迟	src/vsview/app/settings/models.py:417
+197	Delay the audio in milliseconds. Positive values delay audio, negative values advance it.	以毫秒为单位设置音频延迟。正值延后音频，负值提前音频。	src/vsview/app/settings/models.py:422
+198	FPS Update Interval	FPS 更新间隔	src/vsview/app/settings/models.py:431
+199	Interval for updating the FPS display in seconds	FPS 显示更新间隔（秒）	src/vsview/app/settings/models.py:436
+200	PNG Compression Level	PNG 压缩级别	src/vsview/app/settings/models.py:449
+201	Bit Depth	位深	src/vsview/app/settings/models.py:463
+202	Bit depth for the views	视图的位深	src/vsview/app/settings/models.py:465
+203	Dithering Method	抖动方式	src/vsview/app/settings/models.py:472
+204	None (Round to nearest)	无（就近取整）	src/vsview/app/settings/models.py:474
+205	Ordered (Bayer patterned dither)	有序（Bayer 图案抖动）	src/vsview/app/settings/models.py:475
+206	Random (Pseudo-random noise of magnitude 0.5)	随机（幅度 0.5 的伪随机噪声）	src/vsview/app/settings/models.py:476
+207	Error Diffusion (Floyd-Steinberg)	误差扩散（Floyd-Steinberg）	src/vsview/app/settings/models.py:477
+208	Chroma Resizer	色度重采样器	src/vsview/app/settings/models.py:485
+209	Chroma resizer for the views	视图的色度重采样器	src/vsview/app/settings/models.py:487
+210	Frame property policy	帧属性策略	src/vsview/app/settings/models.py:494
+211	Output Transfer	输出传递特性	src/vsview/app/settings/models.py:508
+212	Output Primaries	输出原色	src/vsview/app/settings/models.py:526
+213	Zoom Factors	缩放倍数	src/vsview/app/settings/models.py:544
+214	Checkerboard Size	棋盘格尺寸	src/vsview/app/settings/models.py:555
+215	The size of the checkerboard when displaying a clip with an alpha plane	显示带 Alpha 平面的片段时的棋盘格尺寸	src/vsview/app/settings/models.py:559
+216	Shade Opacity	遮罩不透明度	src/vsview/app/settings/models.py:566
+217	Opacity of the darkened area outside the selection rect (0.0 to 1.0).	选区矩形外变暗区域的不透明度（0.0 至 1.0）。	src/vsview/app/settings/models.py:570
+218	Selection Outline Color	选区轮廓颜色	src/vsview/app/settings/models.py:577
+219	Color of the selection rectangle outline	选区矩形轮廓颜色	src/vsview/app/settings/models.py:578
+220	Copy QImage	复制 QImage	src/vsview/app/settings/models.py:585
+221	Custom plugins paths	自定义插件路径	src/vsview/app/settings/models.py:624
+222	Directories to search for custom Qt plugins.	用于搜索自定义 Qt 插件的目录。	src/vsview/app/settings/models.py:626
+223	General	常规	src/vsview/app/settings/models.py:701
+224	Settings auto save interval	设置自动保存间隔	src/vsview/app/settings/models.py:713
+225	The interval for the auto save timer of both global and local settings in minutes	全局与局部设置自动保存计时器的间隔（分钟）	src/vsview/app/settings/models.py:717
+226	Message timeout	消息超时	src/vsview/app/settings/models.py:726
+227	Duration of status messages	状态消息的显示时长	src/vsview/app/settings/models.py:733
+228	Change directory	更改目录	src/vsview/app/settings/models.py:740
+229	Loaded page disable duration	已加载页面的禁用时长	src/vsview/app/settings/models.py:754
+230	Synchronization	同步	src/vsview/app/settings/models.py:883
+231	Sync playhead across outputs	在各输出之间同步播放头	src/vsview/app/settings/models.py:889
+232	Sync zoom level across outputs	在各输出之间同步缩放级别	src/vsview/app/settings/models.py:897
+233	Sync scroll position across outputs	在各输出之间同步滚动位置	src/vsview/app/settings/models.py:905
+234	Enable autofit on all views	对所有视图启用自动适配	src/vsview/app/settings/models.py:913
+235	Add Item	添加项目	src/vsview/app/settings/widgets.py:157
+236	The sample type to convert to.	要转换到的采样类型。	src/vsview/app/tools/audio_convert/plugin.py:31
+237	Dither Type	抖动类型	src/vsview/app/tools/audio_convert/plugin.py:50
+238	The type of dither applied when converting to an integer format. Default is 'triangular'.	转换为整数格式时应用的抖动类型。默认为“triangular”。	src/vsview/app/tools/audio_convert/plugin.py:56
+239	Number of decimals to display for float values	浮点值显示的小数位数	src/vsview/app/tools/colorpicker/plugin.py:101
+240	Color Picker	取色器	src/vsview/app/tools/colorpicker/plugin.py:108
+241	Source	源	src/vsview/app/tools/colorpicker/plugin.py:193
+242	Rendered (RGB)	渲染值（RGB）	src/vsview/app/tools/colorpicker/plugin.py:201
+243	Pos: {}, {}	坐标：{}, {}	src/vsview/app/tools/colorpicker/plugin.py:91
+244	Region Selector	区域选择器	src/vsview/app/tools/cropping/plugin.py:29
+245	Selection Details	选区详情	src/vsview/app/tools/cropping/plugin.py:75
+246	Command	命令	src/vsview/app/tools/cropping/plugin.py:90
+247	Commands	命令	src/vsview/app/tools/cropping/plugin.py:90
+248	Snap crop coordinates to this modulus	将裁剪坐标吸附到此模数	src/vsview/app/tools/cropping/settings.py:57
+249	Code Format	代码格式	src/vsview/app/tools/cropping/settings.py:65
+250	Preview Frame	预览帧	src/vsview/app/tools/frameprops/plugin.py:114
+251	Copy Key	复制键	src/vsview/app/tools/frameprops/plugin.py:119
+252	Copy as Key=Value	复制为 Key=Value	src/vsview/app/tools/frameprops/plugin.py:123
+253	Copy Value	复制值	src/vsview/app/tools/frameprops/plugin.py:127
+254	Enable the categorized display by default	默认启用分类显示	src/vsview/app/tools/frameprops/plugin.py:518
+255	Enable the formatted display by default	默认启用格式化显示	src/vsview/app/tools/frameprops/plugin.py:526
+256	Filter properties...	筛选属性…	src/vsview/app/tools/frameprops/plugin.py:575
+257	Select a frame from history	从历史记录中选择一帧	src/vsview/app/tools/frameprops/plugin.py:595
+258	Preview	预览	src/vsview/app/tools/frameprops/plugin.py:647
+259	Preview: {}	预览：{}	src/vsview/app/tools/frameprops/plugin.py:833
+260	Scening	场景标记	src/vsview/app/tools/scening/constants.py:2
+261	Toolbar Style	工具栏样式	src/vsview/app/tools/scening/plugin.py:108
+262	Icon Only	仅图标	src/vsview/app/tools/scening/plugin.py:110
+263	Text Only	仅文字	src/vsview/app/tools/scening/plugin.py:111
+264	Text Beside Icon	文字在图标旁	src/vsview/app/tools/scening/plugin.py:112
+265	Text Under Icon	文字在图标下	src/vsview/app/tools/scening/plugin.py:113
+266	Select the style for the toolbars.	选择工具栏样式。	src/vsview/app/tools/scening/plugin.py:115
+267	Enable exclusive (Python-style) ranges	启用独占式（Python 风格）区间	src/vsview/app/tools/scening/plugin.py:122
+268	FFmpeg Executable	FFmpeg 可执行文件路径	src/vsview/app/tools/scening/plugin.py:131
+269	Path to the FFmpeg executable.	FFmpeg 可执行文件的路径。	src/vsview/app/tools/scening/plugin.py:134
+270	Create new scene	新建场景	src/vsview/app/tools/scening/plugin.py:195
+271	Import scene...	导入场景…	src/vsview/app/tools/scening/plugin.py:204
+272	Export scene...	导出场景…	src/vsview/app/tools/scening/plugin.py:213
+273	Copy frames	复制帧	src/vsview/app/tools/scening/plugin.py:331
+274	Copy start frames only	仅复制起始帧	src/vsview/app/tools/scening/plugin.py:850
+275	Copy end frames only	仅复制结束帧	src/vsview/app/tools/scening/plugin.py:851
+276	Copy timestamps	复制时间戳	src/vsview/app/tools/scening/plugin.py:854
+277	Copy start timestamps only	仅复制起始时间戳	src/vsview/app/tools/scening/plugin.py:855
+278	Copy end timestamps only	仅复制结束时间戳	src/vsview/app/tools/scening/plugin.py:856
+279	Copy labels	复制标签	src/vsview/app/tools/scening/plugin.py:859
+280	Remove selected range	移除所选区间	src/vsview/app/tools/scening/plugin.py:863
+281	Remove selected ranges	移除所选区间	src/vsview/app/tools/scening/plugin.py:863
+282	Toggle dock panel	切换停靠面板	src/vsview/app/views/components.py:253
+283	Loading...	加载中…	src/vsview/app/views/components.py:291
+284	Plugin	插件	src/vsview/app/views/components.py:444
+285	Resolution Format @FPS	分辨率 格式 @FPS	src/vsview/app/views/status.py:105
+286	Completed	已完成	src/vsview/app/views/status.py:194
+287	{} frames	{} 帧	src/vsview/app/views/status.py:227
+288	Ready	就绪	src/vsview/app/views/status.py:260
+289	Settings saved	设置已保存	src/vsview/app/views/status.py:44
+290	Current position / Total duration	当前位置 / 总时长	src/vsview/app/views/status.py:86
+291	Current frame / Total frames	当前帧 / 总帧数	src/vsview/app/views/status.py:96
+292	Seek Step	跳转步长	src/vsview/app/views/timeline.py:1294
+293	Reset to Global	重置为全局值	src/vsview/app/views/timeline.py:1306
+294	Reset to 1.0x	重置为 1.0x	src/vsview/app/views/timeline.py:1326
+295	Uncap FPS	取消 FPS 上限	src/vsview/app/views/timeline.py:1336
+296	Speed Limit	速度上限	src/vsview/app/views/timeline.py:1345
+297	Play Zone	播放区间	src/vsview/app/views/timeline.py:1379
+298	Loop	循环	src/vsview/app/views/timeline.py:1383
+299	Step size (negative values are allowed)	步长（允许负值）	src/vsview/app/views/timeline.py:1389
+300	Zone Time/Frame	区间时间/帧	src/vsview/app/views/timeline.py:1409
+301	Play Step	播放步长	src/vsview/app/views/timeline.py:1410
+302	Audio Output	音频输出	src/vsview/app/views/timeline.py:1427
+303	Delay	延迟	src/vsview/app/views/timeline.py:1439
+304	Frame	帧	src/vsview/app/views/timeline.py:534
+305	Time	时间	src/vsview/app/views/timeline.py:534
+306	Zoom	缩放	src/vsview/app/views/video.py:403
+307	File	文件	src/vsview/app/workspace/file.py:381
+308	Script	脚本	src/vsview/app/workspace/file.py:440
+309	Playback Error	播放错误	src/vsview/app/workspace/playback.py:918
+310	Quick Script	快速脚本	src/vsview/app/workspace/quick_script.py:420
+311	Load Script...	载入脚本…	src/vsview/i18n.py:9
+312	Inlay Hints: Return Types	内联提示：返回类型	src/workspaces/editor/src/python/vsview_editor/settings.py:103
+313	Show inlay hints for function return types in the editor	在编辑器中显示函数返回类型的内联提示	src/workspaces/editor/src/python/vsview_editor/settings.py:105
+314	Inlay Hints: Generic Types	内联提示：泛型	src/workspaces/editor/src/python/vsview_editor/settings.py:111
+315	Show inlay hints for generic types in the editor	在编辑器中显示泛型的内联提示	src/workspaces/editor/src/python/vsview_editor/settings.py:113
+316	Editor Theme	编辑器主题	src/workspaces/editor/src/python/vsview_editor/settings.py:126
+317	Color theme for the Monaco code editor	Monaco 代码编辑器的配色主题	src/workspaces/editor/src/python/vsview_editor/settings.py:128
+318	Font Size	字号	src/workspaces/editor/src/python/vsview_editor/settings.py:134
+319	Control editor font size in pixels	以像素为单位设置编辑器字号	src/workspaces/editor/src/python/vsview_editor/settings.py:137
+320	Font Family	字体	src/workspaces/editor/src/python/vsview_editor/settings.py:143
+321	Control editor font family	设置编辑器字体	src/workspaces/editor/src/python/vsview_editor/settings.py:144
+322	Tab Size	制表符宽度	src/workspaces/editor/src/python/vsview_editor/settings.py:156
+323	Number of spaces per indentation level	每级缩进的空格数	src/workspaces/editor/src/python/vsview_editor/settings.py:159
+324	Insert Spaces	插入空格	src/workspaces/editor/src/python/vsview_editor/settings.py:165
+325	Insert spaces when pressing Tab	按 Tab 时插入空格	src/workspaces/editor/src/python/vsview_editor/settings.py:166
+326	Word Wrap	自动换行	src/workspaces/editor/src/python/vsview_editor/settings.py:173
+327	Word Wrap Column	按列换行	src/workspaces/editor/src/python/vsview_editor/settings.py:177
+328	Control how lines wrap in the editor	控制编辑器中的换行方式	src/workspaces/editor/src/python/vsview_editor/settings.py:180
+329	Line Numbers	行号	src/workspaces/editor/src/python/vsview_editor/settings.py:186
+330	Control display of line numbers	控制行号的显示	src/workspaces/editor/src/python/vsview_editor/settings.py:193
+331	Minimap Enabled	启用缩略图	src/workspaces/editor/src/python/vsview_editor/settings.py:199
+332	Show minimap preview on the right side	在右侧显示缩略图预览	src/workspaces/editor/src/python/vsview_editor/settings.py:201
+333	Render Whitespace	渲染空白字符	src/workspaces/editor/src/python/vsview_editor/settings.py:207
+334	Render whitespace characters in the editor	在编辑器中显示空白字符	src/workspaces/editor/src/python/vsview_editor/settings.py:215
+335	Cursor Blinking	光标闪烁	src/workspaces/editor/src/python/vsview_editor/settings.py:221
+336	Control cursor blinking animation	控制光标闪烁动画	src/workspaces/editor/src/python/vsview_editor/settings.py:229
+337	Bracket Pair Colorization	括号对配色	src/workspaces/editor/src/python/vsview_editor/settings.py:235
+338	Colorize matching bracket pairs	为匹配的括号对着色	src/workspaces/editor/src/python/vsview_editor/settings.py:237
+339	Type Checking Mode	类型检查模式	src/workspaces/editor/src/python/vsview_editor/settings.py:56
+340	Analysis mode for Basedpyright type checking	Basedpyright 类型检查的分析模式	src/workspaces/editor/src/python/vsview_editor/settings.py:65
+341	Disable Language Service	禁用语言服务	src/workspaces/editor/src/python/vsview_editor/settings.py:71
+342	Disables the BasedPyright language service	禁用 Basedpyright 语言服务	src/workspaces/editor/src/python/vsview_editor/settings.py:73
+343	Auto Import Completions	自动导入补全	src/workspaces/editor/src/python/vsview_editor/settings.py:79
+344	Offer auto-import completions for unimported symbols	为未导入的符号提供自动导入补全	src/workspaces/editor/src/python/vsview_editor/settings.py:81
+345	Inlay Hints: Variable Types	内联提示：变量类型	src/workspaces/editor/src/python/vsview_editor/settings.py:87
+346	Show inlay hints for variable types in the editor	在编辑器中显示变量类型的内联提示	src/workspaces/editor/src/python/vsview_editor/settings.py:89
+347	Inlay Hints: Call Argument Names	内联提示：调用参数名	src/workspaces/editor/src/python/vsview_editor/settings.py:95
+348	Show inlay hints for call argument names in the editor	在编辑器中显示调用参数名的内联提示	src/workspaces/editor/src/python/vsview_editor/settings.py:97
+349	Ln 1, Col 1	第 1 行，第 1 列	src/workspaces/editor/src/python/vsview_editor/workspace.py:227
+350	Editor	编辑器	src/workspaces/editor/src/python/vsview_editor/workspace.py:503
+351	Server public key (Z85 encoded)	服务器公钥（Z85 编码）	src/workspaces/remote/src/vsview_remote/dialog.py:111
+352	Client public key (optional)	客户端公钥（可选）	src/workspaces/remote/src/vsview_remote/dialog.py:114
+353	Enable CurveZMQ end-to-end encryption	启用 CurveZMQ 端到端加密	src/workspaces/remote/src/vsview_remote/dialog.py:121
+354	Server key	服务器密钥	src/workspaces/remote/src/vsview_remote/dialog.py:122
+355	Client public key	客户端公钥	src/workspaces/remote/src/vsview_remote/dialog.py:123
+356	Client secret key	客户端私钥	src/workspaces/remote/src/vsview_remote/dialog.py:124
+357	Test Connection	测试连接	src/workspaces/remote/src/vsview_remote/dialog.py:133
+358	Connect	连接	src/workspaces/remote/src/vsview_remote/dialog.py:146
+359	VSRemote Connection	VSRemote 连接	src/workspaces/remote/src/vsview_remote/dialog.py:38
+360	Configure connection details	配置连接信息	src/workspaces/remote/src/vsview_remote/dialog.py:50
+361	Number of frames to prefetch ahead of time (0 to disable)	提前预取的帧数（0 表示禁用）	src/workspaces/remote/src/vsview_remote/dialog.py:72
+362	Maximum buffer of in-flight and prefetched frames	在途与预取帧的最大缓冲数	src/workspaces/remote/src/vsview_remote/dialog.py:77
+363	Host	主机	src/workspaces/remote/src/vsview_remote/dialog.py:84
+364	Auth Token	认证令牌	src/workspaces/remote/src/vsview_remote/dialog.py:85
+365	Compression	压缩	src/workspaces/remote/src/vsview_remote/dialog.py:86
+366	Prefetch Frames	预取帧数	src/workspaces/remote/src/vsview_remote/dialog.py:87
+367	Backlog Buffer	积压缓冲	src/workspaces/remote/src/vsview_remote/dialog.py:88
+368	Forward remote server log records	转发远程服务器日志记录	src/workspaces/remote/src/vsview_remote/dialog.py:89
+369	Subscribe remote stdout / stderr streams	订阅远程 stdout / stderr 流	src/workspaces/remote/src/vsview_remote/dialog.py:90
+370	Remote server address	远程服务器地址	src/workspaces/remote/src/vsview_remote/settings.py:13
+371	Optional authentication token for the remote server	远程服务器的可选认证令牌	src/workspaces/remote/src/vsview_remote/settings.py:22
+372	Plane compression algorithm used for network frame transport	网络帧传输使用的平面压缩算法	src/workspaces/remote/src/vsview_remote/settings.py:30
+373	Number of frames to prefetch asynchronously ahead of time (0 to disable)	异步提前预取的帧数（0 表示禁用）	src/workspaces/remote/src/vsview_remote/settings.py:39
+374	Maximum number of in-flight and prefetched frame requests buffered	缓冲的在途与预取帧请求上限	src/workspaces/remote/src/vsview_remote/settings.py:48
+375	Forward Logs	转发日志	src/workspaces/remote/src/vsview_remote/settings.py:57
+376	Dispatch remote LogRecords to the client logging system	将远程 LogRecord 转发到客户端日志系统	src/workspaces/remote/src/vsview_remote/settings.py:59
+377	Subscribe Streams	订阅流	src/workspaces/remote/src/vsview_remote/settings.py:65
+378	Stream stdout and stderr output from the remote server	流式输出远程服务器的 stdout 与 stderr	src/workspaces/remote/src/vsview_remote/settings.py:67
+379	CurveZMQ Encryption	CurveZMQ 加密	src/workspaces/remote/src/vsview_remote/settings.py:73
+380	Enable CurveZMQ end-to-end encryption for the connection	为连接启用 CurveZMQ 端到端加密	src/workspaces/remote/src/vsview_remote/settings.py:75
+381	Curve Server Public Key	Curve 服务端公钥	src/workspaces/remote/src/vsview_remote/settings.py:80
+382	Server public key for CurveZMQ encryption	用于 CurveZMQ 加密的服务器公钥	src/workspaces/remote/src/vsview_remote/settings.py:80
+383	Client public key for CurveZMQ authentication	用于 CurveZMQ 认证的客户端公钥	src/workspaces/remote/src/vsview_remote/settings.py:84
+384	Curve Client Public Key	Curve 客户端公钥	src/workspaces/remote/src/vsview_remote/settings.py:84
+385	Curve Client Secret Key	Curve 客户端私钥	src/workspaces/remote/src/vsview_remote/settings.py:89
+386	Client secret key (optional)	客户端私钥（可选）	src/workspaces/remote/src/vsview_remote/settings.py:93
+387	Client secret key for CurveZMQ encryption	用于 CurveZMQ 加密的客户端私钥	src/workspaces/remote/src/vsview_remote/settings.py:94
+388	Remote	远程	src/workspaces/remote/src/vsview_remote/workspace.py:24
+389	Always downmix surround to stereo when AudioNode is passed through set_output and its downmix parameter is None (default).	当 AudioNode 通过 set_output 传入且 downmix 参数为 None（默认）时，始终将环绕声下混为立体声。	未在源码中找到（可能为动态拼装或未使用）
+390	Copy the QImage memory to transfer ownership to Qt. Prevents crashes but uses more memory and is slower.	复制 QImage 内存以将所有权转交给 Qt。可避免崩溃，但占用更多内存且速度更慢。	未在源码中找到（可能为动态拼装或未使用）
+391	Font scale for plane labels (only used if "Write plane name" is checked`).	平面标签的字体缩放（仅在勾选“写入平面名称”时生效）。	未在源码中找到（可能为动态拼装或未使用）
+392	FrameProps Extended	帧属性扩展	未在源码中找到（可能为动态拼装或未使用）
+393	If checked, overlays the short plane name ("Y", "U", "V", "R", "G", ...) on each plane.	勾选后，在每个平面上叠加显示简短平面名（"Y"、"U"、"V"、"R"、"G" 等）。	未在源码中找到（可能为动态拼装或未使用）
+394	If toggled, the "Toggle range end as last frame" will insert the last frame number + 1.	启用后，“切换区间终点为末帧”将插入末帧号 + 1。	未在源码中找到（可能为动态拼装或未使用）
+395	Loading thumbnails ({}/ {})...	正在加载缩略图（{}/{}）…	未在源码中找到（可能为动态拼装或未使用）
+396	Text alignment for plane labels (only used if "Write plane name" is checked`).	平面标签的对齐方式（仅在勾选“写入平面名称”时生效）。	未在源码中找到（可能为动态拼装或未使用）
+397	This browser ID identifies your uploads on slow.pics. Copy it to your browser cookies to claim comparisons.	该浏览器 ID 用于在 slow.pics 上标识你的上传。将其复制到浏览器 Cookie 即可认领对比。	未在源码中找到（可能为动态拼装或未使用）
+398	Volume: {}%	音量：{}%	未在源码中找到（可能为动态拼装或未使用）

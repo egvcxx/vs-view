@@ -40,6 +40,7 @@ from vsview.api import (
 )
 from vsview.app.utils import cache_clip
 from vsview.assets.utils import get_monospace_font
+from vsview.i18n import tr
 
 from .utils import get_chroma_offsets, scale_value_to_float
 
@@ -87,7 +88,7 @@ class PositionLabel(QLabel):
     @cursor_pos.setter
     def cursor_pos(self, value: QPoint) -> None:
         self._cursor_pos = value
-        self.setText(f"Pos: {self._cursor_pos.x()}, {self._cursor_pos.y()}")
+        self.setText(tr("Pos: {}, {}").format(self._cursor_pos.x(), self._cursor_pos.y()))
 
 
 class GlobalSettings(BaseModel):
@@ -189,7 +190,7 @@ class ColorPickerPlugin(WidgetPluginBase[GlobalSettings], IconReloadMixin):
         group_font.setPointSize(10)
 
         # Source section
-        self.src_group = QGroupBox("Source", self)
+        self.src_group = QGroupBox(tr("Source"), self)
         self.src_group.setFont(group_font)
         self.src_grid = QGridLayout(self.src_group)
         self.src_grid.setContentsMargins(4, 4, 4, 4)
@@ -197,7 +198,7 @@ class ColorPickerPlugin(WidgetPluginBase[GlobalSettings], IconReloadMixin):
         self.groups_layout.addWidget(self.src_group)
 
         # Rendered section
-        self.rgb_group = QGroupBox("Rendered (RGB)", self)
+        self.rgb_group = QGroupBox(tr("Rendered (RGB)"), self)
         self.rgb_group.setFont(group_font)
         self.rgb_grid = QGridLayout(self.rgb_group)
         self.rgb_grid.setContentsMargins(4, 4, 4, 4)

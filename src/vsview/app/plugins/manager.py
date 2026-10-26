@@ -18,6 +18,7 @@ from pydantic import BaseModel, ValidationError
 from vapoursynth import AudioNode, VideoNode
 from vsengine.loops import EventLoop, get_loop
 
+from ...i18n import tr
 from ...vsenv import run_in_background
 from .. import tools
 from . import specs
@@ -271,7 +272,7 @@ class PluginManager(Singleton):
             if global_model is None and local_model is None:
                 continue
 
-            section_prefix = f"{PLUGIN_PREFIX} - {display_name}"
+            section_prefix = f"{PLUGIN_PREFIX} - {tr(display_name)}"
 
             if global_model is not None:
                 global_entries.extend(extract_plugin_settings(global_model, identifier, section_prefix))

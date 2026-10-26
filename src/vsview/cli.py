@@ -19,6 +19,7 @@ if TYPE_CHECKING:
     from rich.console import Console, ConsoleOptions, RenderableType
 
 from .env import getenv_bool
+from .i18n import set_language
 from .logging import IS_GUI_MODE, LOG_PATH, console, init_early_logging, setup_logging
 
 logger = getLogger(__name__)
@@ -149,6 +150,9 @@ def convert_qt_args(type_: type[Sequence[str]], tokens: list[Token]) -> list[str
 @app.meta.default
 def main_meta(*tokens: Annotated[str, Parameter(show=False, allow_leading_hyphen=True)]) -> None:
     init_early_logging()
+
+    # Resolve the UI language before any widget or plugin is imported.
+    set_language()
 
     # Manually add scripts folder to the PATH when embebbed with PyApp
     if getenv_bool("PYAPP"):

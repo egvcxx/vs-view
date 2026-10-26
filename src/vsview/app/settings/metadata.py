@@ -26,6 +26,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from ...i18n import tr
 from ..utils import get_all_original_bases
 from .secrets import SecretsManager
 from .widgets import (
@@ -79,7 +80,7 @@ class WidgetMetadataMeta(ABCMeta):
             widget = method(self, *args, **kwargs)
 
             if self.tooltip:
-                widget.setToolTip(self.tooltip)
+                widget.setToolTip(tr(self.tooltip))
 
             return widget
 

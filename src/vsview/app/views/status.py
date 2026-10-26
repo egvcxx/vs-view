@@ -9,6 +9,7 @@ from PySide6.QtGui import QPalette, QPixmap, QTransform
 from PySide6.QtWidgets import QFrame, QHBoxLayout, QLabel, QWidget
 
 from ...assets import IconName
+from ...i18n import tr
 from ..icon import IconReloadMixin, load_icon
 from ..settings import SettingsManager
 
@@ -82,7 +83,7 @@ class StatusWidget(IconReloadMixin, QWidget):
 
         # Duration section: "01:23:04"
         self.duration_label = QLabel(self)
-        self.duration_label.setToolTip("Current position / Total duration")
+        self.duration_label.setToolTip(tr("Current position / Total duration"))
         self.duration_label.setMinimumWidth(62)
         self.duration_label.setContentsMargins(0, 0, 0, 0)
         self.duration_label.setAlignment(Qt.AlignmentFlag.AlignLeft)
@@ -92,7 +93,7 @@ class StatusWidget(IconReloadMixin, QWidget):
 
         # Frames section: "24000 frames"
         self.frames_label = QLabel(self)
-        self.frames_label.setToolTip("Current frame / Total frames")
+        self.frames_label.setToolTip(tr("Current frame / Total frames"))
         self.frames_label.setMinimumWidth(70)
         self.frames_label.setAlignment(Qt.AlignmentFlag.AlignLeft)
         layout.addWidget(self.frames_label)
@@ -101,7 +102,7 @@ class StatusWidget(IconReloadMixin, QWidget):
 
         # Output info section: "1920x1080 YUV420P16 @23.976fps"
         self.output_info_label = QLabel(self)
-        self.output_info_label.setToolTip("Resolution Format @FPS")
+        self.output_info_label.setToolTip(tr("Resolution Format @FPS"))
         layout.addWidget(self.output_info_label)
 
         # Settings saved section (right side, shows full path)
@@ -199,7 +200,7 @@ class StatusWidget(IconReloadMixin, QWidget):
         self._is_loading = False
         self._spinner_timer.stop()
         self.message_icon_label.setPixmap(self.error_pixmap if error else self.check_pixmap)
-        self.message_text_label.setText(completed_message)
+        self.message_text_label.setText(tr(completed_message))
         self._message_timer.start(SettingsManager.global_settings.status_message_timeout)
 
     @Slot(str)
@@ -223,7 +224,7 @@ class StatusWidget(IconReloadMixin, QWidget):
         self.duration_label.setText(info.total_duration.to_ts())
 
         # Frames: "24000 frames"
-        self.frames_label.setText(f"{info.total_frames} frames")
+        self.frames_label.setText(tr("{} frames").format(info.total_frames))
 
         # Output info: "1920x1080 YUV420P16 @23.976fps"
         sar_info = "" if math.isclose(info.sar, 1.0) else f"({round(info.sar * info.width)}x{info.height})"
@@ -256,7 +257,7 @@ class StatusWidget(IconReloadMixin, QWidget):
 
     def set_ready(self) -> None:
         self.message_icon_label.clear()
-        self.message_text_label.setText("Ready")
+        self.message_text_label.setText(tr("Ready"))
 
     def connect_workspace(self, workspace: LoaderWorkspace[Any]) -> None:
         """Connect this status widget to a workspace's signals."""
@@ -307,10 +308,10 @@ class StatusWidget(IconReloadMixin, QWidget):
         self._settings_saved_icon.setPixmap(self.check_pixmap)
 
         if path:
-            self._settings_saved_label.setText(f"{message}: {path}")
+            self._settings_saved_label.setText(f"{tr(message)}: {path}")
             self._settings_saved_label.setToolTip(path)
         else:
-            self._settings_saved_label.setText(message)
+            self._settings_saved_label.setText(tr(message))
             self._settings_saved_label.setToolTip("")
 
         self._settings_saved_container.setVisible(True)

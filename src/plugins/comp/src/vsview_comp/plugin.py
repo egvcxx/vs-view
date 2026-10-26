@@ -57,6 +57,7 @@ from vsview.api import (
     run_in_background,
     run_in_loop,
 )
+from vsview.i18n import tr
 
 from ._metadata import LOGIN_CONTEXT, PLUGIN_DISPLAY, PLUGIN_ID
 from .models import (
@@ -255,7 +256,7 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         # Disable the whole plugin if we don't have a local storage
         self.setEnabled(has_file := bool(self.api.file_path))
         if not has_file:
-            self.setToolTip("Plugin disabled: the current workspace doesn't have a local storage.")
+            self.setToolTip(tr("Plugin disabled: the current workspace doesn't have a local storage."))
 
         # Install event filter to override child tooltips when disabled
         self.installEventFilter(self)
@@ -267,12 +268,12 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
 
     def _setup_clip_options(self, main: MainCompWidget) -> None:
         self.clip_section = Accordion("Clip Options", main)
-        self.clip_section.setToolTip("Configure source clips and select frames for comparison")
+        self.clip_section.setToolTip(tr("Configure source clips and select frames for comparison"))
 
         form = self.clip_section.add_form_layout()
 
         self.outputs_dropdown = OutputDropdown(self.clip_section)
-        self.outputs_dropdown.setToolTip("Select and rename outputs.")
+        self.outputs_dropdown.setToolTip(tr("Select and rename outputs."))
         self.outputs_dropdown.outputsChanged.connect(self._update_buttons_state)
         form.addRow(self.outputs_dropdown)
 
@@ -313,7 +314,7 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
 
         self.frames_status_stack = QStackedWidget(frame_widget)
 
-        self.frames_count_label = QLabel("0 frames", self.frames_status_stack)
+        self.frames_count_label = QLabel(tr("0 frames"), self.frames_status_stack)
         self.frames_count_label.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
         self.frames_count_label.setStyleSheet("""
             QLabel {
@@ -326,7 +327,7 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
             }
         """)
 
-        self.thumbnail_progress_label = QLabel("Loading thumbnails...", self.frames_status_stack)
+        self.thumbnail_progress_label = QLabel(tr("Loading thumbnails..."), self.frames_status_stack)
         self.thumbnail_progress_label.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
         self.thumbnail_progress_label.setStyleSheet("padding-right: 6px; color: palette(highlight); font-weight: 500;")
 
@@ -337,7 +338,7 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         toolbar.addWidget(self.frames_status_stack)
 
         self.frames_list = FrameThumbnailList(self.api, frame_widget)
-        self.frames_list.setToolTip("Double-click to seek to frame. Use 'Delete' to remove.")
+        self.frames_list.setToolTip(tr("Double-click to seek to frame. Use 'Delete' to remove."))
         self.frames_list.itemDoubleClicked.connect(
             lambda item: self.api.playback.seek(
                 self.api.current_voutput.time_to_frame(item.data(Qt.ItemDataRole.UserRole))
@@ -357,8 +358,8 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         form.addRow(frame_widget)
 
         # Group box for the Auto Select automation
-        auto_select_container = QGroupBox("Auto Select", self.clip_section)
-        auto_select_container.setToolTip("Automated frame selection tools based on brightness and picture type")
+        auto_select_container = QGroupBox(tr("Auto Select"), self.clip_section)
+        auto_select_container.setToolTip(tr("Automated frame selection tools based on brightness and picture type"))
         auto_select_frame_layout = QFormLayout(auto_select_container)
 
         # Frame counts
@@ -371,11 +372,11 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         self.random_frame_count.setMaximum(9999)
         self.random_frame_count.setValue(0)
         self.random_frame_count.setFixedWidth(80)
-        self.random_frame_count.setToolTip("Total number of random frames to select")
+        self.random_frame_count.setToolTip(tr("Total number of random frames to select"))
         self.random_frame_count.frameChanged.connect(self.on_random_frame_count_changed)
 
-        self.curve_btn = QPushButton("Curve...", frame_count_widget)
-        self.curve_btn.setToolTip("Edit frame selection probability curve")
+        self.curve_btn = QPushButton(tr("Curve..."), frame_count_widget)
+        self.curve_btn.setToolTip(tr("Edit frame selection probability curve"))
         self.curve_btn.setFixedWidth(65)
         self.curve_btn.clicked.connect(self.on_curve_button_clicked)
 
@@ -383,31 +384,31 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         self.dark_frame_count.setMaximum(9999)
         self.dark_frame_count.setValue(0)
         self.dark_frame_count.setFixedWidth(80)
-        self.dark_frame_count.setToolTip("Number of random darkest frames to include")
+        self.dark_frame_count.setToolTip(tr("Number of random darkest frames to include"))
         self.dark_frame_count.frameChanged.connect(self.on_random_frame_count_changed)
 
         self.light_frame_count = FrameEdit(frame_count_widget)
         self.light_frame_count.setMaximum(9999)
         self.light_frame_count.setValue(0)
         self.light_frame_count.setFixedWidth(80)
-        self.light_frame_count.setToolTip("Number of random lightest frames to include")
+        self.light_frame_count.setToolTip(tr("Number of random lightest frames to include"))
         self.light_frame_count.frameChanged.connect(self.on_random_frame_count_changed)
 
         frame_count_layout.addWidget(self.random_frame_count)
         frame_count_layout.addWidget(self.curve_btn)
         frame_count_layout.addStretch()
-        frame_count_layout.addWidget(QLabel("Dark:"))
+        frame_count_layout.addWidget(QLabel(tr("Dark:")))
         frame_count_layout.addWidget(self.dark_frame_count)
         frame_count_layout.addSpacing(4)
-        frame_count_layout.addWidget(QLabel("Light:"))
+        frame_count_layout.addWidget(QLabel(tr("Light:")))
         frame_count_layout.addWidget(self.light_frame_count)
 
-        auto_select_frame_layout.addRow("Total Random:", frame_count_widget)
+        auto_select_frame_layout.addRow(tr("Total Random:"), frame_count_widget)
 
         # Range limit
         self.range_mode_selector = SegmentedControl(["Frame", "Time"], auto_select_container)
         self.range_mode_selector.setToolTip("Switch between frame-based and time-based range selection")
-        auto_select_frame_layout.addRow("Range Unit:", self.range_mode_selector)
+        auto_select_frame_layout.addRow(tr("Range Unit:"), self.range_mode_selector)
 
         self.range_stack = QStackedWidget(auto_select_container)
 
@@ -448,19 +449,19 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         self.range_stack.addWidget(time_page)
         self.range_mode_selector.segmentChanged.connect(self.range_stack.setCurrentIndex)
 
-        auto_select_frame_layout.addRow("Range:", self.range_stack)
+        auto_select_frame_layout.addRow(tr("Range:"), self.range_stack)
 
         # Picture Type Group
-        self.frame_props_container = QGroupBox("Frame Properties", auto_select_container)
+        self.frame_props_container = QGroupBox(tr("Frame Properties"), auto_select_container)
         frame_props_layout = QHBoxLayout(self.frame_props_container)
 
-        self.pict_type_i_cb = QCheckBox("I-Frame", self.frame_props_container)
+        self.pict_type_i_cb = QCheckBox(tr("I-Frame"), self.frame_props_container)
         self.pict_type_i_cb.setToolTip("Include I-frames (Intra-coded)")
-        self.pict_type_p_cb = QCheckBox("P-Frame", self.frame_props_container)
+        self.pict_type_p_cb = QCheckBox(tr("P-Frame"), self.frame_props_container)
         self.pict_type_p_cb.setToolTip("Include P-frames (Predictive)")
-        self.pict_type_b_cb = QCheckBox("B-Frame", self.frame_props_container)
+        self.pict_type_b_cb = QCheckBox(tr("B-Frame"), self.frame_props_container)
         self.pict_type_b_cb.setToolTip("Include B-frames (Bi-predictive)")
-        self.combed_cb = QCheckBox("Combed", self.frame_props_container)
+        self.combed_cb = QCheckBox(tr("Combed"), self.frame_props_container)
         self.combed_cb.setToolTip("Include Combed frames")
         self.pict_type_i_cb.setChecked(self.settings.global_.pict_types_i)
         self.pict_type_p_cb.setChecked(self.settings.global_.pict_types_p)
@@ -478,17 +479,17 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         auto_select_frame_layout.addRow(self.frame_props_container)
 
         # The actual button
-        self.select_frames_btn = QPushButton("Select frames", auto_select_container)
+        self.select_frames_btn = QPushButton(tr("Select frames"), auto_select_container)
         self.select_frames_btn.setDisabled(True)
-        self.select_frames_btn.setToolTip("Collect frames based on the current settings")
+        self.select_frames_btn.setToolTip(tr("Collect frames based on the current settings"))
         self.select_frames_btn.clicked.connect(self.on_select_frames_clicked)
 
         auto_select_frame_layout.addRow(self.select_frames_btn)
         form.addRow(auto_select_container)
 
-        self.extract_btn = QPushButton("Extract", self.clip_section)
+        self.extract_btn = QPushButton(tr("Extract"), self.clip_section)
         self.extract_btn.setDisabled(True)
-        self.extract_btn.setToolTip("Extract selected frames to disk")
+        self.extract_btn.setToolTip(tr("Extract selected frames to disk"))
         self.extract_btn.clicked.connect(self.on_extract_btn_clicked)
         form.addRow(self.extract_btn)
 
@@ -496,23 +497,23 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
 
     def _setup_upload_settings(self, main: MainCompWidget) -> None:
         section = Accordion("Upload Settings", main)
-        section.setToolTip("Configure upload settings for Slow.pics")
+        section.setToolTip(tr("Configure upload settings for Slow.pics"))
         form = section.add_form_layout()
 
         # Collection name
         self.collection_name = QLineEdit(section, placeholderText="Name for the image collection")
-        self.collection_name.setToolTip("The name of the comparison collection")
-        form.addRow("Collection:", self.collection_name)
+        self.collection_name.setToolTip(tr("The name of the comparison collection"))
+        form.addRow(tr("Collection:"), self.collection_name)
 
         # Network stuff
         self.tmdb_title: TMDBTitle | None = None
         self.tmdb_worker = TMDBWorker(self)
 
         self.tmdb_name = QLineEdit(section, placeholderText="Search for a movie or TV show...")
-        self.tmdb_name.setToolTip("Movie or TV show name to fetch metadata from TMDB")
+        self.tmdb_name.setToolTip(tr("Movie or TV show name to fetch metadata from TMDB"))
         self.tmdb_name.textChanged.connect(self.on_tmdb_text_changed)
         self.tmdb_name.editingFinished.connect(self.on_tmdb_editing_finished)
-        form.addRow("TMDB Name:", self.tmdb_name)
+        form.addRow(tr("TMDB Name:"), self.tmdb_name)
 
         self.tmdb_popup = TMDBListPopup(section, self.tmdb_name)
         self.tmdb_popup.itemClicked.connect(self.on_tmdb_item_selected)
@@ -525,8 +526,8 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         self.tags.editingStarted.connect(self.on_tags_editing_started)
         self.tags.inputTextChanged.connect(self.on_tags_input_changed)
         self.tags.tagsChanged.connect(self.on_tags_input_changed)
-        self.tags.setToolTip("Additional tags to help find the comparison")
-        form.addRow("Tags:", self.tags)
+        self.tags.setToolTip(tr("Additional tags to help find the comparison"))
+        form.addRow(tr("Tags:"), self.tags)
 
         self.tags_popup = TagsListPopup(section, self.tags)
         self.tags_popup.tagPicked.connect(self.on_tag_item_selected)
@@ -537,30 +538,30 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         flags_row.setContentsMargins(0, 0, 0, 0)
         flags_row.setSpacing(16)
 
-        self.public_check = QCheckBox("Public", flags_widget)
+        self.public_check = QCheckBox(tr("Public"), flags_widget)
         self.public_check.setChecked(self.settings.global_.public_comp_default)
-        self.public_check.setToolTip("Make the comparison publicly visible")
+        self.public_check.setToolTip(tr("Make the comparison publicly visible"))
         self.public_check.toggled.connect(lambda state: setattr(self.settings.global_, "public_comp_default", state))
-        self.nsfw_check = QCheckBox("NSFW", flags_widget)
-        self.nsfw_check.setToolTip("Mark the comparison as Not Safe For Work")
+        self.nsfw_check = QCheckBox(tr("NSFW"), flags_widget)
+        self.nsfw_check.setToolTip(tr("Mark the comparison as Not Safe For Work"))
 
         flags_row.addWidget(self.public_check)
         flags_row.addWidget(self.nsfw_check)
         flags_row.addStretch(1)
 
-        form.addRow("Flags:", flags_widget)
+        form.addRow(tr("Flags:"), flags_widget)
 
         # Remove after N days
         self.remove_after = QSpinBox(section)
         self.remove_after.setRange(0, 999999)
         self.remove_after.setSpecialValueText("Never")
         self.remove_after.setSuffix(" days")
-        self.remove_after.setToolTip("Remove comparison after N days (0 = never)")
-        form.addRow("Auto-Remove:", self.remove_after)
+        self.remove_after.setToolTip(tr("Remove comparison after N days (0 = never)"))
+        form.addRow(tr("Auto-Remove:"), self.remove_after)
 
-        self.upload_btn = QPushButton("Upload", section)
+        self.upload_btn = QPushButton(tr("Upload"), section)
         self.upload_btn.setDisabled(True)
-        self.upload_btn.setToolTip("Upload extracted frames")
+        self.upload_btn.setToolTip(tr("Upload extracted frames"))
         self.upload_btn.clicked.connect(self.on_upload_btn_clicked)
         form.addRow(self.upload_btn)
 
@@ -572,8 +573,8 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
         actions_layout.setContentsMargins(8, 4, 8, 4)
         actions_layout.setSpacing(6)
 
-        self.do_all_btn = QPushButton("Extract && Upload", actions_widget)
-        self.do_all_btn.setToolTip("Extract selected frames → Upload")
+        self.do_all_btn = QPushButton(tr("Extract && Upload"), actions_widget)
+        self.do_all_btn.setToolTip(tr("Extract selected frames → Upload"))
         self.do_all_btn.clicked.connect(self.on_do_all_btn_clicked)
         actions_layout.addWidget(self.do_all_btn)
 
@@ -758,18 +759,18 @@ class CompPlugin(WidgetPluginBase[GlobalSettings, None], IconReloadMixin):
     def on_thumbnail_progress(self, pending: int, total: int) -> None:
         if pending > 0:
             completed = total - pending
-            self.thumbnail_progress_label.setText(f"Loading thumbnails ({completed}/{total})...")
+            self.thumbnail_progress_label.setText(tr("Loading thumbnails ({}/{})...").format(completed, total))
             self.frames_status_stack.setCurrentWidget(self.thumbnail_progress_label)
         else:
             self.frames_status_stack.setCurrentWidget(self.frames_count_label)
 
     def _update_frames_count(self) -> None:
         count = self.frames_list.count()
-        self.frames_count_label.setText(f"{count} {'frame' if count == 1 else 'frames'}")
+        self.frames_count_label.setText(tr("{} frame" if count == 1 else "{} frames").format(count))
 
         is_over = count > 50
         self.frames_count_label.setToolTip(
-            "Too many frames selected! Uploading may not be supported." if is_over else ""
+            tr("Too many frames selected! Uploading may not be supported.") if is_over else ""
         )
         if bool(self.frames_count_label.property("overLimit")) != is_over:
             self.frames_count_label.setProperty("overLimit", is_over)

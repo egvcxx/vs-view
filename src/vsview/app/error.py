@@ -10,6 +10,7 @@ from PySide6.QtWidgets import QGridLayout, QMessageBox, QSpacerItem, QStyle, QWi
 from vsengine.vpy import ExecutionError
 
 from ..assets import get_monospace_font
+from ..i18n import tr
 from ..vsenv import run_in_loop
 
 logger = getLogger(__name__)
@@ -199,7 +200,7 @@ def show_error(
     info = resolve_error_location(error, user_script_path)
     context = extract_source_context(info.filename, info.lineno, fallback_code_line=info.code_line)
 
-    header = f"A {info.exc_type} exception was raised while running the script{header_suffix}."
+    header = tr("A {} exception was raised while running the script{}.").format(info.exc_type, header_suffix)
     detail = f"{info.exc_type}: {info.exc_msg}" if info.exc_msg else info.exc_type
     error_message = f"{header}\n\n{'\n'.join(context)}\n\n{detail}\n"
 
@@ -213,4 +214,4 @@ def show_error(
     else:
         logger.error("%s", error_message.strip())
 
-    return display_error_dialog(parent, error_message, title)
+    return display_error_dialog(parent, error_message, tr(title))

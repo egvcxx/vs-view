@@ -95,6 +95,7 @@ from vsview.api import (
     run_in_background,
     run_in_loop,
 )
+from vsview.i18n import tr
 
 from .models import FrameSourceProvider, TMDBTitle
 
@@ -135,7 +136,7 @@ class PaddedCheckBox(QWidget):
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.setToolTip("Include this output")
+        self.setToolTip(tr("Include this output"))
 
         layout = QHBoxLayout(self)
         layout.setContentsMargins(4, 4, 4, 4)
@@ -590,7 +591,7 @@ class ProgressBar(QProgressBar):
         self.setMinimumHeight(24)
         self.setRange(0, 100)
         self.setTextVisible(True)
-        self.setToolTip("Overall progress of extraction and upload tasks")
+        self.setToolTip(tr("Overall progress of extraction and upload tasks"))
 
     @run_in_loop(return_future=False)
     def update_progress(

@@ -51,6 +51,7 @@ from vsview.api import (
     WidgetPluginBase,
     run_in_loop,
 )
+from vsview.i18n import tr
 
 from . import specs
 from .builtins.field import FIELD_CATEGORY, FIELD_FORMATTERS
@@ -110,20 +111,20 @@ class FramePropsViewMixin:
         menu = QMenu(self)
 
         if isinstance(data.raw_value, vs.VideoFrame):
-            preview_action = QAction("Preview Frame", self)
+            preview_action = QAction(tr("Preview Frame"), self)
             preview_action.triggered.connect(lambda: self.previewRequested.emit(data.raw_value, data.raw_key))
             menu.addAction(preview_action)
             menu.addSeparator()
 
-        copy_key_action = QAction("Copy Key", self)
+        copy_key_action = QAction(tr("Copy Key"), self)
         copy_key_action.triggered.connect(lambda: self._copy_to_clipboard(str(data.raw_key), "key"))
         menu.addAction(copy_key_action)
 
-        copy_row_action = QAction("Copy as Key=Value", self)
+        copy_row_action = QAction(tr("Copy as Key=Value"), self)
         copy_row_action.triggered.connect(lambda: self._copy_to_clipboard(f"{data.raw_key}={data.raw_value}", "row"))
         menu.addAction(copy_row_action)
 
-        copy_value_action = QAction("Copy Value", self)
+        copy_value_action = QAction(tr("Copy Value"), self)
         copy_value_action.triggered.connect(lambda: self._copy_to_clipboard(str(data.raw_value), "value"))
         menu.addAction(copy_value_action)
 
@@ -591,7 +592,7 @@ class FramePropsPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconRelo
         self.prev_btn.clicked.connect(self._on_prev_clicked)
 
         self.history_combo = QComboBox(self)
-        self.history_combo.setToolTip("Select a frame from history")
+        self.history_combo.setToolTip(tr("Select a frame from history"))
         self.history_combo.setMinimumWidth(150)
         self.history_combo.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         self.history_combo.currentIndexChanged.connect(self._on_history_selected)
@@ -643,7 +644,7 @@ class FramePropsPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconRelo
 
         preview_header = QToolBar(self.preview_container, movable=False)
 
-        self.preview_label = QLabel("Preview", self.preview_container)
+        self.preview_label = QLabel(tr("Preview"), self.preview_container)
         preview_header.addWidget(self.preview_label)
 
         preview_spacer = QWidget(preview_header)
@@ -781,9 +782,9 @@ class FramePropsPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconRelo
         layout.setSpacing(4)
         layout.setAlignment(Qt.AlignmentFlag.AlignVCenter)
 
-        label = QLabel(label_text, row)
+        label = QLabel(tr(label_text), row)
         toggle = AnimatedToggle(row)
-        toggle.setToolTip(tooltip)
+        toggle.setToolTip(tr(tooltip))
 
         layout.addWidget(label)
         layout.addWidget(toggle)
@@ -829,7 +830,7 @@ class FramePropsPlugin(WidgetPluginBase[GlobalSettings, LocalSettings], IconRelo
     def _show_preview(self, frame: vs.VideoFrame, key_name: str) -> None:
         self.current_preview_key = key_name
 
-        self.preview_label.setText(f"Preview: {key_name!r}")
+        self.preview_label.setText(tr("Preview: {}").format(repr(key_name)))
         self.preview_view.set_frame(frame)
 
         self.splitter.setSizes([int(self.splitter.height() * 0.6), int(self.splitter.height() * 0.4)])
